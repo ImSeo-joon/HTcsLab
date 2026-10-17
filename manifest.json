@@ -44,6 +44,12 @@
       "short_name": "竞赛",
       "url": "./contests.html",
       "icons": [{ "src": "assets/img/mark-96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "攻防战",
+      "short_name": "攻防战",
+      "url": "./battle.html",
+      "icons": [{ "src": "assets/img/mark-96.png", "sizes": "96x96" }]
     }
   ]
 }
