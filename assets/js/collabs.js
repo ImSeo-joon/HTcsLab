@@ -55,6 +55,7 @@
     field: 'all',
     level: 'all',
     type: 'all',
+    tier: 'all',
     sort: 'default'
   };
 
@@ -106,6 +107,9 @@
     if (state.field !== 'all' && !hasAny(item.fields, state.field)) return false;
     if (state.level !== 'all' && !hasAny(item.levels, state.level)) return false;
     if (state.type !== 'all' && !hasAny(item.types, state.type)) return false;
+    if (state.tier === '985' && item.tier !== '985') return false;
+    if (state.tier === '211' && item.tier !== '211') return false;
+    if (state.tier === 'other' && item.tier) return false;
 
     var query = state.query.trim().toLowerCase();
     if (!query) return true;
@@ -194,6 +198,13 @@
       })
     ), state.type);
 
+    fillSelect(els.tierSel, [
+      { value: 'all', label: LHT.t('collab.allTiers') },
+      { value: '985', label: '985' },
+      { value: '211', label: '211' },
+      { value: 'other', label: LHT.t('collab.tierOther') }
+    ], state.tier);
+
     fillSelect(els.sortSel, [
       { value: 'default', label: LHT.t('collab.sortDefault') },
       { value: 'name', label: LHT.t('collab.sortName') },
@@ -244,7 +255,8 @@
         '</div>' +
       '</div>' +
       '<div class="collab-meta">' +
-        '<span class="badge badge-gold">' + LHT.esc(labelOf(REGIONS, item.region)) + '</span>' +
+        '<span class="badge">' + LHT.esc(labelOf(REGIONS, item.region)) + '</span>' +
+        (item.tier ? '<span class="badge badge-gold">' + LHT.esc(item.tier) + '</span>' : '') +
         '<span class="badge badge-warn">' + LHT.esc(LHT.t('collab.statusCheck')) + '</span>' +
       '</div>' +
       '<div class="collab-tags">' +
@@ -325,6 +337,7 @@
     state.field = 'all';
     state.level = 'all';
     state.type = 'all';
+    state.tier = 'all';
     els.search.value = '';
     render();
     setExpanded(id, true);
@@ -342,6 +355,7 @@
       fieldSel: LHT.$('#collab-field'),
       levelSel: LHT.$('#collab-level'),
       typeSel: LHT.$('#collab-type'),
+      tierSel: LHT.$('#collab-tier'),
       sortSel: LHT.$('#collab-sort'),
       grid: LHT.$('#collab-grid'),
       count: LHT.$('#collab-count'),
@@ -359,6 +373,7 @@
     els.fieldSel.addEventListener('change', function () { state.field = els.fieldSel.value; render(); });
     els.levelSel.addEventListener('change', function () { state.level = els.levelSel.value; render(); });
     els.typeSel.addEventListener('change', function () { state.type = els.typeSel.value; render(); });
+    els.tierSel.addEventListener('change', function () { state.tier = els.tierSel.value; render(); });
     els.sortSel.addEventListener('change', function () { state.sort = els.sortSel.value; render(); });
 
     els.clear.addEventListener('click', function () {
@@ -367,6 +382,7 @@
       state.field = 'all';
       state.level = 'all';
       state.type = 'all';
+      state.tier = 'all';
       state.sort = 'default';
       els.search.value = '';
       render();

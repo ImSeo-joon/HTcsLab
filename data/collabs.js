@@ -440,6 +440,7 @@ window.LHT_COLLABS = [
     institution: { zh: '清华大学', en: 'Tsinghua University' },
     unit: { zh: '交叉信息研究院 (IIIS)', en: 'Institute for Interdisciplinary Information Sciences (IIIS)' },
     region: 'cn',
+    tier: '985',
     fields: ['theory', 'ai'],
     levels: ['undergrad', 'phd'],
     types: ['research', 'phd'],
@@ -488,6 +489,7 @@ window.LHT_COLLABS = [
     institution: { zh: '南京大学', en: 'Nanjing University' },
     unit: { zh: 'LAMDA 机器学习与数据挖掘组', en: 'LAMDA Group (Machine Learning and Data Mining)' },
     region: 'cn',
+    tier: '985',
     fields: ['ml', 'ai'],
     levels: ['undergrad', 'phd', 'visiting'],
     types: ['research', 'phd'],
@@ -536,6 +538,7 @@ window.LHT_COLLABS = [
     institution: { zh: '北京大学', en: 'Peking University' },
     unit: { zh: '人工智能研究院', en: 'Institute for Artificial Intelligence' },
     region: 'cn',
+    tier: '985',
     fields: ['ai', 'cv', 'robotics'],
     levels: ['undergrad', 'phd'],
     types: ['research', 'phd'],
@@ -728,6 +731,7 @@ window.LHT_COLLABS = [
     institution: { zh: '北京邮电大学', en: 'Beijing University of Posts and Telecommunications' },
     unit: { zh: '计算机学院（国家示范性软件学院）', en: 'School of Computer Science (National Pilot Software College)' },
     region: 'cn',
+    tier: '211',
     fields: ['ai', 'ml', 'systems'],
     levels: ['undergrad', 'master', 'phd'],
     types: ['research', 'summer', 'phd'],
@@ -776,6 +780,7 @@ window.LHT_COLLABS = [
     institution: { zh: '西安电子科技大学', en: 'Xidian University' },
     unit: { zh: '智能感知与图像理解教育部重点实验室 (IPIU)', en: 'Key Laboratory of Intelligent Perception and Image Understanding (IPIU)' },
     region: 'cn',
+    tier: '211',
     fields: ['cv', 'ai', 'ml'],
     levels: ['undergrad', 'master', 'phd'],
     types: ['research', 'phd'],
@@ -1064,6 +1069,7 @@ window.LHT_COLLABS = [
     institution: { zh: '苏州大学', en: 'Soochow University' },
     unit: { zh: '计算机科学与技术学院', en: 'School of Computer Science and Technology' },
     region: 'cn',
+    tier: '211',
     fields: ['ai', 'ml', 'nlp'],
     levels: ['undergrad', 'master', 'phd'],
     types: ['research', 'phd'],
@@ -1392,6 +1398,692 @@ window.LHT_COLLABS = [
       }
     },
     source: { url: 'https://www.cs.nthu.edu.tw/', label: { zh: 'NTHU CS', en: 'NTHU CS' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'zju-cs',
+    institution: { zh: '浙江大学', en: 'Zhejiang University' },
+    unit: { zh: '计算机科学与技术学院', en: 'College of Computer Science and Technology' },
+    region: 'cn',
+    tier: '985',
+    fields: ['ai', 'ml', 'cv', 'systems'],
+    levels: ['undergrad', 'master', 'phd'],
+    types: ['research', 'summer', 'phd'],
+    language: ['zh', 'en'],
+    funding: { zh: '以学院/导师/学校官方项目说明为准', en: 'Check school/faculty/supervisor program terms' },
+    mentor: {
+      name: { zh: '计算机学院导师组', en: 'Faculty group, College of Computer Science' },
+      initials: 'ZJU',
+      title: { zh: '学院导师组', en: 'Faculty group' },
+      bio: {
+        zh: '公开资料摘要：学院覆盖人工智能、机器学习、计算机视觉、系统、数据库、图形学与软件工程，由多支课题组组成；具体导师与招生状态以学院官网为准。',
+        en: 'Public-profile summary: the college covers AI, machine learning, computer vision, systems, databases, graphics and software engineering through multiple groups. Check the official site for advisers and admissions status.'
+      },
+      link: 'http://www.cs.zju.edu.cn/',
+      highlight: false
+    },
+    project: {
+      title: { zh: 'AI、系统、图形与数据', en: 'AI, systems, graphics and data' },
+      summary: {
+        zh: '学院研究 AI、机器学习、计算机视觉、系统、数据库、图形学与软件工程。本科/硕士/博士研究机会通过学院导师组与实验室页面；建议先读目标组近两年的论文，再通过官方渠道了解课题与名额。',
+        en: 'The college studies AI, machine learning, computer vision, systems, databases, graphics and software engineering. Undergraduate/master/PhD opportunities go through faculty groups and lab pages; read the target group’s recent papers before asking about topics and openings.'
+      },
+      methods: {
+        zh: 'AI、机器学习、计算机视觉、系统、数据库、图形学、软件工程。',
+        en: 'AI, machine learning, computer vision, systems, databases, graphics and software engineering.'
+      },
+      fit: {
+        zh: '适合编程/数学基础扎实、能读论文并做实验的学生；有项目、竞赛或开源经历更好。',
+        en: 'Best for students with strong coding/maths, paper reading and experiments; projects, contests or open-source work help.'
+      }
+    },
+    apply: {
+      url: 'http://www.cs.zju.edu.cn/',
+      label: { zh: '计算机学院官网', en: 'College of Computer Science' },
+      note: {
+        zh: '通过学院官网的导师/实验室/招生页面了解机会；本站不代收材料，也不提供内推。',
+        en: 'Use the official faculty, lab and admissions pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'http://www.cs.zju.edu.cn/', label: { zh: 'ZJU 计算机学院', en: 'ZJU College of Computer Science' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'sjtu-cs',
+    institution: { zh: '上海交通大学', en: 'Shanghai Jiao Tong University' },
+    unit: { zh: '计算机科学与工程系', en: 'Department of Computer Science and Engineering' },
+    region: 'cn',
+    tier: '985',
+    fields: ['ai', 'ml', 'systems'],
+    levels: ['undergrad', 'master', 'phd'],
+    types: ['research', 'summer', 'phd'],
+    language: ['zh', 'en'],
+    funding: { zh: '以学院/导师/学校官方项目说明为准', en: 'Check school/faculty/supervisor program terms' },
+    mentor: {
+      name: { zh: '计算机系导师组', en: 'CSE faculty group' },
+      initials: 'SJTU',
+      title: { zh: '计算机科学与工程系导师组', en: 'Department of CSE faculty' },
+      bio: {
+        zh: '公开资料摘要：学系覆盖 AI、机器学习、系统、网络、数据与软件工程，与产业合作紧密；具体导师与招生状态以学系官网为准。',
+        en: 'Public-profile summary: the department covers AI, machine learning, systems, networking, data and software engineering with strong industry links. Check the official site for advisers and admissions status.'
+      },
+      link: 'https://www.cs.sjtu.edu.cn/',
+      highlight: false
+    },
+    project: {
+      title: { zh: 'AI、系统、网络与数据', en: 'AI, systems, networking and data' },
+      summary: {
+        zh: '学系研究 AI、机器学习、系统、网络、数据与软件工程，与产业合作紧密。本科/硕士/博士研究机会通过学系与实验室页面；建议先读目标组论文，再通过官方渠道联系。',
+        en: 'The department studies AI, machine learning, systems, networking, data and software engineering with strong industry links. Undergraduate/master/PhD opportunities go through department and lab pages; read target-group papers before using official channels.'
+      },
+      methods: {
+        zh: 'AI、机器学习、系统、网络、数据、软件工程。',
+        en: 'AI, machine learning, systems, networking, data and software engineering.'
+      },
+      fit: {
+        zh: '适合工程/数学基础好、能独立做项目的学生；英语与代码能力重要。',
+        en: 'Best for students with strong engineering/maths who can drive projects; English and coding matter.'
+      }
+    },
+    apply: {
+      url: 'https://www.cs.sjtu.edu.cn/',
+      label: { zh: '计算机系官网', en: 'Department of CSE' },
+      note: {
+        zh: '通过学系/学院官方招生与研究页面申请；本站不代收材料，也不提供内推。',
+        en: 'Apply through official department/school admissions and research pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'https://www.cs.sjtu.edu.cn/', label: { zh: 'SJTU CSE', en: 'SJTU CSE' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'fudan-cs',
+    institution: { zh: '复旦大学', en: 'Fudan University' },
+    unit: { zh: '计算机科学技术学院', en: 'School of Computer Science' },
+    region: 'cn',
+    tier: '985',
+    fields: ['ai', 'nlp', 'ml'],
+    levels: ['undergrad', 'master', 'phd'],
+    types: ['research', 'summer', 'phd'],
+    language: ['zh', 'en'],
+    funding: { zh: '以学院/导师/学校官方项目说明为准', en: 'Check school/faculty/supervisor program terms' },
+    mentor: {
+      name: { zh: '计算机学院导师组', en: 'Faculty group, School of Computer Science' },
+      initials: 'FDU',
+      title: { zh: '学院导师组', en: 'Faculty group' },
+      bio: {
+        zh: '公开资料摘要：学院覆盖 AI、自然语言处理、机器学习、系统、数据与软件工程，NLP/数据方向活跃；具体导师与招生状态以学院官网为准。',
+        en: 'Public-profile summary: the school covers AI, NLP, machine learning, systems, data and software engineering, with active NLP/data groups. Check the official site for advisers and admissions status.'
+      },
+      link: 'https://cs.fudan.edu.cn/',
+      highlight: false
+    },
+    project: {
+      title: { zh: 'AI、NLP、系统与数据', en: 'AI, NLP, systems and data' },
+      summary: {
+        zh: '学院研究 AI、自然语言处理、机器学习、系统、数据与软件工程。本科/硕士/博士研究机会通过学院导师组与实验室页面；建议先读目标组论文，明确你想做的语言/数据问题。',
+        en: 'The school studies AI, NLP, machine learning, systems, data and software engineering. Undergraduate/master/PhD opportunities go through faculty groups and lab pages; read target-group papers and state the language/data question you want to pursue.'
+      },
+      methods: {
+        zh: 'AI、NLP、机器学习、系统、数据、软件工程。',
+        en: 'AI, NLP, machine learning, systems, data and software engineering.'
+      },
+      fit: {
+        zh: '适合 NLP/ML 基础、能读英文论文的学生；有文本/数据项目经历更好。',
+        en: 'Best for students with NLP/ML foundations and English paper reading; text/data project experience helps.'
+      }
+    },
+    apply: {
+      url: 'https://cs.fudan.edu.cn/',
+      label: { zh: '计算机学院官网', en: 'School of Computer Science' },
+      note: {
+        zh: '通过学院官网的导师/实验室/招生页面了解机会；本站不代收材料，也不提供内推。',
+        en: 'Use the official faculty, lab and admissions pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'https://cs.fudan.edu.cn/', label: { zh: 'Fudan CS', en: 'Fudan CS' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'ustc-cs',
+    institution: { zh: '中国科学技术大学', en: 'University of Science and Technology of China' },
+    unit: { zh: '计算机科学与技术学院', en: 'School of Computer Science and Technology' },
+    region: 'cn',
+    tier: '985',
+    fields: ['ai', 'ml', 'systems', 'theory'],
+    levels: ['undergrad', 'master', 'phd'],
+    types: ['research', 'summer', 'phd'],
+    language: ['zh', 'en'],
+    funding: { zh: '以学院/导师/学校官方项目说明为准', en: 'Check school/faculty/supervisor program terms' },
+    mentor: {
+      name: { zh: '计算机学院导师组', en: 'Faculty group, School of Computer Science' },
+      initials: 'USTC',
+      title: { zh: '学院导师组', en: 'Faculty group' },
+      bio: {
+        zh: '公开资料摘要：学院覆盖 AI、机器学习、系统、高性能计算、数据与理论，理工科基础强；具体导师与招生状态以学院官网为准。',
+        en: 'Public-profile summary: the school covers AI, machine learning, systems, high-performance computing, data and theory with a strong science/engineering base. Check the official site for advisers and admissions status.'
+      },
+      link: 'https://cs.ustc.edu.cn/',
+      highlight: false
+    },
+    project: {
+      title: { zh: 'AI、ML、系统与高性能计算', en: 'AI, ML, systems and high-performance computing' },
+      summary: {
+        zh: '学院研究 AI、机器学习、系统、高性能计算、数据与理论。本科/硕士/博士研究机会通过学院导师组与实验室页面；适合数学/系统基础扎实、愿意长期做研究的学生。',
+        en: 'The school studies AI, machine learning, systems, HPC, data and theory. Undergraduate/master/PhD opportunities go through faculty groups and lab pages; it suits students with strong maths/systems who want long-term research.'
+      },
+      methods: {
+        zh: 'AI、机器学习、系统、高性能计算、数据、理论。',
+        en: 'AI, machine learning, systems, HPC, data and theory.'
+      },
+      fit: {
+        zh: '适合数学/系统基础扎实、能读论文与做实验的学生；有科研经历更好。',
+        en: 'Best for students with strong maths/systems, paper reading and experiments; research experience helps.'
+      }
+    },
+    apply: {
+      url: 'https://cs.ustc.edu.cn/',
+      label: { zh: '计算机学院官网', en: 'School of Computer Science' },
+      note: {
+        zh: '通过学院官网的导师/实验室/招生页面了解机会；本站不代收材料，也不提供内推。',
+        en: 'Use the official faculty, lab and admissions pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'https://cs.ustc.edu.cn/', label: { zh: 'USTC CS', en: 'USTC CS' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'hit-cs',
+    institution: { zh: '哈尔滨工业大学', en: 'Harbin Institute of Technology' },
+    unit: { zh: '计算学部', en: 'Faculty of Computing' },
+    region: 'cn',
+    tier: '985',
+    fields: ['ai', 'robotics', 'systems'],
+    levels: ['undergrad', 'master', 'phd'],
+    types: ['research', 'summer', 'phd'],
+    language: ['zh', 'en'],
+    funding: { zh: '以学部/导师/学校官方项目说明为准', en: 'Check faculty/supervisor/university program terms' },
+    mentor: {
+      name: { zh: '计算学部导师组', en: 'Faculty of Computing faculty group' },
+      initials: 'HIT',
+      title: { zh: '计算学部导师组', en: 'Faculty of Computing faculty' },
+      bio: {
+        zh: '公开资料摘要：计算学部覆盖 AI、机器人、系统、网络与安全等方向，工程与航天背景强；具体导师与招生状态以学部官网为准。',
+        en: 'Public-profile summary: the Faculty of Computing covers AI, robotics, systems, networking and security with strong engineering and aerospace links. Check the official site for advisers and admissions status.'
+      },
+      link: 'http://computing.hit.edu.cn/',
+      highlight: false
+    },
+    project: {
+      title: { zh: 'AI、机器人、系统与网络安全', en: 'AI, robotics, systems and cybersecurity' },
+      summary: {
+        zh: '学部研究 AI、机器人、系统、网络与安全，工程与航天背景强。本科/硕士/博士研究机会通过学部导师组与实验室页面；适合愿意做系统/机器人实验、能长期投入的学生。',
+        en: 'The faculty studies AI, robotics, systems, networking and security with strong engineering and aerospace links. Opportunities go through faculty groups and lab pages; it suits students who enjoy systems/robotics experiments and long commitments.'
+      },
+      methods: {
+        zh: 'AI、机器人、系统、网络、安全。',
+        en: 'AI, robotics, systems, networking and security.'
+      },
+      fit: {
+        zh: '适合工程能力强、愿意做系统/机器人实验的学生；有项目经历更好。',
+        en: 'Best for students with strong engineering and interest in systems/robotics experiments; project experience helps.'
+      }
+    },
+    apply: {
+      url: 'http://computing.hit.edu.cn/',
+      label: { zh: '计算学部官网', en: 'Faculty of Computing' },
+      note: {
+        zh: '通过学部/学校官方招生与研究页面申请；本站不代收材料，也不提供内推。',
+        en: 'Apply through official faculty/university admissions and research pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'http://computing.hit.edu.cn/', label: { zh: 'HIT 计算学部', en: 'HIT Faculty of Computing' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'buaa-cs',
+    institution: { zh: '北京航空航天大学', en: 'Beihang University' },
+    unit: { zh: '计算机学院', en: 'School of Computer Science and Engineering' },
+    region: 'cn',
+    tier: '985',
+    fields: ['ai', 'robotics', 'systems'],
+    levels: ['undergrad', 'master', 'phd'],
+    types: ['research', 'summer', 'phd'],
+    language: ['zh', 'en'],
+    funding: { zh: '以学院/导师/学校官方项目说明为准', en: 'Check school/faculty/supervisor program terms' },
+    mentor: {
+      name: { zh: '计算机学院导师组', en: 'Faculty group, School of Computer Science' },
+      initials: 'BUAA',
+      title: { zh: '学院导师组', en: 'Faculty group' },
+      bio: {
+        zh: '公开资料摘要：学院覆盖 AI、软件工程、系统、网络与航空航天交叉，工程实践强；具体导师与招生状态以学院官网为准。',
+        en: 'Public-profile summary: the school covers AI, software engineering, systems, networking and aerospace intersections with strong engineering practice. Check the official site for advisers and admissions status.'
+      },
+      link: 'https://scse.buaa.edu.cn/',
+      highlight: false
+    },
+    project: {
+      title: { zh: 'AI、软件、系统与航空航天交叉', en: 'AI, software, systems and aerospace intersections' },
+      summary: {
+        zh: '学院研究 AI、软件工程、系统、网络与航空航天交叉。本科/硕士/博士研究机会通过学院导师组与实验室页面；适合工程/数学基础好、对航空航天交叉感兴趣的学生。',
+        en: 'The school studies AI, software engineering, systems, networking and aerospace intersections. Opportunities go through faculty groups and lab pages; it suits students with strong engineering/maths and interest in aerospace.'
+      },
+      methods: {
+        zh: 'AI、软件工程、系统、网络、航空航天交叉。',
+        en: 'AI, software engineering, systems, networking and aerospace intersections.'
+      },
+      fit: {
+        zh: '适合工程/数学基础好、能读论文并做系统实现的学生。',
+        en: 'Best for students with strong engineering/maths, paper reading and system implementation.'
+      }
+    },
+    apply: {
+      url: 'https://scse.buaa.edu.cn/',
+      label: { zh: '计算机学院官网', en: 'School of Computer Science' },
+      note: {
+        zh: '通过学院官网的导师/实验室/招生页面了解机会；本站不代收材料，也不提供内推。',
+        en: 'Use the official faculty, lab and admissions pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'https://scse.buaa.edu.cn/', label: { zh: 'Beihang CS', en: 'Beihang CS' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'bit-cs',
+    institution: { zh: '北京理工大学', en: 'Beijing Institute of Technology' },
+    unit: { zh: '计算机学院', en: 'School of Computer Science and Technology' },
+    region: 'cn',
+    tier: '985',
+    fields: ['ai', 'ml', 'systems'],
+    levels: ['undergrad', 'master', 'phd'],
+    types: ['research', 'summer', 'phd'],
+    language: ['zh', 'en'],
+    funding: { zh: '以学院/导师/学校官方项目说明为准', en: 'Check school/faculty/supervisor program terms' },
+    mentor: {
+      name: { zh: '计算机学院导师组', en: 'Faculty group, School of Computer Science' },
+      initials: 'BIT',
+      title: { zh: '学院导师组', en: 'Faculty group' },
+      bio: {
+        zh: '公开资料摘要：学院覆盖 AI、机器学习、系统、网络与信息安全，工程与国防背景强；具体导师与招生状态以学院官网为准。',
+        en: 'Public-profile summary: the school covers AI, machine learning, systems, networking and information security with strong engineering and defence links. Check the official site for advisers and admissions status.'
+      },
+      link: 'https://cs.bit.edu.cn/',
+      highlight: false
+    },
+    project: {
+      title: { zh: 'AI、ML、系统与信息安全', en: 'AI, ML, systems and information security' },
+      summary: {
+        zh: '学院研究 AI、机器学习、系统、网络与信息安全。本科/硕士/博士研究机会通过学院导师组与实验室页面；适合编程/数学基础好、愿意做系统或安全实验的学生。',
+        en: 'The school studies AI, machine learning, systems, networking and information security. Opportunities go through faculty groups and lab pages; it suits students with good coding/maths who enjoy systems or security experiments.'
+      },
+      methods: {
+        zh: 'AI、机器学习、系统、网络、信息安全。',
+        en: 'AI, machine learning, systems, networking and information security.'
+      },
+      fit: {
+        zh: '适合编程/数学基础好、愿意做系统或安全实验的学生。',
+        en: 'Best for students with good coding/maths and interest in systems or security experiments.'
+      }
+    },
+    apply: {
+      url: 'https://cs.bit.edu.cn/',
+      label: { zh: '计算机学院官网', en: 'School of Computer Science' },
+      note: {
+        zh: '通过学院官网的导师/实验室/招生页面了解机会；本站不代收材料，也不提供内推。',
+        en: 'Use the official faculty, lab and admissions pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'https://cs.bit.edu.cn/', label: { zh: 'BIT CS', en: 'BIT CS' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'hust-cs',
+    institution: { zh: '华中科技大学', en: 'Huazhong University of Science and Technology' },
+    unit: { zh: '计算机科学与技术学院', en: 'School of Computer Science and Technology' },
+    region: 'cn',
+    tier: '985',
+    fields: ['ai', 'ml', 'systems'],
+    levels: ['undergrad', 'master', 'phd'],
+    types: ['research', 'summer', 'phd'],
+    language: ['zh', 'en'],
+    funding: { zh: '以学院/导师/学校官方项目说明为准', en: 'Check school/faculty/supervisor program terms' },
+    mentor: {
+      name: { zh: '计算机学院导师组', en: 'Faculty group, School of Computer Science' },
+      initials: 'HUST',
+      title: { zh: '学院导师组', en: 'Faculty group' },
+      bio: {
+        zh: '公开资料摘要：学院覆盖 AI、机器学习、存储、系统、数据与软件工程，系统/存储方向有积累；具体导师与招生状态以学院官网为准。',
+        en: 'Public-profile summary: the school covers AI, machine learning, storage, systems, data and software engineering, with strength in systems/storage. Check the official site for advisers and admissions status.'
+      },
+      link: 'http://cs.hust.edu.cn/',
+      highlight: false
+    },
+    project: {
+      title: { zh: 'AI、存储、系统与数据', en: 'AI, storage, systems and data' },
+      summary: {
+        zh: '学院研究 AI、机器学习、存储、系统、数据与软件工程。本科/硕士/博士研究机会通过学院导师组与实验室页面；适合系统/编程基础好、能做工程实验的学生。',
+        en: 'The school studies AI, machine learning, storage, systems, data and software engineering. Opportunities go through faculty groups and lab pages; it suits students with strong systems/coding and engineering experiments.'
+      },
+      methods: {
+        zh: 'AI、机器学习、存储、系统、数据、软件工程。',
+        en: 'AI, machine learning, storage, systems, data and software engineering.'
+      },
+      fit: {
+        zh: '适合系统/编程基础好、能做工程实验的学生；有项目经历更好。',
+        en: 'Best for students with strong systems/coding and engineering experiments; project experience helps.'
+      }
+    },
+    apply: {
+      url: 'http://cs.hust.edu.cn/',
+      label: { zh: '计算机学院官网', en: 'School of Computer Science' },
+      note: {
+        zh: '通过学院官网的导师/实验室/招生页面了解机会；本站不代收材料，也不提供内推。',
+        en: 'Use the official faculty, lab and admissions pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'http://cs.hust.edu.cn/', label: { zh: 'HUST CS', en: 'HUST CS' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'whu-cs',
+    institution: { zh: '武汉大学', en: 'Wuhan University' },
+    unit: { zh: '计算机学院', en: 'School of Computer Science' },
+    region: 'cn',
+    tier: '985',
+    fields: ['ai', 'cv', 'systems'],
+    levels: ['undergrad', 'master', 'phd'],
+    types: ['research', 'summer', 'phd'],
+    language: ['zh', 'en'],
+    funding: { zh: '以学院/导师/学校官方项目说明为准', en: 'Check school/faculty/supervisor program terms' },
+    mentor: {
+      name: { zh: '计算机学院导师组', en: 'Faculty group, School of Computer Science' },
+      initials: 'WHU',
+      title: { zh: '学院导师组', en: 'Faculty group' },
+      bio: {
+        zh: '公开资料摘要：学院覆盖 AI、计算机视觉、遥感、软件工程与数据，遥感/测绘交叉有特色；具体导师与招生状态以学院官网为准。',
+        en: 'Public-profile summary: the school covers AI, computer vision, remote sensing, software engineering and data, with distinctive remote-sensing/geomatics links. Check the official site for advisers and admissions status.'
+      },
+      link: 'https://cs.whu.edu.cn/',
+      highlight: false
+    },
+    project: {
+      title: { zh: 'AI、遥感、软件与数据', en: 'AI, remote sensing, software and data' },
+      summary: {
+        zh: '学院研究 AI、计算机视觉、遥感、软件工程与数据。本科/硕士/博士研究机会通过学院导师组与实验室页面；遥感/测绘交叉适合有图像处理背景的学生。',
+        en: 'The school studies AI, computer vision, remote sensing, software engineering and data. Opportunities go through faculty groups and lab pages; remote-sensing/geomatics intersections suit students with image-processing background.'
+      },
+      methods: {
+        zh: 'AI、计算机视觉、遥感、软件工程、数据。',
+        en: 'AI, computer vision, remote sensing, software engineering and data.'
+      },
+      fit: {
+        zh: '适合 CV/遥感/数据方向、能读论文的学生；有图像项目经历更好。',
+        en: 'Best for students in CV/remote sensing/data who can read papers; image-project experience helps.'
+      }
+    },
+    apply: {
+      url: 'https://cs.whu.edu.cn/',
+      label: { zh: '计算机学院官网', en: 'School of Computer Science' },
+      note: {
+        zh: '通过学院官网的导师/实验室/招生页面了解机会；本站不代收材料，也不提供内推。',
+        en: 'Use the official faculty, lab and admissions pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'https://cs.whu.edu.cn/', label: { zh: 'WHU CS', en: 'WHU CS' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'sysu-cs',
+    institution: { zh: '中山大学', en: 'Sun Yat-sen University' },
+    unit: { zh: '计算机学院', en: 'School of Computer Science and Engineering' },
+    region: 'cn',
+    tier: '985',
+    fields: ['ai', 'ml', 'systems'],
+    levels: ['undergrad', 'master', 'phd'],
+    types: ['research', 'summer', 'phd'],
+    language: ['zh', 'en'],
+    funding: { zh: '以学院/导师/学校官方项目说明为准', en: 'Check school/faculty/supervisor program terms' },
+    mentor: {
+      name: { zh: '计算机学院导师组', en: 'Faculty group, School of Computer Science' },
+      initials: 'SYSU',
+      title: { zh: '学院导师组', en: 'Faculty group' },
+      bio: {
+        zh: '公开资料摘要：学院覆盖 AI、机器学习、系统、数据与交叉应用，地处粤港澳大湾区；具体导师与招生状态以学院官网为准。',
+        en: 'Public-profile summary: the school covers AI, machine learning, systems, data and cross-disciplinary applications in the Greater Bay Area. Check the official site for advisers and admissions status.'
+      },
+      link: 'https://cse.sysu.edu.cn/',
+      highlight: false
+    },
+    project: {
+      title: { zh: 'AI、系统、数据与交叉', en: 'AI, systems, data and intersections' },
+      summary: {
+        zh: '学院研究 AI、机器学习、系统、数据与交叉应用。本科/硕士/博士研究机会通过学院导师组与实验室页面；适合想在大湾区做研究、工程能力较好的学生。',
+        en: 'The school studies AI, machine learning, systems, data and cross-disciplinary applications. Opportunities go through faculty groups and lab pages; it suits students who want to research in the Greater Bay Area with solid engineering.'
+      },
+      methods: {
+        zh: 'AI、机器学习、系统、数据、交叉应用。',
+        en: 'AI, machine learning, systems, data and cross-disciplinary applications.'
+      },
+      fit: {
+        zh: '适合想在大湾区做研究、工程能力较好的学生；有项目经历更好。',
+        en: 'Best for students who want to research in the Greater Bay Area with strong engineering; project experience helps.'
+      }
+    },
+    apply: {
+      url: 'https://cse.sysu.edu.cn/',
+      label: { zh: '计算机学院官网', en: 'School of Computer Science' },
+      note: {
+        zh: '通过学院官网的导师/实验室/招生页面了解机会；本站不代收材料，也不提供内推。',
+        en: 'Use the official faculty, lab and admissions pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'https://cse.sysu.edu.cn/', label: { zh: 'SYSU CSE', en: 'SYSU CSE' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'bjtu-cs',
+    institution: { zh: '北京交通大学', en: 'Beijing Jiaotong University' },
+    unit: { zh: '计算机与信息技术学院', en: 'School of Computer and Information Technology' },
+    region: 'cn',
+    tier: '211',
+    fields: ['ai', 'systems', 'ml'],
+    levels: ['undergrad', 'master', 'phd'],
+    types: ['research', 'summer', 'phd'],
+    language: ['zh', 'en'],
+    funding: { zh: '以学院/导师/学校官方项目说明为准', en: 'Check school/faculty/supervisor program terms' },
+    mentor: {
+      name: { zh: '计算机学院导师组', en: 'Faculty group, School of Computer and Information Technology' },
+      initials: 'BJTU',
+      title: { zh: '学院导师组', en: 'Faculty group' },
+      bio: {
+        zh: '公开资料摘要：学院覆盖 AI、机器学习、交通数据、系统与网络，轨道交通背景强；具体导师与招生状态以学院官网为准。',
+        en: 'Public-profile summary: the school covers AI, machine learning, transport data, systems and networking with strong rail-transit links. Check the official site for advisers and admissions status.'
+      },
+      link: 'https://cs.bjtu.edu.cn/',
+      highlight: false
+    },
+    project: {
+      title: { zh: 'AI、交通数据、系统与网络', en: 'AI, transport data, systems and networking' },
+      summary: {
+        zh: '学院研究 AI、机器学习、交通数据、系统与网络。本科/硕士/博士研究机会通过学院导师组与实验室页面；适合数据/系统/交通交叉、工程能力好的学生。',
+        en: 'The school studies AI, machine learning, transport data, systems and networking. Opportunities go through faculty groups and lab pages; it suits students strong in data/systems/transport intersections and engineering.'
+      },
+      methods: {
+        zh: 'AI、机器学习、交通数据、系统、网络。',
+        en: 'AI, machine learning, transport data, systems and networking.'
+      },
+      fit: {
+        zh: '适合数据/系统/交通交叉、工程能力好的学生；有项目经历更好。',
+        en: 'Best for students in data/systems/transport intersections with strong engineering; project experience helps.'
+      }
+    },
+    apply: {
+      url: 'https://cs.bjtu.edu.cn/',
+      label: { zh: '计算机学院官网', en: 'School of Computer and Information Technology' },
+      note: {
+        zh: '通过学院官网的导师/实验室/招生页面了解机会；本站不代收材料，也不提供内推。',
+        en: 'Use the official faculty, lab and admissions pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'https://cs.bjtu.edu.cn/', label: { zh: 'BJTU CS', en: 'BJTU CS' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'nuaa-cs',
+    institution: { zh: '南京航空航天大学', en: 'Nanjing University of Aeronautics and Astronautics' },
+    unit: { zh: '计算机科学与技术学院', en: 'College of Computer Science and Technology' },
+    region: 'cn',
+    tier: '211',
+    fields: ['ai', 'robotics', 'systems'],
+    levels: ['undergrad', 'master', 'phd'],
+    types: ['research', 'summer', 'phd'],
+    language: ['zh', 'en'],
+    funding: { zh: '以学院/导师/学校官方项目说明为准', en: 'Check school/faculty/supervisor program terms' },
+    mentor: {
+      name: { zh: '计算机学院导师组', en: 'Faculty group, College of Computer Science' },
+      initials: 'NUAA',
+      title: { zh: '学院导师组', en: 'Faculty group' },
+      bio: {
+        zh: '公开资料摘要：学院覆盖 AI、机器学习、航空计算、系统与数据，航空航天背景强；具体导师与招生状态以学院官网为准。',
+        en: 'Public-profile summary: the college covers AI, machine learning, aerospace computing, systems and data with strong aerospace links. Check the official site for advisers and admissions status.'
+      },
+      link: 'https://cs.nuaa.edu.cn/',
+      highlight: false
+    },
+    project: {
+      title: { zh: 'AI、航空计算、系统与数据', en: 'AI, aerospace computing, systems and data' },
+      summary: {
+        zh: '学院研究 AI、机器学习、航空计算、系统与数据。本科/硕士/博士研究机会通过学院导师组与实验室页面；适合工程/数学基础好、对航空交叉感兴趣的学生。',
+        en: 'The college studies AI, machine learning, aerospace computing, systems and data. Opportunities go through faculty groups and lab pages; it suits students with strong engineering/maths and interest in aerospace.'
+      },
+      methods: {
+        zh: 'AI、机器学习、航空计算、系统、数据。',
+        en: 'AI, machine learning, aerospace computing, systems and data.'
+      },
+      fit: {
+        zh: '适合工程/数学基础好、对航空交叉感兴趣的学生；有项目经历更好。',
+        en: 'Best for students with strong engineering/maths and interest in aerospace; project experience helps.'
+      }
+    },
+    apply: {
+      url: 'https://cs.nuaa.edu.cn/',
+      label: { zh: '计算机学院官网', en: 'College of Computer Science' },
+      note: {
+        zh: '通过学院官网的导师/实验室/招生页面了解机会；本站不代收材料，也不提供内推。',
+        en: 'Use the official faculty, lab and admissions pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'https://cs.nuaa.edu.cn/', label: { zh: 'NUAA CS', en: 'NUAA CS' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'shu-cs',
+    institution: { zh: '上海大学', en: 'Shanghai University' },
+    unit: { zh: '计算机工程与科学学院', en: 'School of Computer Engineering and Science' },
+    region: 'cn',
+    tier: '211',
+    fields: ['ai', 'ml', 'systems'],
+    levels: ['undergrad', 'master', 'phd'],
+    types: ['research', 'summer', 'phd'],
+    language: ['zh', 'en'],
+    funding: { zh: '以学院/导师/学校官方项目说明为准', en: 'Check school/faculty/supervisor program terms' },
+    mentor: {
+      name: { zh: '计算机学院导师组', en: 'Faculty group, School of Computer Engineering' },
+      initials: 'SHU',
+      title: { zh: '学院导师组', en: 'Faculty group' },
+      bio: {
+        zh: '公开资料摘要：学院覆盖 AI、机器学习、数据、系统与交叉应用，与上海产业结合紧密；具体导师与招生状态以学院官网为准。',
+        en: 'Public-profile summary: the school covers AI, machine learning, data, systems and applied intersections with strong Shanghai industry links. Check the official site for advisers and admissions status.'
+      },
+      link: 'https://cs.shu.edu.cn/',
+      highlight: false
+    },
+    project: {
+      title: { zh: 'AI、数据、系统与交叉', en: 'AI, data, systems and intersections' },
+      summary: {
+        zh: '学院研究 AI、机器学习、数据、系统与交叉应用。本科/硕士/博士研究机会通过学院导师组与实验室页面；适合想在上海做应用研究、工程能力好的学生。',
+        en: 'The school studies AI, machine learning, data, systems and applied intersections. Opportunities go through faculty groups and lab pages; it suits students who want applied research in Shanghai with strong engineering.'
+      },
+      methods: {
+        zh: 'AI、机器学习、数据、系统、交叉应用。',
+        en: 'AI, machine learning, data, systems and applied intersections.'
+      },
+      fit: {
+        zh: '适合想在上海做应用研究、工程能力好的学生；有项目经历更好。',
+        en: 'Best for students who want applied research in Shanghai with strong engineering; project experience helps.'
+      }
+    },
+    apply: {
+      url: 'https://cs.shu.edu.cn/',
+      label: { zh: '计算机学院官网', en: 'School of Computer Engineering' },
+      note: {
+        zh: '通过学院官网的导师/实验室/招生页面了解机会；本站不代收材料，也不提供内推。',
+        en: 'Use the official faculty, lab and admissions pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'https://cs.shu.edu.cn/', label: { zh: 'SHU CS', en: 'SHU CS' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'jnu-cs',
+    institution: { zh: '暨南大学', en: 'Jinan University' },
+    unit: { zh: '信息科学技术学院', en: 'College of Information Science and Technology' },
+    region: 'cn',
+    tier: '211',
+    fields: ['ai', 'ml', 'nlp'],
+    levels: ['undergrad', 'master', 'phd'],
+    types: ['research', 'summer', 'phd'],
+    language: ['zh', 'en'],
+    funding: { zh: '以学院/导师/学校官方项目说明为准', en: 'Check school/faculty/supervisor program terms' },
+    mentor: {
+      name: { zh: '信息学院导师组', en: 'Faculty group, College of Information Science' },
+      initials: 'JNU',
+      title: { zh: '学院导师组', en: 'Faculty group' },
+      bio: {
+        zh: '公开资料摘要：学院覆盖 AI、机器学习、数据、网络与交叉应用，港澳台学生与国际合作较多；具体导师与招生状态以学院官网为准。',
+        en: 'Public-profile summary: the college covers AI, machine learning, data, networking and applied intersections, with many Hong Kong/Macau/Taiwan students and international links. Check the official site for advisers and admissions status.'
+      },
+      link: 'https://xxxy.jnu.edu.cn/',
+      highlight: false
+    },
+    project: {
+      title: { zh: 'AI、数据、网络与交叉', en: 'AI, data, networking and intersections' },
+      summary: {
+        zh: '学院研究 AI、机器学习、数据、网络与交叉应用。本科/硕士/博士研究机会通过学院导师组与实验室页面；适合英语/编程基础好、想在大湾区做交叉研究的学生。',
+        en: 'The college studies AI, machine learning, data, networking and applied intersections. Opportunities go through faculty groups and lab pages; it suits students with good English/coding who want cross-disciplinary research in the Greater Bay Area.'
+      },
+      methods: {
+        zh: 'AI、机器学习、数据、网络、交叉应用。',
+        en: 'AI, machine learning, data, networking and applied intersections.'
+      },
+      fit: {
+        zh: '适合英语/编程基础好、想在大湾区做交叉研究的学生；有项目经历更好。',
+        en: 'Best for students with good English/coding and interest in cross-disciplinary work in the Greater Bay Area; project experience helps.'
+      }
+    },
+    apply: {
+      url: 'https://xxxy.jnu.edu.cn/',
+      label: { zh: '信息学院官网', en: 'College of Information Science' },
+      note: {
+        zh: '通过学院官网的导师/实验室/招生页面了解机会；本站不代收材料，也不提供内推。',
+        en: 'Use the official faculty, lab and admissions pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'https://xxxy.jnu.edu.cn/', label: { zh: 'JNU 信息学院', en: 'JNU College of Information Science' } },
     updated: '2026-10',
     status: 'check'
   }

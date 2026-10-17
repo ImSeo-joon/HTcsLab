@@ -1056,7 +1056,7 @@ html[data-lang="both"] .hero-lede-zh { display: block; }
 .mentor-project { margin-top: 4px; font-size: 11.4px; line-height: 1.4; color: var(--accent); }
 
 .collab-bar {
-  display: grid; grid-template-columns: 1.5fr repeat(5, minmax(115px, 1fr));
+  display: grid; grid-template-columns: 1.5fr repeat(6, minmax(100px, 1fr));
   gap: 10px; align-items: end;
   padding: 15px; background: var(--surface);
   border: 1px solid var(--border); border-radius: var(--radius);
