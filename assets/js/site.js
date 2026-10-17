@@ -275,6 +275,20 @@
     return window.navigator.standalone === true;
   }
 
+  /** 没有安装事件时，按平台给出可以照做的说明 */
+  function platformInstallHint() {
+    var ua = navigator.userAgent || '';
+    var isIOS = /iPhone|iPad|iPod/i.test(ua) ||
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    var mobile = /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
+    var inApp = /MicroMessenger|WeChat|MQQBrowser|QQ\/|Weibo|Quark|UCBrowser|baiduboxapp|AlipayClient|DingTalk|BytedanceWebview/i.test(ua);
+
+    if (inApp) return LHT.t('install.hintInApp');
+    if (isIOS) return LHT.t('install.hintIOS');
+    if (mobile) return LHT.t('install.hintAndroid');
+    return LHT.t('install.hintBrowser');
+  }
+
   function renderInstallBlock() {
     var host = LHT.$('#install-block');
     if (!host) return;
@@ -289,7 +303,7 @@
     } else if (location.protocol === 'file:') {
       html += '<p class="tiny dim" style="margin:0">' + LHT.esc(LHT.t('install.hintLocal')) + '</p>';
     } else {
-      html += '<p class="tiny dim" style="margin:0">' + LHT.esc(LHT.t('install.hintBrowser')) + '</p>';
+      html += '<p class="tiny dim" style="margin:0">' + LHT.esc(platformInstallHint()) + '</p>';
     }
 
     host.innerHTML = html;
