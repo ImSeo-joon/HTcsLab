@@ -1,6 +1,6 @@
 # Laboratoire de la Haute Table · 高桌实验室
 
-一个纯静态的计算机实验室站点：多语言刷题与调试、算法与 AI 资料索引、可交互的算法演示、大学生竞赛指南与四年规划。
+一个纯静态的计算机实验室站点：多语言刷题与调试、算法与 AI 资料索引、可交互的算法演示、大学生竞赛指南与四年规划、单机网络攻防推演、高校课题组公开信息索引。
 站名固定使用法语，界面支持中文 / English / 双语对照三种模式。
 
 没有任何构建步骤。双击 `index.html` 就能在本地浏览，也可以直接丢到 GitHub Pages。
@@ -35,6 +35,8 @@ npx serve .
 ├─ resources.html                资料库
 ├─ demos.html                    演示室
 ├─ contests.html                 大学生竞赛指南：赛季、准备画像、四年规划、经验方法与官网入口
+├─ collabs.html                  合作咨询：高校课题组、导师公开简介、官方申请入口与合规声明
+├─ battle.html                   双模式攻防推演：蓝队防守 / 红队进攻 / 代码演练
 ├─ 404.html                      GitHub Pages 的 404 页面
 ├─ manifest.json                 PWA 清单：装到桌面时的名称、图标、快捷方式
 ├─ sw.js                         Service Worker：网络优先，断网回落缓存
@@ -50,7 +52,9 @@ npx serve .
 ├─ data/
 │  ├─ problems.js                题库（题目、测试用例、各语言模板、参考解）
 │  ├─ resources.js               资料索引（分类、类型、难度、链接）
-│  └─ contests.js                竞赛索引（分类、受众、难度、赛季月份、备赛阶梯、链接）
+│  ├─ contests.js                竞赛索引（分类、年级、难度、赛季月份、准备画像、四年规划）
+│  ├─ collabs.js                 合作索引（地区、方向、阶段、类型、导师简介、项目简介、来源）
+│  └─ battle-scenarios.js        攻防推演场景（节点、连线、攻击事件、预算与回合）
 └─ assets/
    ├─ css/
    │  ├─ base.css                设计变量、排版、页头页脚、通用组件
@@ -64,6 +68,8 @@ npx serve .
       ├─ practice.js             刷题台控制器
       ├─ resources.js            资料库控制器
       ├─ contests.js             竞赛指南控制器（搜索、筛选、关注、展开）
+      ├─ collabs.js              合作咨询控制器（搜索、筛选、导师速览、详情展开）
+      ├─ battle.js               攻防推演控制器（回合、预算、防御动作、评分）
       ├─ demos.js                演示室宿主与控件工厂
       └─ demo-*.js               六个演示模块（自注册）
 ```
@@ -118,7 +124,7 @@ npx serve .
 Chrome / Edge 地址栏会出现安装入口，页脚也会出现"安装到桌面"按钮：
 
 - 独立窗口运行，任务栏图标就是徽标
-- 右键应用图标可以直接跳到刷题台 / 演示室 / 资料库 / 竞赛指南（manifest 里的 shortcuts）
+- 右键应用图标可以直接跳到刷题台 / 演示室 / 资料库 / 竞赛指南 / 攻防战 / 合作咨询（manifest 里的 shortcuts）
 - 打开过的页面断网时依然能访问
 
 `file://` 下浏览器不支持 Service Worker，所以页脚会提示改用方式一 —— 这是浏览器限制，不是配置问题。
@@ -200,6 +206,104 @@ node tools/verify-c.mjs      # 需要 PATH 里有 gcc（或设置 CC 环境变�
 所有参考解都有 JavaScript 与 Python 两份，并且用 `tools/verify-*.mjs|py` 做过逐用例比对
 （当前全站 35 题、164 个用例，两边都是 0 失败）。加新题的方式和普通题目完全一样，
 只需在 `data/problems.js` 里追加，并给 `tags` 加上 `ml` 与对应章节标签即可被筛选到。
+
+### 单机攻防推演
+
+`battle.html` 是一个纯前端的回合制攻防小游戏，分两种模式：
+
+- **蓝队 · 防守**：在有限预算内给节点打补丁、做分段、部署监控、备份、隔离或恢复，然后结束回合看攻击结算。
+- **红队 · 进攻**：在有限行动点内侦察目标、选择钓鱼 / 漏洞 / 流量 / 勒索 / 内部滥用等抽象攻击；蓝队会在每次攻击后自动加固被攻击的节点。
+
+现在共有 12 个场景，L1 / L2 / L3 各 4 个，选择器支持按难度筛选：
+
+- **L1 入门**：校园选课、社团官网与报名、实验室文件服务器、咖啡店收银与会员。
+- **L2 进阶**：医院预约与病历、在线考试系统、图书馆借阅与座位预约、创业公司 SaaS 后台。
+- **L3 高阶**：电商交易后台、多租户云平台、支付清算与风控、跨院区医疗平台。
+
+高阶场景有 6 个节点、10 回合，攻击面更大，蓝队预算与红队行动点也更多。
+每局会生成一个短种子：首尾事件固定，中间事件按种子洗牌，并避免同一目标或同一类型连续出现三次。
+情报按监控总等级分级：0 无情报、1 模糊线索、2 具体提示、3 目标与攻击类型；结算页会显示本局种子，可以“同种子重开”或“再来一次”换种子。
+侧栏还有一个可选的**代码演练**：蓝队写 `detect(logs)` 检测可疑日志，红队写 `pickTarget(nodes)` 选择目标；
+通过测试后分别获得预算 +20、行动点 +1 并解密防御。脚本通过 `assets/js/sandbox.js` 的 iframe 沙箱执行，不会访问主页面 DOM。
+
+所有节点、攻击事件和数值都在 `data/battle-scenarios.js` 里，**完全是教学模拟**：
+没有真实目标、真实漏洞利用代码或可操作攻击指令。蓝队评分由平均健康、数据完整、预算剩余与监测覆盖组成；
+红队评分由数据窃取、核心节点失守、核心伤害与剩余行动点组成。结束后都会给出 S/A/B/C 评级与逐回合日志。
+
+加一个场景只需追加一个对象：
+
+```js
+{
+  id: 'my-scenario',
+  name: { zh: '场景名', en: 'Scenario name' },
+  level: 2,
+  brief: { zh: '一句话背景', en: 'One-line brief' },
+  budget: 120,
+  ap: 10,
+  rounds: 8,
+  nodes: [
+    { id: 'gw', label: { zh: '网关', en: 'Gateway' }, x: 100, y: 80,
+      critical: false, data: 0, exposure: 3,
+      defense: { patch: 0, segment: 1, monitor: 0, backup: false } }
+  ],
+  links: [['gw', 'web']],
+  events: [
+    { round: 1, type: 'phishing', target: 'gw', power: 18,
+      hint: { zh: '可疑邮件', en: 'Suspicious email' } }
+  ]
+}
+```
+
+`type` 可取 `phishing / exploit / ddos / ransomware / insider`；`x/y` 是 640×320 拓扑画布上的节点中心坐标；
+`defense` 只在红队模式生效，表示该场景预设的蓝队防线。
+
+### 合作咨询索引
+
+`collabs.html` 是一个精选的公开信息索引，目前收录 28 个高校/实验室条目：中国大陆 12 个，中国香港 3 个，中国澳门 1 个，中国台湾 2 个，其余覆盖美国、加拿大、英国、欧洲、新加坡与日本。其中 9 位导师/负责人有公开简介，其余为学院/课题组或项目制说明。
+
+新增的大陆与港澳台条目以学院/课题组入口为主，不假设某位教授一定招生；页面明确说明“学院/课题组入口不等于导师个人名额”。另外有独立的**论文指引**：Google Scholar / arXiv / DBLP / Semantic Scholar / Papers with Code 检索入口、三遍读法、一页阅读单和可复制的模板。
+
+合规边界写在页面顶部和底部：只整理机构官网、实验室 People / Join Us / Admissions 页面可公开访问的信息；**不收录个人邮箱、学生名单、未公开名额**；不代收材料，不提供内推、保录或付费咨询；导师简介是公开资料摘要，项目与招生状态以官网为准。
+
+加一条索引：
+
+```js
+{
+  id: 'my-lab',
+  institution: { zh: '学校', en: 'University' },
+  unit: { zh: '实验室/项目组', en: 'Lab / group' },
+  region: 'cn',                         // us | ca | uk | eu | cn | asia
+  fields: ['ai', 'ml'],                 // 取自 LHT_COLLAB_FIELDS
+  levels: ['phd', 'visiting'],           // undergrad | master | phd | postdoc | visiting
+  types: ['research', 'visiting'],       // summer | research | phd | visiting | fellowship | joint
+  language: ['zh', 'en'],
+  funding: { zh: '资助说明', en: 'Funding note' },
+  mentor: {
+    name: { zh: '姓名/导师组', en: 'Name / faculty group' },
+    initials: 'AB',
+    title: { zh: '公开职称', en: 'Public title' },
+    bio: { zh: '公开资料摘要', en: 'Public-profile summary' },
+    link: 'https://example.edu/',
+    highlight: false
+  },
+  project: {
+    title: { zh: '项目名', en: 'Project title' },
+    summary: { zh: '原创项目简介', en: 'Original summary' },
+    methods: { zh: '研究方向', en: 'Methods' },
+    fit: { zh: '适合谁', en: 'Who fits' }
+  },
+  apply: {
+    url: 'https://example.edu/apply',
+    label: { zh: '官方申请页', en: 'Official application' },
+    note: { zh: '通过官网申请', en: 'Apply through the official page' }
+  },
+  source: { url: 'https://example.edu/', label: { zh: '官网', en: 'Official site' } },
+  updated: '2026-10',
+  status: 'check'
+}
+```
+
+`updated` 是条目整理时间，不代表招生状态已经逐条核验；新增或修改条目时应同时检查官网链接和公开简介，避免写入个人邮箱或未公开信息。
 
 ---
 
@@ -401,7 +505,7 @@ LHT.Demos.register({
 ## 十、改站名与版本号
 
 站名、缩写、标语、版本号集中在 `assets/js/i18n.js` 顶部的 `LHT.META`。
-改完记得同步 `index.html`、`practice.html`、`resources.html`、`demos.html`、`contests.html`、`notes.html`、`404.html`
+改完记得同步 `index.html`、`practice.html`、`resources.html`、`demos.html`、`contests.html`、`collabs.html`、`battle.html`、`notes.html`、`404.html`
 里的品牌区和 `<title>`（这些是静态写死的，为的是 JS 失效时页面依然可用）。
 
 ---

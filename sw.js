@@ -15,7 +15,7 @@
 'use strict';
 
 /* 改了资源后把这个版本号加一，客户端会整体换新缓存 */
-var CACHE_VERSION = 'v5';
+var CACHE_VERSION = 'v7';
 var CACHE = 'haute-table-lab-' + CACHE_VERSION;
 
 var SHELL = [
@@ -25,6 +25,7 @@ var SHELL = [
   './resources.html',
   './demos.html',
   './contests.html',
+  './collabs.html',
   './battle.html',
   './notes.html',
   './404.html',
@@ -37,6 +38,7 @@ var SHELL = [
   './assets/js/practice.js',
   './assets/js/resources.js',
   './assets/js/contests.js',
+  './assets/js/collabs.js',
   './assets/js/battle.js',
   './assets/js/demos.js',
   './assets/js/demo-sort.js',
@@ -52,6 +54,7 @@ var SHELL = [
   './data/py-track.js',
   './data/resources.js',
   './data/contests.js',
+  './data/collabs.js',
   './data/battle-scenarios.js',
   './assets/img/favicon.ico',
   './assets/img/favicon-32.png',
