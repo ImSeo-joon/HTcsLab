@@ -1,6 +1,6 @@
 # Laboratoire de la Haute Table · 高桌实验室
 
-一个纯静态的计算机实验室站点：多语言刷题与调试、算法与 AI 资料索引、可交互的算法演示。
+一个纯静态的计算机实验室站点：多语言刷题与调试、算法与 AI 资料索引、可交互的算法演示、大学生竞赛指南与四年规划。
 站名固定使用法语，界面支持中文 / English / 双语对照三种模式。
 
 没有任何构建步骤。双击 `index.html` 就能在本地浏览，也可以直接丢到 GitHub Pages。
@@ -34,6 +34,7 @@ npx serve .
 ├─ practice.html                 刷题台
 ├─ resources.html                资料库
 ├─ demos.html                    演示室
+├─ contests.html                 大学生竞赛指南：赛季、准备画像、四年规划、经验方法与官网入口
 ├─ 404.html                      GitHub Pages 的 404 页面
 ├─ manifest.json                 PWA 清单：装到桌面时的名称、图标、快捷方式
 ├─ sw.js                         Service Worker：网络优先，断网回落缓存
@@ -48,7 +49,8 @@ npx serve .
 │  └─ verify-python.py           跑一遍所有 Python 参考解
 ├─ data/
 │  ├─ problems.js                题库（题目、测试用例、各语言模板、参考解）
-│  └─ resources.js               资料索引（分类、类型、难度、链接）
+│  ├─ resources.js               资料索引（分类、类型、难度、链接）
+│  └─ contests.js                竞赛索引（分类、受众、难度、赛季月份、备赛阶梯、链接）
 └─ assets/
    ├─ css/
    │  ├─ base.css                设计变量、排版、页头页脚、通用组件
@@ -61,6 +63,7 @@ npx serve .
       ├─ sandbox.js              三种代码执行后端
       ├─ practice.js             刷题台控制器
       ├─ resources.js            资料库控制器
+      ├─ contests.js             竞赛指南控制器（搜索、筛选、关注、展开）
       ├─ demos.js                演示室宿主与控件工厂
       └─ demo-*.js               六个演示模块（自注册）
 ```
@@ -115,7 +118,7 @@ npx serve .
 Chrome / Edge 地址栏会出现安装入口，页脚也会出现"安装到桌面"按钮：
 
 - 独立窗口运行，任务栏图标就是徽标
-- 右键应用图标可以直接跳到刷题台 / 演示室 / 资料库（manifest 里的 shortcuts）
+- 右键应用图标可以直接跳到刷题台 / 演示室 / 资料库 / 竞赛指南（manifest 里的 shortcuts）
 - 打开过的页面断网时依然能访问
 
 `file://` 下浏览器不支持 Service Worker，所以页脚会提示改用方式一 —— 这是浏览器限制，不是配置问题。
@@ -258,6 +261,37 @@ py   tools/verify-python.py         # 所有 Python 参考解（内部会调用 
 }
 ```
 
+### 加一项赛事
+
+在 `data/contests.js` 的 `window.LHT_CONTESTS` 里追加：
+
+```js
+{
+  id: 'my-contest',
+  name: { zh: '赛事名', en: 'Contest name' },
+  abbr: 'MC',
+  cat: 'algorithm',          // 取自 LHT_CONTEST_CATS
+  stage: 'upper',            // lower 大一/大二 | upper 大三/大四 | postgrad | open
+  level: 2,                  // 1 入门 / 2 进阶 / 3 高阶
+  months: [9, 10],           // 赛季高亮月份，用于卡片上的月份条
+  season: { zh: '……', en: '……' },
+  summary: { zh: '两三句介绍', en: 'Two or three sentences' },
+  format: { zh: '赛制与提交方式', en: 'Format and submission' },
+  prepWeeks: { zh: '8–12 周', en: '8–12 weeks' },
+  weekly: { zh: '每周 6–8 小时', en: '6–8 h / week' },
+  prereq: { zh: '前置能力', en: 'Prerequisites' },
+  roles: [{ zh: '读题', en: 'Reader' }],       // 团队角色；个人赛写「个人赛」
+  skills: [{ zh: '图论', en: 'Graphs' }],
+  prep:   [{ zh: '第一步', en: 'Step one' }],   // 建议三条
+  tips:   [{ zh: '技巧', en: 'Tip' }],           // 建议两条
+  experience: { zh: '经验与收获', en: 'Experience and takeaway' },
+  links:  [{ label: '官网', url: 'https://example.com/' }]
+}
+```
+
+页面会按 `cat` 自动生成分类 chip、按 `months` 画赛季条，并把 `summary / format / prereq / experience / skills / prep / tips` 全部纳入关键词搜索。
+新增赛事后刷新 `contests.html` 即可，不需要改页面或控制器。四年规划在 `LHT_CONTEST_YEARS`，通用经验卡片在 `LHT_CONTEST_GUIDES`，同样直接追加对象即可。
+
 ### 加一个演示
 
 新建 `assets/js/demo-xxx.js`，照抄任意一个现有演示的骨架即可，核心只有一步：
@@ -367,7 +401,7 @@ LHT.Demos.register({
 ## 十、改站名与版本号
 
 站名、缩写、标语、版本号集中在 `assets/js/i18n.js` 顶部的 `LHT.META`。
-改完记得同步 `index.html`、`practice.html`、`resources.html`、`demos.html`、`404.html`
+改完记得同步 `index.html`、`practice.html`、`resources.html`、`demos.html`、`contests.html`、`notes.html`、`404.html`
 里的品牌区和 `<title>`（这些是静态写死的，为的是 JS 失效时页面依然可用）。
 
 ---

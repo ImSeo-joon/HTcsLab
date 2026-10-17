@@ -228,7 +228,9 @@
       ['index.html', 'nav.home'],
       ['practice.html', 'nav.practice'],
       ['resources.html', 'nav.resources'],
-      ['demos.html', 'nav.demos']
+      ['demos.html', 'nav.demos'],
+      ['contests.html', 'nav.contests'],
+      ['notes.html', 'nav.notes']
     ];
     var html = '' +
       '<div class="wrap">' +

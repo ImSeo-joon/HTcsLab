@@ -404,6 +404,7 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 .badge-ok     { background: color-mix(in srgb, var(--ok) 15%, transparent); color: var(--ok); border-color: color-mix(in srgb, var(--ok) 32%, transparent); }
 .badge-danger { background: var(--danger-soft); color: var(--danger); border-color: color-mix(in srgb, var(--danger) 32%, transparent); }
 .badge-warn   { background: color-mix(in srgb, var(--warn) 14%, transparent); color: var(--warn); border-color: color-mix(in srgb, var(--warn) 32%, transparent); }
+.badge-gold   { background: var(--gold-soft); color: var(--gold); border-color: var(--gold-line); }
 
 .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
 
@@ -552,4 +553,7 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
   h1 { font-size: 1.66rem; }
   .footer-grid { grid-template-columns: 1fr; }
   .brand-sub { display: none; }
+  /* 六项导航在窄屏上收紧，尽量一屏放下；更窄时仍可横向滑动 */
+  .nav { gap: 1px; }
+  .nav a { padding: 7px 8px; font-size: 12.6px; }
 }

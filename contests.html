@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concours · Laboratoire de la Haute Table</title>
+<meta name="description" content="Laboratoire de la Haute Table — guide des concours pour étudiants : algorithmique, IA, modélisation, sécurité, données et design ; formats, calendriers, prérequis, préparation, plan sur quatre ans et liens officiels.">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/modules.css">
+<link rel="icon" href="assets/img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/mark-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#04122b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-title" content="Haute Table">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Concours · Laboratoire de la Haute Table">
+<meta property="og:image" content="assets/img/og-cover.png">
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="assets/img/mark-wide.png" alt="" width="70" height="32">
+      <span class="brand-name">
+        <span class="brand-fr">Laboratoire de la Haute Table</span>
+        <span class="brand-sub" data-i18n="brand.sub">Laboratoire · 实验室</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="index.html" data-i18n="nav.home">首页</a>
+      <a href="practice.html" data-i18n="nav.practice">刷题台</a>
+      <a href="resources.html" data-i18n="nav.resources">资料库</a>
+      <a href="demos.html" data-i18n="nav.demos">演示室</a>
+      <a href="contests.html" data-i18n="nav.contests">竞赛</a>
+      <a href="notes.html" data-i18n="nav.notes">笔记</a>
+    </nav>
+    <div class="header-tools" data-header-tools></div>
+  </div>
+</header>
+
+<main id="main" class="wrap" style="padding-top:26px">
+
+  <p class="fig" style="margin-bottom:6px"><b>Fig. 07</b> · Table des concours</p>
+  <h1 style="margin:0 0 6px;font-size:1.5rem">
+    <span data-i18n="con.title">竞赛指南</span>
+    <span class="dim" style="font-family:var(--serif);font-size:1rem;font-weight:400" data-i18n="con.h1fr"> · Concours</span>
+  </h1>
+  <p class="muted small" style="margin:0 0 20px;max-width:80ch" data-i18n="con.lede"></p>
+
+  <div class="library-bar contest-bar">
+    <div class="field span-2">
+      <label for="con-search" data-i18n="con.searchLabel">关键词</label>
+      <input type="search" id="con-search" autocomplete="off" data-i18n-placeholder="con.search">
+    </div>
+    <div class="field">
+      <label for="con-stage" data-i18n="con.stage">适合年级</label>
+      <select id="con-stage"></select>
+    </div>
+    <div class="field">
+      <label for="con-level" data-i18n="con.levelLabel">难度</label>
+      <select id="con-level"></select>
+    </div>
+    <div class="field">
+      <label for="con-sort" data-i18n="con.sortBy">排序</label>
+      <select id="con-sort"></select>
+    </div>
+  </div>
+
+  <div class="cat-strip" id="con-cats" style="margin:16px 0 10px"></div>
+
+  <div class="row row-between contest-actions" style="margin-bottom:14px">
+    <span class="lib-count" id="con-count"></span>
+    <div class="row" style="gap:8px">
+      <button type="button" class="btn btn-sm btn-ghost contest-stars-btn" id="con-stars" aria-pressed="false"></button>
+      <button type="button" class="btn btn-sm btn-ghost" id="con-clear" data-i18n="con.clearFilter">清空筛选</button>
+    </div>
+  </div>
+
+  <div class="contest-grid" id="con-grid"></div>
+
+  <section style="margin:38px 0 0">
+    <div class="section-head">
+      <div>
+        <p class="fig"><b>Fig. 08</b> · Quatre années</p>
+        <h2 data-i18n="con.yearsTitle">大学四年竞赛规划</h2>
+      </div>
+      <span class="spacer"></span>
+      <p data-i18n="con.yearsLede"></p>
+    </div>
+    <div class="year-grid" id="con-years"></div>
+  </section>
+
+  <section style="margin:38px 0 0">
+    <div class="section-head">
+      <div>
+        <p class="fig"><b>Fig. 09</b> · Parcours</p>
+        <h2 data-i18n="con.pathsTitle">选赛路线</h2>
+      </div>
+      <span class="spacer"></span>
+      <p data-i18n="con.pathsLede"></p>
+    </div>
+    <div class="path-grid" id="con-paths"></div>
+  </section>
+
+  <section style="margin:38px 0 0">
+    <div class="section-head">
+      <div>
+        <p class="fig"><b>Fig. 10</b> · Savoir-faire</p>
+        <h2 data-i18n="con.guidesTitle">经验与能力</h2>
+      </div>
+      <span class="spacer"></span>
+      <p data-i18n="con.guidesLede"></p>
+    </div>
+    <div class="guide-grid" id="con-guides"></div>
+  </section>
+
+  <p class="note" style="margin:30px 0 40px" data-i18n="con.disclaimer"></p>
+
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="data/contests.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/contests.js"></script>
+</body>
+</html>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Laboratoire de la Haute Table · Laboratoire d’informatique</title>
-<meta name="description" content="Laboratoire de la Haute Table — exercices multilingues avec débogage, bibliothèque d’algorithmique et d’IA, démonstrations interactives. Site statique, prêt pour GitHub Pages.">
+<meta name="description" content="Laboratoire de la Haute Table — exercices multilingues avec débogage, bibliothèque d’algorithmique et d’IA, démonstrations interactives et guide des concours. Site statique, prêt pour GitHub Pages.">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/modules.css">
 <link rel="icon" href="assets/img/favicon.ico" sizes="any">
@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-title" content="Haute Table">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Laboratoire de la Haute Table · Laboratoire d’informatique">
-<meta property="og:description" content="多语言刷题与调试、算法与 AI 资料索引、可交互的算法演示。纯静态站点，可安装到桌面。">
+<meta property="og:description" content="多语言刷题与调试、算法与 AI 资料索引、可交互的算法演示、竞赛指南。纯静态站点，可安装到桌面。">
 <meta property="og:image" content="assets/img/og-cover.png">
 </head>
 <body>
@@ -38,7 +38,8 @@
       <a href="practice.html" data-i18n="nav.practice">刷题台</a>
       <a href="resources.html" data-i18n="nav.resources">资料库</a>
       <a href="demos.html" data-i18n="nav.demos">演示室</a>
-      <a href="notes.html" data-i18n="nav.notes">数学笔记</a>
+      <a href="contests.html" data-i18n="nav.contests">竞赛</a>
+      <a href="notes.html" data-i18n="nav.notes">笔记</a>
     </nav>
     <div class="header-tools" data-header-tools></div>
   </div>
@@ -70,6 +71,7 @@
         <div class="row hero-actions">
           <a class="btn btn-primary" href="practice.html" data-i18n="home.ctaPrimary">进入刷题台</a>
           <a class="btn" href="demos.html" data-i18n="home.ctaSecondary">看动态演示</a>
+          <a class="btn" href="contests.html" data-i18n="nav.contests">竞赛</a>
           <a class="btn btn-ghost" href="resources.html" data-i18n="nav.resources">资料库</a>
         </div>
       </div>
@@ -93,6 +95,10 @@
             <span class="stat-label" data-i18n="home.statDemos">个交互演示</span>
           </div>
           <div class="stat-line">
+            <span class="stat-num" id="stat-contests">—</span>
+            <span class="stat-label" data-i18n="home.statContests">项赛事</span>
+          </div>
+          <div class="stat-line">
             <span class="stat-num">11</span>
             <span class="stat-label" data-i18n="home.statLangs">种编程语言</span>
           </div>
@@ -105,8 +111,8 @@
   <section class="section wrap">
     <div class="section-head">
       <div>
-        <p class="fig"><b>Fig. 01</b> · Quatre tables</p>
-        <h2 data-i18n="home.modulesTitle">四个工作台</h2>
+        <p class="fig"><b>Fig. 01</b> · Cinq tables</p>
+        <h2 data-i18n="home.modulesTitle">五个工作台</h2>
       </div>
       <span class="spacer"></span>
       <p data-i18n="home.modulesLede"></p>
@@ -133,8 +139,15 @@
         <p data-i18n="home.m3.desc"></p>
         <span class="go" data-i18n="home.go">进入 →</span>
       </a>
-      <a class="module-card" href="index.html#install-block">
+      <a class="module-card" href="contests.html">
         <span class="module-num">04</span>
+        <h3 data-i18n="home.m5.title">竞赛指南</h3>
+        <span class="fr">Concours</span>
+        <p data-i18n="home.m5.desc"></p>
+        <span class="go" data-i18n="home.go">进入 →</span>
+      </a>
+      <a class="module-card" href="index.html#install-block">
+        <span class="module-num">05</span>
         <h3 data-i18n="home.m4.title">安装到桌面</h3>
         <span class="fr">Application locale</span>
         <p data-i18n="home.m4.desc"></p>
@@ -195,6 +208,7 @@
 <script src="data/math-track.js"></script>
 <script src="data/py-track.js"></script>
 <script src="data/resources.js"></script>
+<script src="data/contests.js"></script>
 <script src="assets/js/i18n.js"></script>
 <script src="assets/js/site.js"></script>
 <script>window.LHT.Demos = { list: [], register: function (d) { this.list.push(d); } };</script>
@@ -223,6 +237,7 @@
     put('stat-problems', (window.LHT_PROBLEMS || []).length);
     put('stat-resources', (window.LHT_RESOURCES || []).length);
     put('stat-demos', (window.LHT.Demos && window.LHT.Demos.list ? window.LHT.Demos.list.length : 0));
+    put('stat-contests', (window.LHT_CONTESTS || []).length);
   }
   render();
   var previous = LHT.onLangChange;

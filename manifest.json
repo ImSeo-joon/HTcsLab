@@ -38,6 +38,12 @@
       "short_name": "资料库",
       "url": "./resources.html",
       "icons": [{ "src": "assets/img/mark-96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "竞赛指南",
+      "short_name": "竞赛",
+      "url": "./contests.html",
+      "icons": [{ "src": "assets/img/mark-96.png", "sizes": "96x96" }]
     }
   ]
 }
