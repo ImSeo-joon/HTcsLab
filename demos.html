@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salle des démonstrations · Laboratoire de la Haute Table</title>
+<meta name="description" content="Laboratoire de la Haute Table 演示室：排序、寻路、神经网络决策边界、动态规划填表、二叉搜索树与注意力矩阵的交互演示。">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/modules.css">
+<link rel="icon" href="assets/img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/mark-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#04122b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-title" content="Haute Table">
+<meta property="og:type" content="website">
+<meta property="og:title" content="演示室 · Laboratoire de la Haute Table">
+<meta property="og:image" content="assets/img/og-cover.png">
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="assets/img/mark-wide.png" alt="" width="70" height="32">
+      <span class="brand-name">
+        <span class="brand-fr">Laboratoire de la Haute Table</span>
+        <span class="brand-sub" data-i18n="brand.sub">Laboratoire · 实验室</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="index.html" data-i18n="nav.home">首页</a>
+      <a href="practice.html" data-i18n="nav.practice">刷题台</a>
+      <a href="resources.html" data-i18n="nav.resources">资料库</a>
+      <a href="demos.html" data-i18n="nav.demos">演示室</a>
+      <a href="notes.html" data-i18n="nav.notes">数学笔记</a>
+    </nav>
+    <div class="header-tools" data-header-tools></div>
+  </div>
+</header>
+
+<main id="main" class="wrap" style="padding-top:26px">
+
+  <h1 style="margin:0 0 6px;font-size:1.5rem">
+    <span data-i18n="demos.title">动态演示室</span>
+    <span class="dim" style="font-family:var(--serif);font-size:1rem;font-weight:400"> · Salle des démonstrations</span>
+  </h1>
+  <p class="muted small" style="margin:0 0 20px;max-width:76ch" data-i18n="demos.lede"></p>
+
+  <div class="demo-shell" id="demo-shell">
+
+    <aside class="sidebar">
+      <div class="sidebar-panel">
+        <div class="sidebar-head">
+          <strong style="font-size:14px" data-i18n="demos.pick">选择演示</strong>
+        </div>
+        <div class="demo-nav" id="demo-nav" role="tablist" aria-label="演示列表"></div>
+      </div>
+      <p class="note" style="font-size:12.5px" data-i18n="demos.howto"></p>
+    </aside>
+
+    <div class="demo-stage">
+      <section class="panel" aria-labelledby="demo-title">
+        <div class="panel-head">
+          <h3 id="demo-title">—</h3>
+          <span class="fr" id="demo-fr"></span>
+          <span class="spacer"></span>
+          <span class="badge" id="demo-status"></span>
+        </div>
+        <div class="stage-canvas-wrap">
+          <canvas id="demo-canvas" class="stage" role="img" aria-label="算法演示画布"></canvas>
+        </div>
+        <div class="panel-body">
+          <div class="controls" id="demo-controls"></div>
+          <div class="metrics" id="demo-metrics" style="margin-top:14px"></div>
+          <p class="demo-explain" id="demo-note" style="margin:14px 0 0"></p>
+        </div>
+      </section>
+    </div>
+
+  </div>
+
+  <p class="note" style="margin:24px 0 40px" data-i18n="demos.footerNote"></p>
+
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/demos.js"></script>
+<script src="assets/js/demo-sort.js"></script>
+<script src="assets/js/demo-path.js"></script>
+<script src="assets/js/demo-nn.js"></script>
+<script src="assets/js/demo-dp.js"></script>
+<script src="assets/js/demo-bst.js"></script>
+<script src="assets/js/demo-attn.js"></script>
+<script src="assets/js/demo-gd.js"></script>
+<script src="assets/js/demo-kmeans.js"></script>
+<script src="assets/js/demo-tree.js"></script>
+<script src="assets/js/demo-knn.js"></script>
+<script src="assets/js/demo-pca.js"></script>
+<script src="assets/js/demo-roc.js"></script>
+<script src="assets/js/demo-linalg.js"></script>
+<script src="assets/js/demo-integral.js"></script>
+<script src="assets/js/demo-pylist.js"></script>
+</body>
+</html>

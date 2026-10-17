@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laboratoire de la Haute Table · Laboratoire d’informatique</title>
+<meta name="description" content="Laboratoire de la Haute Table — exercices multilingues avec débogage, bibliothèque d’algorithmique et d’IA, démonstrations interactives. Site statique, prêt pour GitHub Pages.">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/modules.css">
+<link rel="icon" href="assets/img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/mark-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#04122b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-title" content="Haute Table">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Laboratoire de la Haute Table · Laboratoire d’informatique">
+<meta property="og:description" content="多语言刷题与调试、算法与 AI 资料索引、可交互的算法演示。纯静态站点，可安装到桌面。">
+<meta property="og:image" content="assets/img/og-cover.png">
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="assets/img/mark-wide.png" alt="" width="70" height="32">
+      <span class="brand-name">
+        <span class="brand-fr">Laboratoire de la Haute Table</span>
+        <span class="brand-sub" data-i18n="brand.sub">Laboratoire · 实验室</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="index.html" data-i18n="nav.home">首页</a>
+      <a href="practice.html" data-i18n="nav.practice">刷题台</a>
+      <a href="resources.html" data-i18n="nav.resources">资料库</a>
+      <a href="demos.html" data-i18n="nav.demos">演示室</a>
+      <a href="notes.html" data-i18n="nav.notes">数学笔记</a>
+    </nav>
+    <div class="header-tools" data-header-tools></div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+   <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-eyebrow" data-i18n="home.eyebrow">Labo ouvert · 开放实验室</span>
+        <h1 class="hero-title-fr">Laboratoire de la <em>Haute&nbsp;Table</em></h1>
+        <p class="hero-title-zh">Laboratoire d’informatique et d’algorithmique</p>
+        <p class="hero-lede">
+           Un laboratoire d’informatique prêt à l’emploi : résolvez des exercices dans plusieurs langages
+           avec débogage en direct, parcourez une carte de références en algorithmique et en intelligence
+           artificielle, et observez les processus abstraits à travers des démonstrations interactives.
+        </p>
+        <p class="hero-lede-en">
+          A hands-on computer laboratory: solve problems in many languages with live debugging, browse
+          algorithm and AI references as a searchable map, and watch abstract processes unfold through
+          interactive demos.
+        </p>
+        <p class="hero-lede hero-lede-zh">
+          一个可以立刻上手开动的计算机实验室：用多种语言刷题并实时调试，把算法与 AI 的学习资料整理成可检索的地图，
+          再配上能拖动、能暂停、能改参数的动态演示，把抽象过程摊开在桌面上看清楚。
+        </p>
+        <div class="row hero-actions">
+          <a class="btn btn-primary" href="practice.html" data-i18n="home.ctaPrimary">进入刷题台</a>
+          <a class="btn" href="demos.html" data-i18n="home.ctaSecondary">看动态演示</a>
+          <a class="btn btn-ghost" href="resources.html" data-i18n="nav.resources">资料库</a>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <figure class="plate">
+          <img src="assets/img/logo.jpg" alt="Laboratoire de la Haute Table" width="1024" height="1024">
+          <figcaption>Planche I · Marque du laboratoire</figcaption>
+        </figure>
+        <div class="hero-panel-title" data-i18n="home.panelTitle">站点现状</div>
+        <div class="stat-list">
+          <div class="stat-line">
+            <span class="stat-num" id="stat-problems">—</span>
+            <span class="stat-label" data-i18n="home.statProblems">道练习题</span>
+          </div>
+          <div class="stat-line">
+            <span class="stat-num" id="stat-resources">—</span>
+            <span class="stat-label" data-i18n="home.statResources">条资料索引</span>
+          </div>
+          <div class="stat-line">
+            <span class="stat-num" id="stat-demos">—</span>
+            <span class="stat-label" data-i18n="home.statDemos">个交互演示</span>
+          </div>
+          <div class="stat-line">
+            <span class="stat-num">11</span>
+            <span class="stat-label" data-i18n="home.statLangs">种编程语言</span>
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="section-head">
+      <div>
+        <p class="fig"><b>Fig. 01</b> · Quatre tables</p>
+        <h2 data-i18n="home.modulesTitle">四个工作台</h2>
+      </div>
+      <span class="spacer"></span>
+      <p data-i18n="home.modulesLede"></p>
+    </div>
+    <div class="module-grid">
+      <a class="module-card" href="practice.html">
+        <span class="module-num">01</span>
+        <h3 data-i18n="home.m1.title">刷题台</h3>
+        <span class="fr">Table d’exercices</span>
+        <p data-i18n="home.m1.desc"></p>
+        <span class="go" data-i18n="home.go">进入 →</span>
+      </a>
+      <a class="module-card" href="resources.html">
+        <span class="module-num">02</span>
+        <h3 data-i18n="home.m2.title">资料库</h3>
+        <span class="fr">Bibliothèque</span>
+        <p data-i18n="home.m2.desc"></p>
+        <span class="go" data-i18n="home.go">进入 →</span>
+      </a>
+      <a class="module-card" href="demos.html">
+        <span class="module-num">03</span>
+        <h3 data-i18n="home.m3.title">演示室</h3>
+        <span class="fr">Salle des démonstrations</span>
+        <p data-i18n="home.m3.desc"></p>
+        <span class="go" data-i18n="home.go">进入 →</span>
+      </a>
+      <a class="module-card" href="index.html#install-block">
+        <span class="module-num">04</span>
+        <h3 data-i18n="home.m4.title">安装到桌面</h3>
+        <span class="fr">Application locale</span>
+        <p data-i18n="home.m4.desc"></p>
+        <span class="go" data-i18n="home.go">进入 →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="section-head">
+      <div>
+        <p class="fig"><b>Fig. 02</b> · Sous le capot</p>
+        <h2 data-i18n="home.howTitle">这套站是怎么跑起来的</h2>
+      </div>
+    </div>
+    <div class="card">
+      <div class="feature-list">
+        <div class="feature-item">
+          <span class="feature-dot"></span>
+          <div>
+            <h4 data-i18n="home.how1.title">本地直接打开</h4>
+            <p data-i18n="home.how1.desc"></p>
+          </div>
+        </div>
+        <div class="feature-item teal">
+          <span class="feature-dot"></span>
+          <div>
+            <h4 data-i18n="home.how2.title">JS 与 Python 本地执行</h4>
+            <p data-i18n="home.how2.desc"></p>
+          </div>
+        </div>
+        <div class="feature-item violet">
+          <span class="feature-dot"></span>
+          <div>
+            <h4 data-i18n="home.how3.title">其余语言走公共 API</h4>
+            <p data-i18n="home.how3.desc"></p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-dot"></span>
+          <div>
+            <h4 data-i18n="home.how4.title">内容与代码分离</h4>
+            <p data-i18n="home.how4.desc"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<!-- 只加载数据来统计数量；演示模块仅注册自身，不初始化 -->
+<script src="data/problems.js"></script>
+<script src="data/c-track.js"></script>
+<script src="data/hard-track.js"></script>
+<script src="data/math-track.js"></script>
+<script src="data/py-track.js"></script>
+<script src="data/resources.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/site.js"></script>
+<script>window.LHT.Demos = { list: [], register: function (d) { this.list.push(d); } };</script>
+<script src="assets/js/demo-sort.js"></script>
+<script src="assets/js/demo-path.js"></script>
+<script src="assets/js/demo-nn.js"></script>
+<script src="assets/js/demo-dp.js"></script>
+<script src="assets/js/demo-bst.js"></script>
+<script src="assets/js/demo-attn.js"></script>
+<script src="assets/js/demo-gd.js"></script>
+<script src="assets/js/demo-kmeans.js"></script>
+<script src="assets/js/demo-tree.js"></script>
+<script src="assets/js/demo-knn.js"></script>
+<script src="assets/js/demo-pca.js"></script>
+<script src="assets/js/demo-roc.js"></script>
+<script src="assets/js/demo-linalg.js"></script>
+<script src="assets/js/demo-integral.js"></script>
+<script src="assets/js/demo-pylist.js"></script>
+<script>
+(function () {
+  function put(id, value) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = String(value);
+  }
+  function render() {
+    put('stat-problems', (window.LHT_PROBLEMS || []).length);
+    put('stat-resources', (window.LHT_RESOURCES || []).length);
+    put('stat-demos', (window.LHT.Demos && window.LHT.Demos.list ? window.LHT.Demos.list.length : 0));
+  }
+  render();
+  var previous = LHT.onLangChange;
+  LHT.onLangChange = function (lang) {
+    if (typeof previous === 'function') previous(lang);
+    render();
+  };
+})();
+</script>
+</body>
+</html>

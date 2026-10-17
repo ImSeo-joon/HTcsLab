@@ -1,0 +1,43 @@
+{
+  "name": "Laboratoire de la Haute Table · 高桌实验室",
+  "short_name": "Haute Table",
+  "description": "多语言刷题与调试、算法与 AI 资料索引、可交互的算法演示。",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "id": "haute-table-lab",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "browser"],
+  "orientation": "any",
+  "background_color": "#04122b",
+  "theme_color": "#04122b",
+  "categories": ["education", "productivity", "developer"],
+  "icons": [
+    { "src": "assets/img/mark-96.png", "sizes": "96x96", "type": "image/png" },
+    { "src": "assets/img/mark-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/img/mark-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/img/mark-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "assets/img/favicon.ico", "sizes": "16x16 24x24 32x32 48x48 64x64", "type": "image/x-icon" }
+  ],
+  "shortcuts": [
+    {
+      "name": "刷题台",
+      "short_name": "刷题台",
+      "url": "./practice.html",
+      "icons": [{ "src": "assets/img/mark-96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "演示室",
+      "short_name": "演示室",
+      "url": "./demos.html",
+      "icons": [{ "src": "assets/img/mark-96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "资料库",
+      "short_name": "资料库",
+      "url": "./resources.html",
+      "icons": [{ "src": "assets/img/mark-96.png", "sizes": "96x96" }]
+    }
+  ]
+}

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notes · Laboratoire de la Haute Table</title>
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/modules.css">
+<link rel="icon" href="assets/img/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#04122b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+<style>
+  .nb-en { display: none; }
+  html[data-lang="en"] .nb-zh, html[data-lang="fr"] .nb-zh { display: none; }
+  html[data-lang="en"] .nb-en, html[data-lang="fr"] .nb-en,
+  html[data-lang="both"] .nb-en, html[data-lang="both"] .nb-zh { display: block; }
+  html[data-lang="both"] .nb-zh { margin-bottom: 2px; }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="assets/img/mark-wide.png" alt="" width="70" height="32">
+      <span class="brand-name">
+        <span class="brand-fr">Laboratoire de la Haute Table</span>
+        <span class="brand-sub" data-i18n="brand.sub">Laboratoire · 实验室</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="practice.html" data-i18n="nav.practice">Practice</a>
+      <a href="resources.html" data-i18n="nav.resources">Library</a>
+      <a href="demos.html" data-i18n="nav.demos">Demos</a>
+      <a href="notes.html" data-i18n="nav.notes" aria-current="page">Math notes</a>
+    </nav>
+    <div class="header-tools" data-header-tools></div>
+  </div>
+</header>
+
+<main id="main" class="wrap" style="padding-top:26px">
+
+  <h1 style="margin:0 0 6px;font-size:1.5rem">
+    <span class="nb-zh">笔记集合</span><span class="nb-en">Notes</span>
+    <span class="dim" style="font-family:var(--serif);font-size:1rem;font-weight:400"> · Carnet</span>
+  </h1>
+  <p class="muted small nb-zh" style="max-width:76ch">
+    四个子模块：线性代数、微积分、C 语言、Python。每个条目给一句定义、一条关键公式、一个直觉和一个常见错误，全部为本站原创表述。
+  </p>
+  <p class="muted small nb-en" style="max-width:76ch">
+    Four sub-modules: linear algebra, calculus, C and Python. Every card gives a one-line definition, the key formula, an intuition and a common pitfall. All wording is original to this site.
+  </p>
+
+  <div class="row" style="margin:18px 0 4px" id="toc">
+    <a class="btn btn-sm" href="#linalg">线性代数 · Linear algebra</a>
+    <a class="btn btn-sm" href="#calculus">微积分 · Calculus</a>
+    <a class="btn btn-sm" href="#clang">C 语言</a>
+    <a class="btn btn-sm" href="#python">Python</a>
+  </div>
+
+  <div class="fig" id="linalg" style="margin-top:22px"><b>Partie I</b> · Algèbre linéaire / <span class="nb-zh">线性代数</span><span class="nb-en">Linear algebra</span></div>
+  <div class="module-grid">
+    <div class="card">
+      <h3><span class="nb-zh">正交矩阵</span><span class="nb-en">Orthogonal matrices</span></h3>
+      <p class="muted small nb-zh">列向量两两垂直且长度为一；这类变换只旋转、不拉伸，所以长度与角度都不变。</p>
+      <p class="muted small nb-en">Columns are mutually perpendicular and unit length; such maps only rotate, so lengths and angles survive.</p>
+      <pre>QᵀQ = I ⟹ det(Q) = ±1</pre>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">行列式 det(A)</span><span class="nb-en">Determinant det(A)</span></h3>
+      <p class="muted small nb-zh">衡量线性变换对「体积」的缩放倍数；|det| 是倍数，符号表示是否翻转方向。</p>
+      <p class="muted small nb-en">How much a linear map scales volume; |det| is the factor and the sign says whether orientation flips.</p>
+      <pre>det = a(ei−fh) − b(di−fg) + c(dh−eg)</pre>
+      <p class="tiny dim nb-zh">易错：det = 0 说明矩阵不可逆，变换把平面压成一条线。</p>
+      <p class="tiny dim nb-en">Pitfall: det = 0 means the matrix is not invertible — the plane collapses onto a line.</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">矩阵乘法 = 复合变换</span><span class="nb-en">Matrix product = composition</span></h3>
+      <p class="muted small nb-zh">先做 B 再做 A，合起来就是 A·B；次序不能交换。</p>
+      <p class="muted small nb-en">Apply B first, then A — that is A·B, and the order matters.</p>
+      <pre>(AB)[i][j] = Σ_k A[i][k]·B[k][j]</pre>
+      <p class="tiny dim nb-zh">易错：A·B ≠ B·A；只有单位矩阵与所有矩阵可交换。</p>
+      <p class="tiny dim nb-en">Pitfall: A·B ≠ B·A; only the identity commutes with everything.</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">秩与可解性</span><span class="nb-en">Rank and solvability</span></h3>
+      <p class="muted small nb-zh">秩 = 线性无关的列数 = 变换后空间的维数。</p>
+      <p class="muted small nb-en">Rank = number of independent columns = dimension of the image.</p>
+      <pre>rank(A) = n ⟺ Ax = b 唯一解</pre>
+      <p class="tiny dim nb-zh">易错：方程个数多不等于有解，要看增广矩阵的秩。</p>
+      <p class="tiny dim nb-en">Pitfall: more equations does not mean solvable — compare ranks of A and [A|b].</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">特征值 / 特征向量</span><span class="nb-en">Eigenvalues and eigenvectors</span></h3>
+      <p class="muted small nb-zh">特征向量是「变换后方向不变」的方向，特征值是它被拉伸的倍数。</p>
+      <p class="muted small nb-en">An eigenvector keeps its direction under the map; its eigenvalue is the stretch factor.</p>
+      <pre>Av = λv ⟺ (A − λI)v = 0</pre>
+      <p class="tiny dim nb-zh">易错：λ = 0 是合法特征值，意味着该方向被压成零。</p>
+      <p class="tiny dim nb-en">Pitfall: λ = 0 is legitimate — that direction is crushed to zero.</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">正交与投影</span><span class="nb-en">Orthogonality and projection</span></h3>
+      <p class="muted small nb-zh">点积为零即垂直；投影是找「某方向上最接近」的点。</p>
+      <p class="muted small nb-en">Zero dot product means perpendicular; projection finds the closest point along a direction.</p>
+      <pre>proj_a(b) = (a·b / a·a)·a</pre>
+      <p class="tiny dim nb-zh">易错：分母是 a·a，别写成 |a| 漏掉平方。</p>
+      <p class="tiny dim nb-en">Pitfall: the denominator is a·a, not |a|.</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">最小二乘</span><span class="nb-en">Least squares</span></h3>
+      <p class="muted small nb-zh">方程无解时，退而求残差平方和最小的解。</p>
+      <p class="muted small nb-en">When a system has no solution, minimise the sum of squared residuals instead.</p>
+      <pre>AᵀA x̂ = Aᵀb</pre>
+      <p class="tiny dim nb-zh">易错：只要求 AᵀA 可逆（列满秩），不要求 A 可逆。</p>
+      <p class="tiny dim nb-en">Pitfall: we need AᵀA invertible (full column rank), not A itself.</p>
+    </div>
+  </div>
+
+  <div class="fig" id="calculus" style="margin-top:34px"><b>Partie II</b> · Analyse / <span class="nb-zh">微积分</span><span class="nb-en">Calculus</span></div>
+  <div class="module-grid">
+    <div class="card">
+      <h3><span class="nb-zh">单调性与极值</span><span class="nb-en">Monotonicity and extrema</span></h3>
+      <p class="muted small nb-zh">导数正负决定升降：由正变负是极大值，由负变正是极小值；导数为零只是候选点。</p>
+      <p class="muted small nb-en">The sign of f′ decides slope: positive→negative is a maximum, negative→positive a minimum. f′=0 alone is only a candidate.</p>
+      <pre>f′(x)=0 且 f″(x)&lt;0 ⟹ 极大值</pre>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">导数 = 瞬时变化率</span><span class="nb-en">Derivative = instantaneous rate</span></h3>
+      <p class="muted small nb-zh">某点切线的斜率；也等于「输入动一点点，输出变多少」的极限。</p>
+      <p class="muted small nb-en">The slope of the tangent, i.e. the limit of output change per tiny input change.</p>
+      <pre>f′(x) = lim(h→0) [f(x+h) − f(x)] / h</pre>
+      <p class="tiny dim nb-zh">易错：可导必连续，连续不一定可导（如 |x| 在 0 处）。</p>
+      <p class="tiny dim nb-en">Pitfall: differentiable implies continuous, not the reverse (|x| at 0).</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">链式法则</span><span class="nb-en">Chain rule</span></h3>
+      <p class="muted small nb-zh">复合函数求导 = 外层导数 × 内层导数。</p>
+      <p class="muted small nb-en">Differentiating a composition multiplies outer and inner derivatives.</p>
+      <pre>(f∘g)′(x) = f′(g(x))·g′(x)</pre>
+      <p class="tiny dim nb-zh">易错：忘记乘内层导数，是最常见的丢分点。</p>
+      <p class="tiny dim nb-en">Pitfall: forgetting the inner derivative is the classic mistake.</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">定积分 = 累积量</span><span class="nb-en">Definite integral = accumulation</span></h3>
+      <p class="muted small nb-zh">曲线下的有向面积；切细、求和、取极限。</p>
+      <p class="muted small nb-en">Signed area under a curve: chop, sum, take the limit.</p>
+      <pre>∫ₐᵇ f = lim(n→∞) Σ f(xᵢ)·Δx</pre>
+      <p class="tiny dim nb-zh">易错：x 轴下方的面积为负，有向面积不等于几何面积。</p>
+      <p class="tiny dim nb-en">Pitfall: below the axis the contribution is negative; signed area ≠ geometric area.</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">微积分基本定理</span><span class="nb-en">Fundamental theorem</span></h3>
+      <p class="muted small nb-zh">求导与积分互为逆运算，这是能算起来的原因。</p>
+      <p class="muted small nb-en">Differentiation and integration invert each other, which is what makes computation possible.</p>
+      <pre>d/dx ∫ₐˣ f(t)dt = f(x)</pre>
+      <p class="tiny dim nb-zh">易错：上限是 x 的函数时要再乘链式法则的导数。</p>
+      <p class="tiny dim nb-en">Pitfall: with a variable upper limit you must multiply by the chain-rule factor.</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">泰勒展开</span><span class="nb-en">Taylor expansion</span></h3>
+      <p class="muted small nb-zh">用多项式在一点附近逼近函数，阶数越高越贴合。</p>
+      <p class="muted small nb-en">Approximate a function locally with polynomials; higher order hugs it longer.</p>
+      <pre>f(x) ≈ Σ f⁽ᵏ⁾(a)/k! · (x−a)ᵏ</pre>
+      <p class="tiny dim nb-zh">易错：展开只在 a 附近有效，离得越远误差越大。</p>
+      <p class="tiny dim nb-en">Pitfall: the expansion is local — error grows as you move away from a.</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">梯度 = 最速上升方向</span><span class="nb-en">Gradient = steepest ascent</span></h3>
+      <p class="muted small nb-zh">梯度指向函数增长最快的方向，模长是那个方向的变化率。</p>
+      <p class="muted small nb-en">The gradient points uphill; its length is the rate of change in that direction.</p>
+      <pre>∇f = (∂f/∂x, ∂f/∂y, …)</pre>
+      <p class="tiny dim nb-zh">易错：梯度是向量不是数；下降要沿 −∇f 走。</p>
+      <p class="tiny dim nb-en">Pitfall: the gradient is a vector; descend along −∇f.</p>
+    </div>
+  </div>
+
+  <div class="fig" id="clang" style="margin-top:34px"><b>Partie III</b> · Langage C / <span class="nb-zh">C 语言</span><span class="nb-en">The C language</span></div>
+  <div class="module-grid">
+    <div class="card">
+      <h3><span class="nb-zh">const 与指针的位置</span><span class="nb-en">Where const sits</span></h3>
+      <p class="muted small nb-zh">const 修饰的是它右边的东西：`const char *` 是「指向常量的指针」，`char * const` 才是「指针本身不可改」。</p>
+      <p class="muted small nb-en">const binds to what is on its right: `const char *` points to constant data, while `char * const` is a constant pointer.</p>
+      <pre>const char *p;   /* 数据只读 */\nchar * const q;  /* 指针只读 */</pre>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">数组与指针</span><span class="nb-en">Arrays and pointers</span></h3>
+      <p class="muted small nb-zh">数组名在表达式里会退化成指向首元素的指针，但数组本身不是指针：sizeof 与赋值行为都不一样。</p>
+      <p class="muted small nb-en">An array name decays to a pointer in expressions, but it is not a pointer: sizeof and assignment behave differently.</p>
+      <pre>a[i] ≡ *(a + i)</pre>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">栈与堆</span><span class="nb-en">Stack and heap</span></h3>
+      <p class="muted small nb-zh">局部变量在栈上、函数返回即失效；malloc 的内存由你负责 free，返回局部数组的地址是典型错误。</p>
+      <p class="muted small nb-en">Locals live on the stack and die with the call; malloc'd memory is yours to free. Returning the address of a local array is the classic bug.</p>
+      <pre>int *p = malloc(n * sizeof *p);</pre>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">字符串以 '\0' 结尾</span><span class="nb-en">Strings end with '\0'</span></h3>
+      <p class="muted small nb-zh">C 的字符串就是字节数组加一个终止符，长度要自己数；漏掉终止符会让 strlen 越界。</p>
+      <p class="muted small nb-en">A C string is a byte array plus a terminator; you track the length yourself, and a missing terminator sends strlen off the end.</p>
+      <pre>char s[6] = "hello";  /* 5 + '\0' */</pre>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">结构体与内存布局</span><span class="nb-en">Structs and layout</span></h3>
+      <p class="muted small nb-zh">字段之间可能有填充字节，所以 sizeof(结构体) 常常大于各字段之和；比较要用 memcmp 之外的方式。</p>
+      <p class="muted small nb-en">Padding can sit between fields, so sizeof a struct often exceeds the sum of its members — never compare two structs byte by byte.</p>
+      <pre>struct Rec { int id; double score; };</pre>
+    </div>
+  </div>
+
+  <div class="fig" id="python" style="margin-top:34px"><b>Partie IV</b> · Python</div>
+  <div class="module-grid">
+    <div class="card">
+      <h3><span class="nb-zh">推导式与生成式</span><span class="nb-en">Comprehensions and genexps</span></h3>
+      <p class="muted small nb-zh">方括号立刻造出整个列表，圆括号是惰性生成器；条件写在后面做过滤，比 for + append 更短也常更快。</p>
+      <p class="muted small nb-en">Square brackets build the whole list at once; parentheses give a lazy generator. A trailing if filters, and it is shorter (often faster) than for + append.</p>
+      <pre>[x*x for x in a if x % 2]</pre>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">异常处理的三段式</span><span class="nb-en">try / except / else / finally</span></h3>
+      <p class="muted small nb-zh">try 放可能出错的语句，except 只捕获明确列出的异常类型；else 在没有异常时执行，finally 无论如何都执行。</p>
+      <p class="muted small nb-en">try holds the risky call, except names the exact exception types to catch, else runs when nothing failed, and finally always runs.</p>
+      <pre>except (ValueError, ZeroDivisionError) as e:</pre>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">可变与不可变</span><span class="nb-en">Mutable vs immutable</span></h3>
+      <p class="muted small nb-zh">int、str、tuple 不可变，list、dict、set 可变；「变量」绑定的是对象，赋值只是换绑。</p>
+      <p class="muted small nb-en">int, str and tuple are immutable; list, dict and set are not. A name binds to an object, and assignment only rebinds it.</p>
+      <pre>a = [1]; b = a; b.append(2)  # a 也变了</pre>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">四种容器怎么选</span><span class="nb-en">Choosing a container</span></h3>
+      <p class="muted small nb-zh">按顺序访问用 list，按键查找用 dict，去重与集合运算用 set，固定记录用 tuple。</p>
+      <p class="muted small nb-en">list for order, dict for lookup by key, set for uniqueness and set algebra, tuple for a fixed record.</p>
+      <pre>d.get(key, default)  # 不抛 KeyError</pre>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">默认参数只求值一次</span><span class="nb-en">Default arguments evaluate once</span></h3>
+      <p class="muted small nb-zh">def f(x, acc=[]) 里的空列表在定义时就创建了，多次调用会共享同一个——要用 None 当哨兵。</p>
+      <p class="muted small nb-en">The [] in def f(x, acc=[]) is created once at definition time and shared across calls — use None as the sentinel.</p>
+      <pre>def f(x, acc=None): acc = acc or []</pre>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">生成器与惰性求值</span><span class="nb-en">Generators and laziness</span></h3>
+      <p class="muted small nb-zh">yield 让函数变成迭代器，一次只产出一个值，适合大文件与无限序列；它只能遍历一次。</p>
+      <p class="muted small nb-en">yield turns a function into a one-pass iterator producing values on demand — ideal for big files and infinite sequences.</p>
+      <pre>def nat(): n = 0\n    while True: yield n; n += 1</pre>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:30px">
+    <h3 style="margin-top:0"><span class="nb-zh">怎么配合刷题用</span><span class="nb-en">Using these notes with the practice table</span></h3>
+    <p class="muted small nb-zh" style="margin:0 0 8px">带「线性代数」「微积分」标签的题目正好各对应上面的条目。</p>
+    <p class="muted small nb-en" style="margin:0 0 8px">Problems tagged Linear algebra and Calculus map one-to-one onto the cards above.</p>
+    <div class="row">
+      <a class="btn btn-sm" href="practice.html">行列式 / 矩阵乘法 / 点积 / 高斯消元</a>
+      <a class="btn btn-sm" href="practice.html">多项式求导 / 梯形法积分</a>
+      <a class="btn btn-sm" href="demos.html#linalg">线性变换演示</a>
+      <a class="btn btn-sm" href="demos.html#integral">积分演示</a>
+    </div>
+    <p class="note nb-zh" style="margin:16px 0 0">这些笔记是自学的骨架，不替代教材。想深挖的概念，去资料库找对应的公开课与书目条目。</p>
+    <p class="note nb-en" style="margin:16px 0 0">These notes are a skeleton for self-study, not a textbook replacement. Follow the library entries for courses and books to go deeper.</p>
+  </div>
+
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

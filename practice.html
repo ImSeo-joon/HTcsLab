@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Table d’exercices · Laboratoire de la Haute Table</title>
+<meta name="description" content="Laboratoire de la Haute Table 刷题台：多种语言在线写代码、跑测试用例，并查看输出、耗时与变量快照。">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/modules.css">
+<link rel="icon" href="assets/img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/mark-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#04122b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-title" content="Haute Table">
+<meta property="og:type" content="website">
+<meta property="og:title" content="刷题台 · Laboratoire de la Haute Table">
+<meta property="og:image" content="assets/img/og-cover.png">
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="assets/img/mark-wide.png" alt="" width="70" height="32">
+      <span class="brand-name">
+        <span class="brand-fr">Laboratoire de la Haute Table</span>
+        <span class="brand-sub" data-i18n="brand.sub">Laboratoire · 实验室</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="index.html" data-i18n="nav.home">首页</a>
+      <a href="practice.html" data-i18n="nav.practice">刷题台</a>
+      <a href="resources.html" data-i18n="nav.resources">资料库</a>
+      <a href="demos.html" data-i18n="nav.demos">演示室</a>
+      <a href="notes.html" data-i18n="nav.notes">数学笔记</a>
+    </nav>
+    <div class="header-tools" data-header-tools></div>
+  </div>
+</header>
+
+<main id="main" class="wrap" style="padding-top:26px">
+
+  <div class="row row-between" style="margin-bottom:18px">
+    <div>
+      <h1 style="margin:0 0 4px;font-size:1.5rem">
+        <span data-i18n="practice.title">刷题台</span>
+        <span class="dim" style="font-family:var(--serif);font-size:1rem;font-weight:400"> · Table d’exercices</span>
+      </h1>
+      <p class="muted small" style="margin:0;max-width:70ch" data-i18n="practice.lede"></p>
+    </div>
+  </div>
+
+  <div class="practice-shell">
+
+    <aside class="sidebar">
+      <div class="sidebar-panel">
+        <div class="sidebar-head">
+          <div class="row row-between">
+            <strong style="font-size:14px" data-i18n="practice.filter">筛选</strong>
+            <span class="lib-count" id="problem-count"></span>
+          </div>
+          <input type="search" id="problem-search" autocomplete="off" data-i18n-placeholder="practice.search">
+          <div class="filter-row" id="diff-filters"></div>
+          <div class="filter-row" id="tag-filters"></div>
+        </div>
+        <div class="problem-list" id="problem-list" role="listbox" aria-label="题目列表"></div>
+      </div>
+    </aside>
+
+    <div class="practice-main">
+
+      <section class="panel" aria-labelledby="statement-heading">
+        <div class="panel-head">
+          <h3 id="statement-heading" data-i18n="practice.statement">题目描述</h3>
+          <span class="fr">Énoncé</span>
+          <span class="spacer"></span>
+          <span id="statement-demo"></span>
+        </div>
+        <div class="panel-body" id="statement-body"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="editor-heading">
+        <div class="panel-head editor-head">
+          <h3 id="editor-heading" data-i18n="practice.editor">代码编辑器</h3>
+          <span class="spacer grow"></span>
+          <label class="visually-hidden" for="lang-select" data-i18n="practice.language">语言</label>
+          <select id="lang-select" style="width:auto;min-width:132px"></select>
+          <button type="button" class="btn btn-sm" id="btn-template" data-i18n="practice.loadTemplate">载入模板</button>
+          <button type="button" class="btn btn-sm" id="btn-solution" data-i18n="practice.showSolution">查看参考解</button>
+        </div>
+        <div class="editor-shell">
+          <div id="editor-host" class="editor-host"></div>
+        </div>
+        <div class="panel-body-tight row row-between" style="border-top:1px solid var(--border)">
+          <div class="runner-note">
+            <span class="badge" id="runner-badge">…</span>
+            <span id="runner-note"></span>
+          </div>
+          <div class="row row-tight">
+            <button type="button" class="btn" id="btn-run-sample" data-i18n="practice.runSample">运行样例</button>
+            <button type="button" class="btn btn-primary" id="btn-run-all" data-i18n="practice.runAll">运行全部测试</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="result-heading">
+        <div class="tabbar" role="tablist" aria-label="运行结果">
+          <h3 id="result-heading" class="visually-hidden" data-i18n="practice.result">运行结果</h3>
+          <button type="button" role="tab" id="tab-tests" aria-controls="panel-tests" aria-selected="true">
+            <span data-i18n="practice.tabTests">测试用例</span><span class="count" id="count-tests"></span>
+          </button>
+          <button type="button" role="tab" id="tab-debug" aria-controls="panel-debug" aria-selected="false">
+            <span data-i18n="practice.tabDebug">调试预览</span>
+          </button>
+          <button type="button" role="tab" id="tab-vars" aria-controls="panel-vars" aria-selected="false">
+            <span data-i18n="practice.tabVars">变量快照</span><span class="count" id="count-vars"></span>
+          </button>
+        </div>
+        <div class="tabpanel" id="panel-tests" role="tabpanel" aria-labelledby="tab-tests">
+          <div id="tests-body"></div>
+        </div>
+        <div class="tabpanel" id="panel-debug" role="tabpanel" aria-labelledby="tab-debug" hidden>
+          <div id="debug-body"></div>
+        </div>
+        <div class="tabpanel" id="panel-vars" role="tabpanel" aria-labelledby="tab-vars" hidden>
+          <div id="vars-body"></div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <p class="note" style="margin:22px 0 40px" data-i18n="practice.answerNote"></p>
+
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="data/problems.js"></script>
+<script src="data/c-track.js"></script>
+<script src="data/hard-track.js"></script>
+<script src="data/math-track.js"></script>
+<script src="data/py-track.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/sandbox.js"></script>
+<script src="assets/js/practice.js"></script>
+</body>
+</html>
