@@ -83,6 +83,63 @@
     return Math.max(min, Math.min(max, value));
   }
 
+  function makeSeed() {
+    return (Date.now().toString(36) + Math.random().toString(36).slice(2, 6))
+      .toUpperCase().slice(-8);
+  }
+
+  function hashSeed(text) {
+    var hash = 2166136261;
+    for (var i = 0; i < text.length; i++) {
+      hash ^= text.charCodeAt(i);
+      hash = Math.imul(hash, 16777619);
+    }
+    return hash >>> 0;
+  }
+
+  function makeRng(seed) {
+    var value = hashSeed(String(seed));
+    return function () {
+      value |= 0;
+      value = value + 0x6D2B79F5 | 0;
+      var t = Math.imul(value ^ value >>> 15, 1 | value);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+
+  function validEventOrder(list) {
+    for (var i = 2; i < list.length; i++) {
+      if (list[i].target === list[i - 1].target && list[i].target === list[i - 2].target) return false;
+      if (list[i].type === list[i - 1].type && list[i].type === list[i - 2].type) return false;
+    }
+    return true;
+  }
+
+  function orderEvents(events, rng) {
+    if (!events || events.length < 4) return (events || []).slice();
+    var first = events[0];
+    var last = events[events.length - 1];
+    var middle = events.slice(1, -1);
+    var chosen = null;
+
+    for (var attempt = 0; attempt < 80; attempt++) {
+      var working = middle.slice();
+      for (var i = working.length - 1; i > 0; i--) {
+        var j = Math.floor(rng() * (i + 1));
+        var tmp = working[i];
+        working[i] = working[j];
+        working[j] = tmp;
+      }
+      if (validEventOrder([first].concat(working, [last]))) {
+        chosen = working;
+        break;
+      }
+    }
+
+    return [first].concat(chosen || middle, [last]);
+  }
+
   function scenarioById(id) {
     for (var i = 0; i < SCENARIOS.length; i++) {
       if (SCENARIOS[i].id === id) return SCENARIOS[i];
@@ -115,7 +172,7 @@
 
   function currentEvent() {
     if (!state) return null;
-    return state.scenario.events[state.round] || null;
+    return state.events[state.round] || null;
   }
 
   function typeKey(type) {
@@ -256,10 +313,12 @@
 
   /* ---------- 游戏初始化 ---------- */
 
-  function startScenario(id) {
+  function startScenario(id, seed) {
     var scenario = scenarioById(id);
     if (!scenario) return;
     var isAttack = currentMode === 'attack';
+    var runSeed = seed || makeSeed();
+    var events = orderEvents(scenario.events, makeRng(runSeed));
 
     var nodes = scenario.nodes.map(function (node) {
       var defense = node.defense || { patch: 0, segment: 0, monitor: 0, backup: false };
@@ -289,6 +348,8 @@
     state = {
       mode: currentMode,
       scenario: scenario,
+      seed: runSeed,
+      events: events,
       round: 0,
       turn: 0,
       budget: scenario.budget,
@@ -306,6 +367,7 @@
       codeBonus: false
     };
 
+    pushLog('info', 'battle.logSeed', { seed: runSeed }, 1);
     pushLog(isAttack ? 'attack' : 'info',
       isAttack ? 'battle.logAttackStart' : 'battle.logStart',
       { scenario: scenario.id }, 1);
@@ -459,10 +521,20 @@
     if (!event) {
       hint = LHT.esc(t('battle.noEvent'));
     } else if (monitor >= 3) {
-      hint = '<b>' + LHT.esc(t('battle.targetKnown')) + ' · ' + LHT.esc(nodeName(event.target)) + '</b><br>' +
+      hint = '<b>' + LHT.esc(t('battle.targetKnown')) + ' · ' + LHT.esc(nodeName(event.target)) +
+        ' · ' + LHT.esc(t(typeKey(event.type))) + '</b><br>' +
         LHT.pick(event.hint);
-    } else if (monitor >= 1) {
+    } else if (monitor >= 2) {
       hint = LHT.pick(event.hint);
+    } else if (monitor >= 1) {
+      var targetNode = nodeById(event.target);
+      var vagueType = 'battle.vague' + event.type.charAt(0).toUpperCase() + event.type.slice(1);
+      var prefix = t(hashSeed(state.seed + ':' + state.round + ':prefix') % 2
+        ? 'battle.vaguePrefix2'
+        : 'battle.vaguePrefix1');
+      var scope = t(targetNode && targetNode.critical ? 'battle.vagueCore' : 'battle.vagueEdge');
+      var sep = LHT.lang === 'both' ? '' : ' ';
+      hint = LHT.esc(prefix + sep + t(vagueType) + sep + scope);
     } else {
       hint = LHT.esc(t('battle.noIntel'));
     }
@@ -802,6 +874,11 @@
       '<b>' + display + '</b></div>';
   }
 
+  function seedHtml() {
+    return '<p class="battle-seed"><span class="k">' + LHT.esc(t('battle.seed')) + '</span>' +
+      ' <code>' + LHT.esc(state.seed) + '</code></p>';
+  }
+
   function renderResult() {
     if (state.mode === 'attack') renderAttackResult();
     else renderDefenseResult();
@@ -834,8 +911,10 @@
         breakdownRow(t('battle.detection'), detection, detection) +
         breakdownRow(t('battle.penalty'), penalty, '-' + penalty, true) +
       '</div>' +
+      seedHtml() +
       '<div class="battle-result-actions">' +
         '<button type="button" class="btn btn-primary" id="battle-again">' + LHT.esc(t('battle.again')) + '</button>' +
+        '<button type="button" class="btn btn-ghost" id="battle-same">' + LHT.esc(t('battle.sameSeed')) + '</button>' +
         '<button type="button" class="btn" id="battle-change">' + LHT.esc(t('battle.changeScenario')) + '</button>' +
       '</div>' +
       '<h3 class="battle-log-title">' + LHT.esc(t('battle.lastLog')) + '</h3>' +
@@ -871,8 +950,10 @@
         breakdownRow(t('battle.criticalDamage'), damagePct, damagePct + '%') +
         breakdownRow(t('battle.apLeft'), apPct, state.ap) +
       '</div>' +
+      seedHtml() +
       '<div class="battle-result-actions">' +
         '<button type="button" class="btn btn-primary" id="battle-again">' + LHT.esc(t('battle.again')) + '</button>' +
+        '<button type="button" class="btn btn-ghost" id="battle-same">' + LHT.esc(t('battle.sameSeed')) + '</button>' +
         '<button type="button" class="btn" id="battle-change">' + LHT.esc(t('battle.changeScenario')) + '</button>' +
       '</div>' +
       '<h3 class="battle-log-title">' + LHT.esc(t('battle.lastLog')) + '</h3>' +
@@ -1063,6 +1144,8 @@
     els.resultBody.addEventListener('click', function (event) {
       if (event.target.closest('#battle-again')) {
         startScenario(state.scenario.id);
+      } else if (event.target.closest('#battle-same')) {
+        startScenario(state.scenario.id, state.seed);
       } else if (event.target.closest('#battle-change')) {
         state = null;
         els.pick.hidden = false;

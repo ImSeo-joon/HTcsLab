@@ -954,6 +954,16 @@ html[data-lang="both"] .hero-lede-zh { display: block; }
 }
 .battle-log-title { margin: 18px 0 8px; font-size: 14px; }
 .battle-log-result { max-height: none; }
+.battle-seed { margin: 14px 0 0; font-size: 11.5px; color: var(--fg-dim); }
+.battle-seed .k {
+  margin-right: 7px; font-family: var(--mono); font-size: 9.5px;
+  letter-spacing: .08em; text-transform: uppercase;
+}
+.battle-seed code {
+  padding: 2px 6px; border-radius: 6px;
+  font-family: var(--mono); font-size: 10.5px; color: var(--gold);
+  background: var(--gold-soft); border: 1px solid var(--gold-line);
+}
 .battle-score-attack {
   border-color: color-mix(in srgb, var(--danger) 45%, transparent);
   background: var(--danger-soft);
@@ -1067,6 +1077,7 @@ html[data-lang="both"] .battle-page .battle-code-hint { font-size: 11.1px; }
 html[data-lang="both"] .battle-page .battle-tutorial { font-size: 12.2px; }
 html[data-lang="both"] .battle-page .battle-rating-name { font-size: 17px; }
 html[data-lang="both"] .battle-page .battle-rating-desc { font-size: 12.5px; }
+html[data-lang="both"] .battle-page .battle-seed { font-size: 11px; }
 html[data-lang="both"] .battle-page .breakdown-row { font-size: 11.7px; }
 html[data-lang="both"] .battle-page .battle-result-head h2 { font-size: 1.35rem; }
 html[data-lang="both"] .battle-page .node-label { font-size: 11.4px; }
