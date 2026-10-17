@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Collaborations · Laboratoire de la Haute Table</title>
+<meta name="description" content="Laboratoire de la Haute Table — index public de groupes de recherche et de programmes : résumés originaux, profils publics des responsables, liens officiels et avertissements de vérification.">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/modules.css">
+<link rel="icon" href="assets/img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/mark-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#04122b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-title" content="Haute Table">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Collaborations · Laboratoire de la Haute Table">
+<meta property="og:image" content="assets/img/og-cover.png">
+</head>
+<body class="collab-page">
+
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="assets/img/mark-wide.png" alt="" width="70" height="32">
+      <span class="brand-name">
+        <span class="brand-fr">Laboratoire de la Haute Table</span>
+        <span class="brand-sub" data-i18n="brand.sub">Laboratoire · 实验室</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="index.html" data-i18n="nav.home">首页</a>
+      <a href="practice.html" data-i18n="nav.practice">刷题台</a>
+      <a href="resources.html" data-i18n="nav.resources">资料库</a>
+      <a href="demos.html" data-i18n="nav.demos">演示室</a>
+      <a href="contests.html" data-i18n="nav.contests">竞赛</a>
+      <a href="collabs.html" data-i18n="nav.collab">合作</a>
+      <a href="battle.html" data-i18n="nav.battle">攻防战</a>
+      <a href="notes.html" data-i18n="nav.notes">笔记</a>
+    </nav>
+    <div class="header-tools" data-header-tools></div>
+  </div>
+</header>
+
+<main id="main" class="wrap" style="padding-top:26px">
+
+  <p class="fig" style="margin-bottom:6px"><b>Fig. 14</b> · Collaborations</p>
+  <h1 style="margin:0 0 6px;font-size:1.5rem">
+    <span data-i18n="collab.title">合作咨询</span>
+    <span class="dim" style="font-family:var(--serif);font-size:1rem;font-weight:400" data-i18n="collab.h1fr"> · Collaborations</span>
+  </h1>
+  <p class="muted small" style="margin:0 0 18px;max-width:82ch" data-i18n="collab.lede"></p>
+
+  <div class="collab-notice">
+    <div class="collab-notice-head">
+      <span class="badge badge-warn" data-i18n="collab.noticeBadge">公开信息索引</span>
+      <b data-i18n="collab.noticeTitle">不是中介，也不代收申请</b>
+    </div>
+    <p data-i18n="collab.noticeBody"></p>
+  </div>
+
+  <section style="margin:32px 0 0">
+    <div class="section-head">
+      <div>
+        <p class="fig"><b>Fig. 15</b> · Mentors</p>
+        <h2 data-i18n="collab.mentorsTitle">导师速览</h2>
+      </div>
+      <span class="spacer"></span>
+      <p data-i18n="collab.mentorsLede"></p>
+    </div>
+    <div class="mentor-grid" id="collab-mentors"></div>
+  </section>
+
+  <section style="margin:36px 0 0">
+    <div class="section-head">
+      <div>
+        <p class="fig"><b>Fig. 16</b> · Index</p>
+        <h2 data-i18n="collab.indexTitle">公开项目索引</h2>
+      </div>
+      <span class="spacer"></span>
+      <p data-i18n="collab.indexLede"></p>
+    </div>
+    <p style="margin:-6px 0 12px"><a class="detail-link" href="#paper-guide" data-i18n="collab.paperJump">先看论文指引 ↓</a></p>
+
+    <div class="library-bar collab-bar">
+      <div class="field">
+        <label for="collab-search" data-i18n="collab.searchLabel">关键词</label>
+        <input type="search" id="collab-search" autocomplete="off" data-i18n-placeholder="collab.search">
+      </div>
+      <div class="field">
+        <label for="collab-region" data-i18n="collab.region">地区</label>
+        <select id="collab-region"></select>
+      </div>
+      <div class="field">
+        <label for="collab-field" data-i18n="collab.field">方向</label>
+        <select id="collab-field"></select>
+      </div>
+      <div class="field">
+        <label for="collab-level" data-i18n="collab.level">阶段</label>
+        <select id="collab-level"></select>
+      </div>
+      <div class="field">
+        <label for="collab-type" data-i18n="collab.type">类型</label>
+        <select id="collab-type"></select>
+      </div>
+      <div class="field">
+        <label for="collab-sort" data-i18n="collab.sortBy">排序</label>
+        <select id="collab-sort"></select>
+      </div>
+    </div>
+
+    <div class="row row-between" style="margin:14px 0">
+      <span class="lib-count" id="collab-count"></span>
+      <button type="button" class="btn btn-sm btn-ghost" id="collab-clear" data-i18n="collab.clear">清空筛选</button>
+    </div>
+
+    <div class="collab-grid" id="collab-grid"></div>
+  </section>
+
+  <section id="paper-guide" style="margin:38px 0 0">
+    <div class="section-head">
+      <div>
+        <p class="fig"><b>Fig. 17</b> · Papers</p>
+        <h2 data-i18n="collab.paperTitle">论文指引</h2>
+      </div>
+      <span class="spacer"></span>
+      <p data-i18n="collab.paperLede"></p>
+    </div>
+    <div class="paper-grid">
+      <article class="paper-card">
+        <span class="step-num">01</span>
+        <h3 data-i18n="collab.paper1Title">先找对论文</h3>
+        <p data-i18n="collab.paper1Desc"></p>
+        <div class="paper-links">
+          <a href="https://scholar.google.com/" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          <a href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">arXiv</a>
+          <a href="https://dblp.org/" target="_blank" rel="noopener noreferrer">DBLP</a>
+          <a href="https://www.semanticscholar.org/" target="_blank" rel="noopener noreferrer">Semantic Scholar</a>
+          <a href="https://paperswithcode.com/" target="_blank" rel="noopener noreferrer">Papers with Code</a>
+        </div>
+      </article>
+      <article class="paper-card">
+        <span class="step-num">02</span>
+        <h3 data-i18n="collab.paper2Title">三遍读法</h3>
+        <p data-i18n="collab.paper2Desc"></p>
+      </article>
+      <article class="paper-card">
+        <span class="step-num">03</span>
+        <h3 data-i18n="collab.paper3Title">写一页阅读单</h3>
+        <p data-i18n="collab.paper3Desc"></p>
+      </article>
+      <article class="paper-card">
+        <span class="step-num">04</span>
+        <h3 data-i18n="collab.paper4Title">从论文到联系</h3>
+        <p data-i18n="collab.paper4Desc"></p>
+      </article>
+    </div>
+    <div class="paper-template">
+      <div class="paper-template-head">
+        <h3 data-i18n="collab.paperTemplateTitle">一页阅读单模板</h3>
+        <button type="button" class="btn btn-sm" id="collab-copy-template" data-i18n="collab.copyTemplate">复制模板</button>
+      </div>
+      <pre id="collab-template"></pre>
+    </div>
+  </section>
+
+  <section style="margin:38px 0 0">
+    <div class="section-head">
+      <div>
+        <p class="fig"><b>Fig. 18</b> · Méthode</p>
+        <h2 data-i18n="collab.howTitle">怎么联系，才不浪费双方时间</h2>
+      </div>
+      <span class="spacer"></span>
+      <p data-i18n="collab.howLede"></p>
+    </div>
+    <div class="collab-steps">
+      <article class="collab-step"><span class="step-num">01</span><h3 data-i18n="collab.how1Title"></h3><p data-i18n="collab.how1Desc"></p></article>
+      <article class="collab-step"><span class="step-num">02</span><h3 data-i18n="collab.how2Title"></h3><p data-i18n="collab.how2Desc"></p></article>
+      <article class="collab-step"><span class="step-num">03</span><h3 data-i18n="collab.how3Title"></h3><p data-i18n="collab.how3Desc"></p></article>
+      <article class="collab-step"><span class="step-num">04</span><h3 data-i18n="collab.how4Title"></h3><p data-i18n="collab.how4Desc"></p></article>
+    </div>
+  </section>
+
+  <section class="collab-disclaimer" style="margin:36px 0 44px">
+    <div class="section-head">
+      <div>
+        <p class="fig"><b>Fig. 19</b> · Avertissement</p>
+        <h2 data-i18n="collab.disclaimerTitle">声明与信息来源</h2>
+      </div>
+    </div>
+    <p data-i18n="collab.disclaimerBody"></p>
+    <p class="muted small" data-i18n="collab.disclaimerSource"></p>
+    <p class="small dim">
+      <span data-i18n="collab.lastUpdated">最后更新</span>：2026-10 ·
+      <a href="https://github.com/imseo-joon/HTcsLab/issues" target="_blank" rel="noopener noreferrer" data-i18n="collab.report">提交纠错</a>
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="data/collabs.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/collabs.js"></script>
+</body>
+</html>

@@ -230,6 +230,7 @@
       ['resources.html', 'nav.resources'],
       ['demos.html', 'nav.demos'],
       ['contests.html', 'nav.contests'],
+      ['collabs.html', 'nav.collab'],
       ['battle.html', 'nav.battle'],
       ['notes.html', 'nav.notes']
     ];
