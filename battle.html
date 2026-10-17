@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Défense · Laboratoire de la Haute Table</title>
+<meta name="description" content="Laboratoire de la Haute Table — exercice de cybersécurité en solo : deux modes, défense bleue et attaque rouge, topologie fictive, budget ou points d’action, scripts de détection et débriefing.">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/modules.css">
+<link rel="icon" href="assets/img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/mark-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#04122b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-title" content="Haute Table">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Défense · Laboratoire de la Haute Table">
+<meta property="og:image" content="assets/img/og-cover.png">
+</head>
+<body class="battle-page">
+
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="assets/img/mark-wide.png" alt="" width="70" height="32">
+      <span class="brand-name">
+        <span class="brand-fr">Laboratoire de la Haute Table</span>
+        <span class="brand-sub" data-i18n="brand.sub">Laboratoire · 实验室</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="index.html" data-i18n="nav.home">首页</a>
+      <a href="practice.html" data-i18n="nav.practice">刷题台</a>
+      <a href="resources.html" data-i18n="nav.resources">资料库</a>
+      <a href="demos.html" data-i18n="nav.demos">演示室</a>
+      <a href="contests.html" data-i18n="nav.contests">竞赛</a>
+      <a href="battle.html" data-i18n="nav.battle">攻防战</a>
+      <a href="notes.html" data-i18n="nav.notes">笔记</a>
+    </nav>
+    <div class="header-tools" data-header-tools></div>
+  </div>
+</header>
+
+<main id="main" class="wrap" style="padding-top:26px">
+
+  <p class="fig" style="margin-bottom:6px"><b>Fig. 11</b> · Salle de défense</p>
+  <h1 style="margin:0 0 6px;font-size:1.5rem">
+    <span data-i18n="battle.title">攻防战</span>
+    <span class="dim" style="font-family:var(--serif);font-size:1rem;font-weight:400" data-i18n="battle.h1fr"> · Salle de défense</span>
+  </h1>
+  <p class="muted small" style="margin:0 0 22px;max-width:80ch" data-i18n="battle.lede"></p>
+
+  <div class="battle-mode" id="battle-mode" role="group" aria-label="演练模式">
+    <button type="button" data-mode="defense" aria-pressed="true" data-i18n="battle.modeDefense">蓝队 · 防守</button>
+    <button type="button" data-mode="attack" aria-pressed="false" data-i18n="battle.modeAttack">红队 · 进攻</button>
+  </div>
+
+  <section id="battle-pick">
+    <div class="section-head">
+      <div>
+        <p class="fig"><b>Fig. 12</b> · Scénarios</p>
+        <h2 data-i18n="battle.pickTitle">选择演练场景</h2>
+      </div>
+      <span class="spacer"></span>
+      <p data-i18n="battle.pickLede"></p>
+    </div>
+    <div class="cat-strip" id="battle-levels" style="margin-bottom:12px"></div>
+    <div class="scenario-grid" id="battle-scenarios"></div>
+    <p class="note battle-tutorial" id="battle-tutorial" data-i18n="battle.tutorialDefense"></p>
+  </section>
+
+  <section id="battle-game" hidden>
+    <div class="battle-top" id="battle-top"></div>
+    <div class="battle-shell">
+      <div class="battle-board">
+        <div class="battle-intel" id="battle-intel"></div>
+        <div class="battle-canvas" id="battle-canvas"></div>
+        <div class="battle-legend" data-i18n="battle.legend"></div>
+      </div>
+      <aside class="battle-side">
+        <div class="battle-panel" id="battle-node"></div>
+        <div class="battle-panel">
+          <h3 id="battle-actions-title" data-i18n="battle.actions">防御动作</h3>
+          <div class="battle-actions" id="battle-actions"></div>
+          <details class="battle-help">
+            <summary data-i18n="battle.help">动作说明</summary>
+            <ul id="battle-help-list"></ul>
+          </details>
+          <button type="button" class="btn btn-primary battle-end" id="battle-end" data-i18n="battle.endRound">结束回合</button>
+        </div>
+        <details class="battle-panel battle-code" id="battle-code">
+          <summary>
+            <span id="battle-code-title" data-i18n="battle.codeTitle">代码演练</span>
+            <span class="battle-code-badge" data-i18n="battle.codeOptional">可选</span>
+          </summary>
+          <p class="battle-code-hint" id="battle-code-hint" data-i18n="battle.codeHint"></p>
+          <textarea id="battle-code-src" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+          <div class="battle-code-row">
+            <button type="button" class="btn btn-sm btn-primary" id="battle-code-run" data-i18n="battle.codeRun">运行脚本</button>
+            <span class="battle-code-status" id="battle-code-status"></span>
+          </div>
+          <pre class="battle-code-out" id="battle-code-out"></pre>
+        </details>
+        <div class="battle-panel">
+          <h3 data-i18n="battle.log">行动日志</h3>
+          <div class="battle-log" id="battle-log"></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="battle-result" hidden>
+    <div id="battle-result-body"></div>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="data/battle-scenarios.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/sandbox.js"></script>
+<script src="assets/js/battle.js"></script>
+</body>
+</html>

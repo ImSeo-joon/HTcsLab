@@ -230,6 +230,7 @@
       ['resources.html', 'nav.resources'],
       ['demos.html', 'nav.demos'],
       ['contests.html', 'nav.contests'],
+      ['battle.html', 'nav.battle'],
       ['notes.html', 'nav.notes']
     ];
     var html = '' +
