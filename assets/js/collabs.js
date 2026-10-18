@@ -257,6 +257,7 @@
       '<div class="collab-meta">' +
         '<span class="badge">' + LHT.esc(labelOf(REGIONS, item.region)) + '</span>' +
         (item.tier ? '<span class="badge badge-gold">' + LHT.esc(item.tier) + '</span>' : '') +
+        (item.kind ? '<span class="badge badge-teal">' + LHT.esc(LHT.t('collab.kind' + item.kind.charAt(0).toUpperCase() + item.kind.slice(1))) + '</span>' : '') +
         '<span class="badge badge-warn">' + LHT.esc(LHT.t('collab.statusCheck')) + '</span>' +
       '</div>' +
       '<div class="collab-tags">' +

@@ -15,7 +15,7 @@
 'use strict';
 
 /* 改了资源后把这个版本号加一，客户端会整体换新缓存 */
-var CACHE_VERSION = 'v8';
+var CACHE_VERSION = 'v9';
 var CACHE = 'haute-table-lab-' + CACHE_VERSION;
 
 var SHELL = [

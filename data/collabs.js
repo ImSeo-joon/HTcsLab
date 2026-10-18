@@ -2086,5 +2086,593 @@ window.LHT_COLLABS = [
     source: { url: 'https://xxxy.jnu.edu.cn/', label: { zh: 'JNU 信息学院', en: 'JNU College of Information Science' } },
     updated: '2026-10',
     status: 'check'
+  },
+  {
+    id: 'cas-ict',
+    institution: { zh: '中国科学院计算技术研究所', en: 'Institute of Computing Technology, Chinese Academy of Sciences' },
+    unit: { zh: '计算技术研究所 (ICT)', en: 'Institute of Computing Technology (ICT)' },
+    region: 'cn',
+    kind: 'institute',
+    fields: ['ai', 'systems', 'theory'],
+    levels: ['master', 'phd', 'visiting'],
+    types: ['research', 'phd', 'joint'],
+    language: ['zh', 'en'],
+    funding: { zh: '以研究所/导师/联合培养项目官方说明为准', en: 'Check institute, supervisor and joint-program terms' },
+    mentor: {
+      name: { zh: 'ICT 导师组', en: 'ICT research faculty' },
+      initials: 'ICT',
+      title: { zh: '科研院所导师组', en: 'Research institute faculty' },
+      bio: {
+        zh: '公开资料摘要：计算所覆盖智能计算、计算机系统、网络、数据与理论等方向，由多支研究团队组成；具体导师、联合培养与访问安排以研究所官网为准。',
+        en: 'Public-profile summary: ICT covers intelligent computing, computer systems, networking, data and theory through multiple research teams. Check the official site for advisers, joint training and visiting arrangements.'
+      },
+      link: 'http://www.ict.cas.cn/',
+      highlight: false
+    },
+    project: {
+      title: { zh: '智能计算、系统与数据', en: 'Intelligent computing, systems and data' },
+      summary: {
+        zh: '研究所的研究覆盖智能计算、处理器与系统、网络、数据管理、AI 与理论。硕士/博士/访问与联合培养机会通过研究所官方页面；建议先读目标团队论文，再了解课题与名额。',
+        en: 'Research covers intelligent computing, processors and systems, networking, data management, AI and theory. Master’s/PhD/visiting and joint-training opportunities go through official institute pages; read target-team papers before asking about topics and openings.'
+      },
+      methods: {
+        zh: '智能计算、处理器/系统、网络、数据管理、AI、理论。',
+        en: 'Intelligent computing, processors/systems, networking, data management, AI and theory.'
+      },
+      fit: {
+        zh: '适合计算机系统/算法基础扎实、能读论文并做工程实验的学生；有科研或工程项目更好。',
+        en: 'Best for students with strong systems/algorithms, paper reading and engineering experiments; research or engineering projects help.'
+      }
+    },
+    apply: {
+      url: 'http://www.ict.cas.cn/',
+      label: { zh: '计算所官网', en: 'ICT official site' },
+      note: {
+        zh: '通过研究所官网的招生/联合培养/访问页面申请；本站不代收材料，也不提供内推。',
+        en: 'Apply through official admissions, joint-training or visiting pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'http://www.ict.cas.cn/', label: { zh: '中科院计算所', en: 'CAS ICT' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'cas-ia',
+    institution: { zh: '中国科学院自动化研究所', en: 'Institute of Automation, Chinese Academy of Sciences' },
+    unit: { zh: '自动化研究所 (IA)', en: 'Institute of Automation (IA)' },
+    region: 'cn',
+    kind: 'institute',
+    fields: ['ai', 'robotics', 'cv'],
+    levels: ['master', 'phd', 'visiting'],
+    types: ['research', 'phd', 'joint'],
+    language: ['zh', 'en'],
+    funding: { zh: '以研究所/导师/联合培养项目官方说明为准', en: 'Check institute, supervisor and joint-program terms' },
+    mentor: {
+      name: { zh: 'IA 导师组', en: 'IA research faculty' },
+      initials: 'IA',
+      title: { zh: '科研院所导师组', en: 'Research institute faculty' },
+      bio: {
+        zh: '公开资料摘要：自动化所覆盖模式识别、计算机视觉、机器人、智能系统与脑启发计算，由多支研究团队组成；具体导师与招生状态以研究所官网为准。',
+        en: 'Public-profile summary: IA covers pattern recognition, computer vision, robotics, intelligent systems and brain-inspired computing through multiple teams. Check the official site for advisers and admissions status.'
+      },
+      link: 'http://www.ia.cas.cn/',
+      highlight: false
+    },
+    project: {
+      title: { zh: '智能感知、机器人与视觉', en: 'Intelligent perception, robotics and vision' },
+      summary: {
+        zh: '研究所研究模式识别、计算机视觉、机器人、智能系统与脑启发计算。硕士/博士/访问与联合培养机会通过研究所官方页面；适合有 CV/机器人/控制基础、愿意做实验的学生。',
+        en: 'Research covers pattern recognition, computer vision, robotics, intelligent systems and brain-inspired computing. Master’s/PhD/visiting and joint-training opportunities go through official pages; it suits students with CV/robotics/control foundations and experiment experience.'
+      },
+      methods: {
+        zh: '模式识别、计算机视觉、机器人、智能系统、脑启发计算。',
+        en: 'Pattern recognition, computer vision, robotics, intelligent systems and brain-inspired computing.'
+      },
+      fit: {
+        zh: '适合有 CV/机器人/控制基础、能读论文并做实验的学生；有项目经历更好。',
+        en: 'Best for students with CV/robotics/control foundations, paper reading and experiments; project experience helps.'
+      }
+    },
+    apply: {
+      url: 'http://www.ia.cas.cn/',
+      label: { zh: '自动化所官网', en: 'IA official site' },
+      note: {
+        zh: '通过研究所官网的招生/联合培养/访问页面申请；本站不代收材料，也不提供内推。',
+        en: 'Apply through official admissions, joint-training or visiting pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'http://www.ia.cas.cn/', label: { zh: '中科院自动化所', en: 'CAS IA' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'cas-iscas',
+    institution: { zh: '中国科学院软件研究所', en: 'Institute of Software, Chinese Academy of Sciences' },
+    unit: { zh: '软件研究所 (ISCAS)', en: 'Institute of Software (ISCAS)' },
+    region: 'cn',
+    kind: 'institute',
+    fields: ['systems', 'theory', 'ai'],
+    levels: ['master', 'phd', 'visiting'],
+    types: ['research', 'phd', 'joint'],
+    language: ['zh', 'en'],
+    funding: { zh: '以研究所/导师/联合培养项目官方说明为准', en: 'Check institute, supervisor and joint-program terms' },
+    mentor: {
+      name: { zh: 'ISCAS 导师组', en: 'ISCAS research faculty' },
+      initials: 'ISCAS',
+      title: { zh: '科研院所导师组', en: 'Research institute faculty' },
+      bio: {
+        zh: '公开资料摘要：软件所覆盖软件工程、操作系统、程序语言、可信计算、AI 与理论，由多支研究团队组成；具体导师与招生状态以研究所官网为准。',
+        en: 'Public-profile summary: ISCAS covers software engineering, operating systems, programming languages, trustworthy computing, AI and theory through multiple teams. Check the official site for advisers and admissions status.'
+      },
+      link: 'http://www.iscas.ac.cn/',
+      highlight: false
+    },
+    project: {
+      title: { zh: '软件、系统与可信计算', en: 'Software, systems and trustworthy computing' },
+      summary: {
+        zh: '研究所研究软件工程、操作系统、程序语言、可信计算、AI 与理论。硕士/博士/访问与联合培养机会通过研究所官方页面；适合系统/软件基础扎实、能读论文并做工程实验的学生。',
+        en: 'Research covers software engineering, operating systems, programming languages, trustworthy computing, AI and theory. Master’s/PhD/visiting and joint-training opportunities go through official pages; it suits students with strong systems/software foundations and engineering experiments.'
+      },
+      methods: {
+        zh: '软件工程、操作系统、程序语言、可信计算、AI、理论。',
+        en: 'Software engineering, operating systems, programming languages, trustworthy computing, AI and theory.'
+      },
+      fit: {
+        zh: '适合系统/软件基础扎实、能读论文并做工程实验的学生；有开源或系统项目更好。',
+        en: 'Best for students with strong systems/software, paper reading and engineering experiments; open-source or systems projects help.'
+      }
+    },
+    apply: {
+      url: 'http://www.iscas.ac.cn/',
+      label: { zh: '软件所官网', en: 'ISCAS official site' },
+      note: {
+        zh: '通过研究所官网的招生/联合培养/访问页面申请；本站不代收材料，也不提供内推。',
+        en: 'Apply through official admissions, joint-training or visiting pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'http://www.iscas.ac.cn/', label: { zh: '中科院软件所', en: 'CAS ISCAS' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'baai',
+    institution: { zh: '北京智源人工智能研究院', en: 'Beijing Academy of Artificial Intelligence (BAAI)' },
+    unit: { zh: '智源研究院', en: 'BAAI research teams' },
+    region: 'cn',
+    kind: 'institute',
+    fields: ['ai', 'ml', 'nlp'],
+    levels: ['phd', 'visiting'],
+    types: ['research', 'joint', 'fellowship'],
+    language: ['zh', 'en'],
+    funding: { zh: '以研究院官方项目/奖学金/联合培养说明为准', en: 'Check BAAI program, fellowship and joint-training terms' },
+    mentor: {
+      name: { zh: 'BAAI 研究团队', en: 'BAAI research teams' },
+      initials: 'BAAI',
+      title: { zh: '研究院研究团队', en: 'Research institute teams' },
+      bio: {
+        zh: '公开资料摘要：智源研究院聚焦大模型、AI 基础、多模态、AI 安全与开放数据集，由多支研究团队与高校合作者组成；具体导师与项目以官网为准。',
+        en: 'Public-profile summary: BAAI focuses on large models, AI foundations, multimodality, AI safety and open datasets through research teams and university collaborators. Check the official site for advisers and projects.'
+      },
+      link: 'https://www.baai.ac.cn/',
+      highlight: false
+    },
+    project: {
+      title: { zh: '大模型、AI 基础与开放研究', en: 'Large models, AI foundations and open research' },
+      summary: {
+        zh: '研究院研究大模型、多模态、AI 安全、开放数据集与评测。博士/访问/联合培养与 fellowship 机会通过官网；适合有 ML/LLM 基础、能读论文并做大规模实验的学生。',
+        en: 'Research covers large models, multimodality, AI safety, open datasets and evaluation. PhD/visiting/joint-training and fellowship opportunities go through the official site; it suits students with ML/LLM foundations, paper reading and large-scale experiments.'
+      },
+      methods: {
+        zh: '大模型、多模态、AI 安全、开放数据、评测。',
+        en: 'Large models, multimodality, AI safety, open data and evaluation.'
+      },
+      fit: {
+        zh: '适合 ML/LLM 基础好、能读论文并做大规模实验的学生；有开源或论文经历更好。',
+        en: 'Best for students with strong ML/LLM, paper reading and large-scale experiments; open-source or paper experience helps.'
+      }
+    },
+    apply: {
+      url: 'https://www.baai.ac.cn/',
+      label: { zh: '智源研究院官网', en: 'BAAI official site' },
+      note: {
+        zh: '通过研究院官网的项目/招聘/联合培养页面申请；本站不代收材料，也不提供内推。',
+        en: 'Apply through official project, recruitment or joint-training pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'https://www.baai.ac.cn/', label: { zh: 'BAAI', en: 'BAAI' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'zhejiang-lab',
+    institution: { zh: '之江实验室', en: 'Zhejiang Lab' },
+    unit: { zh: '之江实验室', en: 'Zhejiang Lab' },
+    region: 'cn',
+    kind: 'lab',
+    fields: ['ai', 'systems'],
+    levels: ['master', 'phd', 'visiting'],
+    types: ['research', 'joint'],
+    language: ['zh', 'en'],
+    funding: { zh: '以实验室官方项目/联合培养/招聘说明为准', en: 'Check lab program, joint-training and recruitment terms' },
+    mentor: {
+      name: { zh: '之江实验室研究团队', en: 'Zhejiang Lab research teams' },
+      initials: 'ZJ',
+      title: { zh: '实验室研究团队', en: 'Laboratory research teams' },
+      bio: {
+        zh: '公开资料摘要：之江实验室聚焦智能计算、AI、智能系统与算力基础设施，由多支研究团队组成；具体导师与项目以官网为准。',
+        en: 'Public-profile summary: Zhejiang Lab focuses on intelligent computing, AI, intelligent systems and compute infrastructure through multiple research teams. Check the official site for advisers and projects.'
+      },
+      link: 'https://www.zhejianglab.com/',
+      highlight: false
+    },
+    project: {
+      title: { zh: '智能计算、AI 与系统', en: 'Intelligent computing, AI and systems' },
+      summary: {
+        zh: '实验室研究智能计算、AI、智能系统与算力基础设施。硕士/博士/访问与联合培养机会通过官网；适合系统/算法基础好、能参与大型平台与工程项目的学生。',
+        en: 'Research covers intelligent computing, AI, intelligent systems and compute infrastructure. Master’s/PhD/visiting and joint-training opportunities go through the official site; it suits students with strong systems/algorithms who can contribute to large platforms and engineering projects.'
+      },
+      methods: {
+        zh: '智能计算、AI、智能系统、算力基础设施。',
+        en: 'Intelligent computing, AI, intelligent systems and compute infrastructure.'
+      },
+      fit: {
+        zh: '适合系统/算法基础好、能参与大型平台与工程项目的学生；有工程项目经历更好。',
+        en: 'Best for students with strong systems/algorithms and large platform/engineering experience; engineering projects help.'
+      }
+    },
+    apply: {
+      url: 'https://www.zhejianglab.com/',
+      label: { zh: '之江实验室官网', en: 'Zhejiang Lab official site' },
+      note: {
+        zh: '通过实验室官网的项目/招聘/联合培养页面申请；本站不代收材料，也不提供内推。',
+        en: 'Apply through official project, recruitment or joint-training pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'https://www.zhejianglab.com/', label: { zh: 'Zhejiang Lab', en: 'Zhejiang Lab' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'pengcheng-lab',
+    institution: { zh: '鹏城实验室', en: 'Peng Cheng Laboratory' },
+    unit: { zh: '鹏城实验室', en: 'Peng Cheng Laboratory' },
+    region: 'cn',
+    kind: 'lab',
+    fields: ['ai', 'systems'],
+    levels: ['master', 'phd', 'visiting'],
+    types: ['research', 'joint'],
+    language: ['zh', 'en'],
+    funding: { zh: '以实验室官方项目/联合培养/招聘说明为准', en: 'Check lab program, joint-training and recruitment terms' },
+    mentor: {
+      name: { zh: '鹏城实验室研究团队', en: 'Peng Cheng Laboratory research teams' },
+      initials: 'PCL',
+      title: { zh: '实验室研究团队', en: 'Laboratory research teams' },
+      bio: {
+        zh: '公开资料摘要：鹏城实验室聚焦网络通信、AI、算力与重大基础设施，由多支研究团队组成；具体导师与项目以官网为准。',
+        en: 'Public-profile summary: Peng Cheng Laboratory focuses on networking, AI, computing infrastructure and major facilities through multiple research teams. Check the official site for advisers and projects.'
+      },
+      link: 'https://www.pcl.ac.cn/',
+      highlight: false
+    },
+    project: {
+      title: { zh: '网络通信、AI 与算力', en: 'Networking, AI and computing infrastructure' },
+      summary: {
+        zh: '实验室研究网络通信、AI、算力基础设施与重大应用。硕士/博士/访问与联合培养机会通过官网；适合网络/系统/AI 基础好、能参与大型实验平台的学生。',
+        en: 'Research covers networking, AI, computing infrastructure and major applications. Master’s/PhD/visiting and joint-training opportunities go through the official site; it suits students with strong networking/systems/AI who can join large experimental platforms.'
+      },
+      methods: {
+        zh: '网络通信、AI、算力基础设施、重大应用。',
+        en: 'Networking, AI, computing infrastructure and major applications.'
+      },
+      fit: {
+        zh: '适合网络/系统/AI 基础好、能参与大型实验平台的学生；有工程项目经历更好。',
+        en: 'Best for students with strong networking/systems/AI and large platform experience; engineering projects help.'
+      }
+    },
+    apply: {
+      url: 'https://www.pcl.ac.cn/',
+      label: { zh: '鹏城实验室官网', en: 'Peng Cheng Laboratory official site' },
+      note: {
+        zh: '通过实验室官网的项目/招聘/联合培养页面申请；本站不代收材料，也不提供内推。',
+        en: 'Apply through official project, recruitment or joint-training pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'https://www.pcl.ac.cn/', label: { zh: 'Peng Cheng Laboratory', en: 'Peng Cheng Laboratory' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'msra',
+    institution: { zh: '微软亚洲研究院', en: 'Microsoft Research Asia' },
+    unit: { zh: 'Microsoft Research Asia (MSRA)', en: 'Microsoft Research Asia (MSRA)' },
+    region: 'cn',
+    kind: 'industry',
+    fields: ['ai', 'ml', 'systems', 'hci'],
+    levels: ['undergrad', 'master', 'phd'],
+    types: ['research', 'summer'],
+    language: ['en', 'zh'],
+    funding: { zh: '以研究院官方实习/联合培养/招聘说明为准', en: 'Check official internship, joint-training and recruitment terms' },
+    mentor: {
+      name: { zh: 'MSRA 研究组', en: 'MSRA research groups' },
+      initials: 'MSRA',
+      title: { zh: '企业研究院研究组', en: 'Industry research groups' },
+      bio: {
+        zh: '公开资料摘要：MSRA 覆盖 AI、机器学习、系统、HCI、语音与自然语言等方向，由多支研究组组成；实习/联合培养机会与导师安排以官方页面为准。',
+        en: 'Public-profile summary: MSRA covers AI, machine learning, systems, HCI, speech and NLP through multiple research groups. Check official pages for internships, joint training and adviser arrangements.'
+      },
+      link: 'https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/',
+      highlight: false
+    },
+    project: {
+      title: { zh: 'AI、ML、系统与 HCI', en: 'AI, ML, systems and HCI' },
+      summary: {
+        zh: '研究院研究 AI、机器学习、系统、HCI、语音与自然语言。本科/硕士/博士实习与联合培养机会通过官方页面；适合有较强编程/论文能力、希望做产业研究的同学。',
+        en: 'Research covers AI, machine learning, systems, HCI, speech and NLP. Undergraduate/master/PhD internships and joint training go through official pages; it suits students with strong coding/paper skills who want industry research.'
+      },
+      methods: {
+        zh: 'AI、机器学习、系统、HCI、语音、自然语言。',
+        en: 'AI, machine learning, systems, HCI, speech and NLP.'
+      },
+      fit: {
+        zh: '适合编程/论文能力较强、能独立推进项目的学生；有实习或开源经历更好。',
+        en: 'Best for students with strong coding/paper skills who can drive projects; internships or open-source work help.'
+      }
+    },
+    apply: {
+      url: 'https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/',
+      label: { zh: 'MSRA 官方页面', en: 'MSRA official page' },
+      note: {
+        zh: '通过研究院官方实习/招聘/联合培养页面申请；本站不代收材料，也不提供内推。',
+        en: 'Apply through official internship, recruitment or joint-training pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/', label: { zh: 'Microsoft Research Asia', en: 'Microsoft Research Asia' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'mpi-is',
+    institution: { zh: '马克斯·普朗克智能系统研究所', en: 'Max Planck Institute for Intelligent Systems' },
+    unit: { zh: 'MPI for Intelligent Systems (MPI-IS)', en: 'Max Planck Institute for Intelligent Systems (MPI-IS)' },
+    region: 'eu',
+    kind: 'institute',
+    fields: ['ai', 'robotics', 'ml'],
+    levels: ['phd', 'postdoc', 'visiting'],
+    types: ['phd', 'research'],
+    language: ['en'],
+    funding: { zh: '以 MPI/博士项目官方资助说明为准', en: 'Check MPI/PhD program funding terms' },
+    mentor: {
+      name: { zh: 'MPI-IS 研究组', en: 'MPI-IS research groups' },
+      initials: 'MPI',
+      title: { zh: '国际研究所研究组', en: 'International research institute groups' },
+      bio: {
+        zh: '公开资料摘要：MPI-IS 覆盖经验推断、机器人、机器学习、计算机视觉与物理智能，由多个研究组组成；具体导师与博士/访问安排以官网为准。',
+        en: 'Public-profile summary: MPI-IS covers empirical inference, robotics, machine learning, computer vision and physical intelligence through multiple groups. Check the official site for advisers and PhD/visiting arrangements.'
+      },
+      link: 'https://is.mpg.de/',
+      highlight: false
+    },
+    project: {
+      title: { zh: '智能系统、机器人与机器学习', en: 'Intelligent systems, robotics and machine learning' },
+      summary: {
+        zh: '研究所研究经验推断、机器人、机器学习、计算机视觉与物理智能。博士/博后/访问机会通过 MPI 官方页面；适合数学/编程基础强、能独立做研究的学生。',
+        en: 'Research covers empirical inference, robotics, machine learning, computer vision and physical intelligence. PhD/postdoc/visiting opportunities go through official MPI pages; it suits students with strong maths/coding who can research independently.'
+      },
+      methods: {
+        zh: '经验推断、机器人、机器学习、计算机视觉、物理智能。',
+        en: 'Empirical inference, robotics, machine learning, computer vision and physical intelligence.'
+      },
+      fit: {
+        zh: '适合数学/编程基础强、能独立读论文与做实验的学生；有研究经历更好。',
+        en: 'Best for students with strong maths/coding who can read papers and run experiments independently; research experience helps.'
+      }
+    },
+    apply: {
+      url: 'https://is.mpg.de/',
+      label: { zh: 'MPI-IS 官网', en: 'MPI-IS official site' },
+      note: {
+        zh: '通过 MPI-IS 官方博士/访问/招聘页面申请；本站不代收材料，也不提供内推。',
+        en: 'Apply through official MPI-IS PhD, visiting or recruitment pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'https://is.mpg.de/', label: { zh: 'MPI for Intelligent Systems', en: 'MPI for Intelligent Systems' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'allen-ai2',
+    institution: { zh: '艾伦人工智能研究所', en: 'Allen Institute for AI (AI2)' },
+    unit: { zh: 'Allen Institute for AI (AI2)', en: 'Allen Institute for AI (AI2)' },
+    region: 'us',
+    kind: 'institute',
+    fields: ['ai', 'nlp', 'cv'],
+    levels: ['phd', 'visiting'],
+    types: ['research', 'fellowship'],
+    language: ['en'],
+    funding: { zh: '以 AI2 官方项目/fellowship 说明为准', en: 'Check AI2 program and fellowship terms' },
+    mentor: {
+      name: { zh: 'AI2 研究团队', en: 'AI2 research teams' },
+      initials: 'AI2',
+      title: { zh: '非营利研究所研究团队', en: 'Nonprofit research institute teams' },
+      bio: {
+        zh: '公开资料摘要：AI2 聚焦自然语言处理、常识推理、计算机视觉、AI for Science 与开放研究，由多个研究团队组成；具体导师与项目以官网为准。',
+        en: 'Public-profile summary: AI2 focuses on NLP, commonsense reasoning, computer vision, AI for Science and open research through multiple teams. Check the official site for advisers and projects.'
+      },
+      link: 'https://allenai.org/',
+      highlight: false
+    },
+    project: {
+      title: { zh: 'NLP、常识推理与 AI for Science', en: 'NLP, commonsense reasoning and AI for Science' },
+      summary: {
+        zh: '研究所研究 NLP、常识推理、计算机视觉、AI for Science 与开放研究。博士/访问/fellowship 机会通过官网；适合有 NLP/ML 基础、能读论文并做开源研究的学生。',
+        en: 'Research covers NLP, commonsense reasoning, computer vision, AI for Science and open research. PhD/visiting/fellowship opportunities go through the official site; it suits students with NLP/ML foundations, paper reading and open research.'
+      },
+      methods: {
+        zh: 'NLP、常识推理、计算机视觉、AI for Science、开放研究。',
+        en: 'NLP, commonsense reasoning, computer vision, AI for Science and open research.'
+      },
+      fit: {
+        zh: '适合 NLP/ML 基础好、能读论文并做开源研究的学生；有论文或开源项目更好。',
+        en: 'Best for students with strong NLP/ML, paper reading and open research; papers or open-source projects help.'
+      }
+    },
+    apply: {
+      url: 'https://allenai.org/',
+      label: { zh: 'AI2 官网', en: 'AI2 official site' },
+      note: {
+        zh: '通过 AI2 官方项目/招聘/访问页面申请；本站不代收材料，也不提供内推。',
+        en: 'Apply through official AI2 program, recruitment or visiting pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'https://allenai.org/', label: { zh: 'Allen Institute for AI', en: 'Allen Institute for AI' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'vector-institute',
+    institution: { zh: 'Vector 人工智能研究所', en: 'Vector Institute' },
+    unit: { zh: 'Vector Institute', en: 'Vector Institute' },
+    region: 'ca',
+    kind: 'institute',
+    fields: ['ai', 'ml', 'medai'],
+    levels: ['phd', 'postdoc', 'visiting'],
+    types: ['research', 'fellowship'],
+    language: ['en'],
+    funding: { zh: '以 Vector/合作高校官方项目与奖学金说明为准', en: 'Check Vector/partner university program and scholarship terms' },
+    mentor: {
+      name: { zh: 'Vector 研究团队', en: 'Vector research teams' },
+      initials: 'VEC',
+      title: { zh: '研究所研究团队', en: 'Research institute teams' },
+      bio: {
+        zh: '公开资料摘要：Vector 聚焦机器学习、AI、健康与可信 AI，与多所加拿大高校合作；具体导师与项目以官网为准。',
+        en: 'Public-profile summary: Vector focuses on machine learning, AI, health and trustworthy AI in collaboration with Canadian universities. Check the official site for advisers and projects.'
+      },
+      link: 'https://vectorinstitute.ai/',
+      highlight: false
+    },
+    project: {
+      title: { zh: '机器学习、AI 与健康', en: 'Machine learning, AI and health' },
+      summary: {
+        zh: '研究所研究机器学习、AI、健康、可信 AI 与产业合作。博士/博后/访问/fellowship 机会通过官网与高校合作项目；适合 ML 基础好、能读论文并做实验的学生。',
+        en: 'Research covers machine learning, AI, health, trustworthy AI and industry collaboration. PhD/postdoc/visiting/fellowship opportunities go through official and partner-university programs; it suits students with strong ML, paper reading and experiments.'
+      },
+      methods: {
+        zh: '机器学习、AI、健康、可信 AI、产业合作。',
+        en: 'Machine learning, AI, health, trustworthy AI and industry collaboration.'
+      },
+      fit: {
+        zh: '适合 ML 基础好、能读论文并做实验的学生；有健康 AI 或论文经历更好。',
+        en: 'Best for students with strong ML, paper reading and experiments; health AI or papers help.'
+      }
+    },
+    apply: {
+      url: 'https://vectorinstitute.ai/',
+      label: { zh: 'Vector 官网', en: 'Vector official site' },
+      note: {
+        zh: '通过 Vector/合作高校官方项目页面申请；本站不代收材料，也不提供内推。',
+        en: 'Apply through official Vector/partner-university program pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'https://vectorinstitute.ai/', label: { zh: 'Vector Institute', en: 'Vector Institute' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'riken-aip',
+    institution: { zh: '理化学研究所 先进智能项目中心', en: 'RIKEN Center for Advanced Intelligence Project' },
+    unit: { zh: 'RIKEN AIP', en: 'RIKEN AIP' },
+    region: 'asia',
+    kind: 'institute',
+    fields: ['ai', 'ml'],
+    levels: ['phd', 'postdoc', 'visiting'],
+    types: ['research', 'phd'],
+    language: ['en', 'ja'],
+    funding: { zh: '以 RIKEN/AIP 官方项目与奖学金说明为准', en: 'Check RIKEN/AIP program and fellowship terms' },
+    mentor: {
+      name: { zh: 'AIP 研究团队', en: 'AIP research teams' },
+      initials: 'AIP',
+      title: { zh: '研究所研究团队', en: 'Research institute teams' },
+      bio: {
+        zh: '公开资料摘要：RIKEN AIP 聚焦 AI、机器学习、优化、AI for Science 与跨学科研究，由多个团队组成；具体导师与项目以官网为准。',
+        en: 'Public-profile summary: RIKEN AIP focuses on AI, machine learning, optimisation, AI for Science and interdisciplinary research through multiple teams. Check the official site for advisers and projects.'
+      },
+      link: 'https://aip.riken.jp/',
+      highlight: false
+    },
+    project: {
+      title: { zh: 'AI、ML 与跨学科', en: 'AI, ML and interdisciplinary research' },
+      summary: {
+        zh: '研究所研究 AI、机器学习、优化、AI for Science 与跨学科应用。博士/博后/访问机会通过官网；适合数学/ML 基础好、能读论文并做实验的学生。',
+        en: 'Research covers AI, machine learning, optimisation, AI for Science and interdisciplinary applications. PhD/postdoc/visiting opportunities go through the official site; it suits students with strong maths/ML, paper reading and experiments.'
+      },
+      methods: {
+        zh: 'AI、机器学习、优化、AI for Science、跨学科。',
+        en: 'AI, machine learning, optimisation, AI for Science and interdisciplinary research.'
+      },
+      fit: {
+        zh: '适合数学/ML 基础好、能读论文并做实验的学生；有跨学科项目经历更好。',
+        en: 'Best for students with strong maths/ML, paper reading and experiments; interdisciplinary projects help.'
+      }
+    },
+    apply: {
+      url: 'https://aip.riken.jp/',
+      label: { zh: 'RIKEN AIP 官网', en: 'RIKEN AIP official site' },
+      note: {
+        zh: '通过 RIKEN/AIP 官方博士/访问/招聘页面申请；本站不代收材料，也不提供内推。',
+        en: 'Apply through official RIKEN/AIP PhD, visiting or recruitment pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'https://aip.riken.jp/', label: { zh: 'RIKEN AIP', en: 'RIKEN AIP' } },
+    updated: '2026-10',
+    status: 'check'
+  },
+  {
+    id: 'turing-institute',
+    institution: { zh: '艾伦·图灵研究所', en: 'The Alan Turing Institute' },
+    unit: { zh: 'The Alan Turing Institute', en: 'The Alan Turing Institute' },
+    region: 'uk',
+    kind: 'institute',
+    fields: ['ai', 'ml', 'hci'],
+    levels: ['phd', 'postdoc', 'visiting'],
+    types: ['research', 'fellowship'],
+    language: ['en'],
+    funding: { zh: '以 Turing 官方项目/fellowship 说明为准', en: 'Check Turing program and fellowship terms' },
+    mentor: {
+      name: { zh: 'Turing 研究团队', en: 'Turing research teams' },
+      initials: 'ATI',
+      title: { zh: '国家研究所研究团队', en: 'National institute research teams' },
+      bio: {
+        zh: '公开资料摘要：图灵研究所聚焦 AI、数据科学、可信 AI、健康与公共政策，与英国高校合作；具体导师与项目以官网为准。',
+        en: 'Public-profile summary: the Turing Institute focuses on AI, data science, trustworthy AI, health and public policy in collaboration with UK universities. Check the official site for advisers and projects.'
+      },
+      link: 'https://www.turing.ac.uk/',
+      highlight: false
+    },
+    project: {
+      title: { zh: 'AI、数据科学与公共政策', en: 'AI, data science and public policy' },
+      summary: {
+        zh: '研究所研究 AI、数据科学、可信 AI、健康与公共政策。博士/博后/访问/fellowship 机会通过官网；适合 ML/数据基础好、对公共政策或健康交叉感兴趣的学生。',
+        en: 'Research covers AI, data science, trustworthy AI, health and public policy. PhD/postdoc/visiting/fellowship opportunities go through the official site; it suits students with strong ML/data and interest in policy or health intersections.'
+      },
+      methods: {
+        zh: 'AI、数据科学、可信 AI、健康、公共政策。',
+        en: 'AI, data science, trustworthy AI, health and public policy.'
+      },
+      fit: {
+        zh: '适合 ML/数据基础好、对公共政策或健康交叉感兴趣的学生；有跨学科经历更好。',
+        en: 'Best for students with strong ML/data and interest in policy or health; interdisciplinary experience helps.'
+      }
+    },
+    apply: {
+      url: 'https://www.turing.ac.uk/',
+      label: { zh: 'Turing 官网', en: 'Turing official site' },
+      note: {
+        zh: '通过 Turing 官方项目/招聘/访问页面申请；本站不代收材料，也不提供内推。',
+        en: 'Apply through official Turing program, recruitment or visiting pages. This site does not collect materials or offer referrals.'
+      }
+    },
+    source: { url: 'https://www.turing.ac.uk/', label: { zh: 'The Alan Turing Institute', en: 'The Alan Turing Institute' } },
+    updated: '2026-10',
+    status: 'check'
   }
 ];
