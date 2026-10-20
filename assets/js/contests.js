@@ -13,6 +13,30 @@
   var STAGES = window.LHT_CONTEST_STAGES || ['lower', 'upper', 'postgrad', 'open'];
   var YEARS = window.LHT_CONTEST_YEARS || [];
   var GUIDES = window.LHT_CONTEST_GUIDES || [];
+  var JA = window.LHT_CONTEST_JA || null;
+
+  /** 日语模式只展示日本赛事与少量国际/中国赛事；其他语言展示全部。 */
+  function jaSet() {
+    var set = {};
+    ((JA && JA.allow) || []).forEach(function (id) { set[id] = true; });
+    return set;
+  }
+
+  function activeContests() {
+    if (LHT.lang !== 'ja' || !JA || !JA.allow || !JA.allow.length) return ALL;
+    var allow = jaSet();
+    return ALL.filter(function (item) { return allow[item.id]; });
+  }
+
+  function activePaths() {
+    if (LHT.lang === 'ja' && JA && JA.paths && JA.paths.length) return JA.paths;
+    return PATHS;
+  }
+
+  function activeYears() {
+    if (LHT.lang === 'ja' && JA && JA.years && JA.years.length) return JA.years;
+    return YEARS;
+  }
 
   var MONTHS = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'];
   var STAR_KEY = 'lht.contests.stars';
@@ -64,7 +88,9 @@
 
   function catSearchText(id) {
     var cat = catOf(id);
-    return cat ? (cat.label.zh || '') + ' ' + (cat.label.en || '') + ' ' + (cat.label.fr || '') : id;
+    return cat
+      ? (cat.label.zh || '') + ' ' + (cat.label.en || '') + ' ' + (cat.label.fr || '') + ' ' + (cat.label.ja || '')
+      : id;
   }
 
   function stageText(id) { return LHT.t('con.' + id); }
@@ -166,6 +192,7 @@
 
   function renderCats() {
     els.cats.innerHTML = '';
+    var list = activeContests();
     var all = LHT.el('button', {
       type: 'button', class: 'chip', text: LHT.t('con.allCats'),
       'aria-pressed': state.cat === 'all' ? 'true' : 'false'
@@ -174,7 +201,7 @@
     els.cats.appendChild(all);
 
     CATS.forEach(function (cat) {
-      var count = ALL.filter(function (item) { return item.cat === cat.id; }).length;
+      var count = list.filter(function (item) { return item.cat === cat.id; }).length;
       if (!count) return;
       var chip = LHT.el('button', {
         type: 'button', class: 'chip',
@@ -315,9 +342,9 @@
 
   function renderPaths() {
     var byId = {};
-    ALL.forEach(function (item) { byId[item.id] = item; });
+    activeContests().forEach(function (item) { byId[item.id] = item; });
 
-    els.paths.innerHTML = PATHS.map(function (path, index) {
+    els.paths.innerHTML = activePaths().map(function (path, index) {
       var steps = (path.steps || []).filter(function (id) { return byId[id]; }).map(function (id, i, list) {
         var item = byId[id];
         var arrow = i < list.length - 1 ? '<span class="path-arrow" aria-hidden="true">→</span>' : '';
@@ -340,9 +367,9 @@
 
   function renderYears() {
     var byId = {};
-    ALL.forEach(function (item) { byId[item.id] = item; });
+    activeContests().forEach(function (item) { byId[item.id] = item; });
 
-    els.years.innerHTML = YEARS.map(function (year, index) {
+    els.years.innerHTML = activeYears().map(function (year, index) {
       var actions = (year.actions || []).map(function (action) {
         return '<li>' + LHT.pick(action) + '</li>';
       }).join('');
@@ -389,9 +416,19 @@
   }
 
   function render() {
-    var items = sorted(ALL.filter(matches));
+    var list = activeContests();
+    if (state.cat !== 'all' && !list.some(function (item) { return item.cat === state.cat; })) {
+      state.cat = 'all';
+    }
+    if (state.stage !== 'all' && !list.some(function (item) { return item.stage === state.stage; })) {
+      state.stage = 'all';
+    }
+    if (state.level !== 'all' && !list.some(function (item) { return String(item.level) === String(state.level); })) {
+      state.level = 'all';
+    }
+    var items = sorted(list.filter(matches));
     els.count.textContent = items.length + ' ' + LHT.t('con.count') +
-      (items.length === ALL.length ? '' : ' / ' + ALL.length);
+      (items.length === list.length ? '' : ' / ' + list.length);
     els.grid.innerHTML = items.length
       ? items.map(renderCard).join('')
       : '<div class="empty-state" style="grid-column:1/-1">' + LHT.esc(LHT.t('con.none')) + '</div>';
@@ -409,9 +446,10 @@
   }
 
   function syncSelects() {
+    var list = activeContests();
     fillSelect(els.stageSel, [{ value: 'all', label: LHT.t('con.allStages') }].concat(
       STAGES.filter(function (id) {
-        return ALL.some(function (item) { return item.stage === id; });
+        return list.some(function (item) { return item.stage === id; });
       }).map(function (id) {
         return { value: id, label: stageText(id) };
       })
@@ -467,7 +505,7 @@
     var match = /^#c-([a-z0-9-]+)$/i.exec(window.location.hash || '');
     if (!match) return;
     var id = match[1];
-    var known = ALL.some(function (item) { return item.id === id; });
+    var known = activeContests().some(function (item) { return item.id === id; });
     if (!known) return;
     setExpanded(id, true);
     var card = document.getElementById('c-' + id);

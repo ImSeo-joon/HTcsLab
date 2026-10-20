@@ -12,6 +12,15 @@
   var FIELDS = window.LHT_COLLAB_FIELDS || [];
   var LEVELS = window.LHT_COLLAB_LEVELS || [];
   var TYPES = window.LHT_COLLAB_TYPES || [];
+  var JA_IDS = window.LHT_COLLAB_JA_IDS || null;
+
+  /** 日语模式：日本为主，辅以新加坡/香港/英国/美国与顶尖中国院校。 */
+  function activeCollabs() {
+    if (LHT.lang !== 'ja' || !JA_IDS || !JA_IDS.length) return ALL;
+    var set = {};
+    JA_IDS.forEach(function (id) { set[id] = true; });
+    return ALL.filter(function (item) { return set[item.id]; });
+  }
 
   var TEMPLATES = {
     zh: [
@@ -143,6 +152,7 @@
 
   function sorted(items) {
     var list = items.slice();
+    var jaRank = { jp: 0, asia: 1, hk: 2, uk: 3, us: 4, cn: 5, tw: 6 };
     if (state.sort === 'name') {
       list.sort(function (a, b) {
         return LHT.pickText(a.institution).localeCompare(LHT.pickText(b.institution));
@@ -152,6 +162,13 @@
         var ra = labelText(REGIONS, a.region);
         var rb = labelText(REGIONS, b.region);
         return ra.localeCompare(rb) || LHT.pickText(a.institution).localeCompare(LHT.pickText(b.institution));
+      });
+    } else if (LHT.lang === 'ja') {
+      /* 日语版默认：日本 → 新加坡/亚洲 → 香港 → 英国 → 美国 → 中国大陆 → 台湾 */
+      list.sort(function (a, b) {
+        var ra = jaRank[a.region] == null ? 9 : jaRank[a.region];
+        var rb = jaRank[b.region] == null ? 9 : jaRank[b.region];
+        return ra - rb;
       });
     }
     return list;
@@ -166,9 +183,10 @@
   }
 
   function syncSelects() {
+    var list = activeCollabs();
     fillSelect(els.regionSel, [{ value: 'all', label: LHT.t('collab.allRegions') }].concat(
       REGIONS.filter(function (region) {
-        return ALL.some(function (item) { return item.region === region.id; });
+        return list.some(function (item) { return item.region === region.id; });
       }).map(function (region) {
         return { value: region.id, label: labelOf(REGIONS, region.id) };
       })
@@ -176,7 +194,7 @@
 
     fillSelect(els.fieldSel, [{ value: 'all', label: LHT.t('collab.allFields') }].concat(
       FIELDS.filter(function (field) {
-        return ALL.some(function (item) { return hasAny(item.fields, field.id); });
+        return list.some(function (item) { return hasAny(item.fields, field.id); });
       }).map(function (field) {
         return { value: field.id, label: labelOf(FIELDS, field.id) };
       })
@@ -184,7 +202,7 @@
 
     fillSelect(els.levelSel, [{ value: 'all', label: LHT.t('collab.allLevels') }].concat(
       LEVELS.filter(function (level) {
-        return ALL.some(function (item) { return hasAny(item.levels, level.id); });
+        return list.some(function (item) { return hasAny(item.levels, level.id); });
       }).map(function (level) {
         return { value: level.id, label: labelOf(LEVELS, level.id) };
       })
@@ -192,7 +210,7 @@
 
     fillSelect(els.typeSel, [{ value: 'all', label: LHT.t('collab.allTypes') }].concat(
       TYPES.filter(function (type) {
-        return ALL.some(function (item) { return hasAny(item.types, type.id); });
+        return list.some(function (item) { return hasAny(item.types, type.id); });
       }).map(function (type) {
         return { value: type.id, label: labelOf(TYPES, type.id) };
       })
@@ -213,7 +231,7 @@
   }
 
   function renderMentors() {
-    var mentors = ALL.filter(function (item) { return item.mentor && item.mentor.highlight; });
+    var mentors = activeCollabs().filter(function (item) { return item.mentor && item.mentor.highlight; });
     els.mentors.innerHTML = mentors.map(function (item) {
       return '<button type="button" class="mentor-card" data-mentor-target="' + LHT.esc(item.id) + '">' +
         '<span class="mentor-mark">' + LHT.esc(item.mentor.initials) + '</span>' +
@@ -309,9 +327,24 @@
   }
 
   function render() {
-    var items = sorted(ALL.filter(matches));
+    var list = activeCollabs();
+    if (state.region !== 'all' && !list.some(function (item) { return item.region === state.region; })) {
+      state.region = 'all';
+    }
+    if (state.field !== 'all' && !list.some(function (item) { return hasAny(item.fields, state.field); })) {
+      state.field = 'all';
+    }
+    if (state.level !== 'all' && !list.some(function (item) { return hasAny(item.levels, state.level); })) {
+      state.level = 'all';
+    }
+    if (state.type !== 'all' && !list.some(function (item) { return hasAny(item.types, state.type); })) {
+      state.type = 'all';
+    }
+    if (state.tier === '985' && !list.some(function (item) { return item.tier === '985'; })) state.tier = 'all';
+    if (state.tier === '211' && !list.some(function (item) { return item.tier === '211'; })) state.tier = 'all';
+    var items = sorted(list.filter(matches));
     els.count.textContent = items.length + ' ' + LHT.t('collab.count') +
-      (items.length === ALL.length ? '' : ' / ' + ALL.length);
+      (items.length === list.length ? '' : ' / ' + list.length);
     els.grid.innerHTML = items.length
       ? items.map(renderCard).join('')
       : '<div class="empty-state" style="grid-column:1/-1">' + LHT.esc(LHT.t('collab.none')) + '</div>';

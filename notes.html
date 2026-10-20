@@ -12,11 +12,19 @@
 <meta name="theme-color" content="#04122b" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
 <style>
-  .nb-en { display: none; }
-  html[data-lang="en"] .nb-zh, html[data-lang="fr"] .nb-zh { display: none; }
-  html[data-lang="en"] .nb-en, html[data-lang="fr"] .nb-en,
+  .nb-en, .nb-ja { display: none; }
+  html[data-lang="en"] .nb-zh, html[data-lang="fr"] .nb-zh, html[data-lang="ja"] .nb-zh { display: none; }
+  html[data-lang="en"] .nb-en, html[data-lang="fr"] .nb-en, html[data-lang="ja"] .nb-en,
   html[data-lang="both"] .nb-en, html[data-lang="both"] .nb-zh { display: block; }
   html[data-lang="both"] .nb-zh { margin-bottom: 2px; }
+  html[data-lang="ja"] .notes-head .nb-en { display: none; }
+  html[data-lang="ja"] .notes-head .nb-ja { display: block; }
+  html[data-lang="ja"] .notes-head h1 .nb-ja { display: inline; }
+  html[data-lang="ja"] #toc { display: none; }
+  html[data-lang="ja"] #toc-ja { display: flex; }
+  html[data-lang="ja"] .notes-fig .nb-zh,
+  html[data-lang="ja"] .notes-fig .nb-en { display: none; }
+  html[data-lang="ja"] .notes-fig .nb-ja { display: inline; }
 </style>
 </head>
 <body>
@@ -48,25 +56,39 @@
 
 <main id="main" class="wrap" style="padding-top:26px">
 
-  <h1 style="margin:0 0 6px;font-size:1.5rem">
-    <span class="nb-zh">笔记集合</span><span class="nb-en">Notes</span>
-    <span class="dim" style="font-family:var(--serif);font-size:1rem;font-weight:400"> · Carnet</span>
-  </h1>
-  <p class="muted small nb-zh" style="max-width:76ch">
-    四个子模块：线性代数、微积分、C 语言、Python。每个条目给一句定义、一条关键公式、一个直觉和一个常见错误，全部为本站原创表述。
-  </p>
-  <p class="muted small nb-en" style="max-width:76ch">
-    Four sub-modules: linear algebra, calculus, C and Python. Every card gives a one-line definition, the key formula, an intuition and a common pitfall. All wording is original to this site.
-  </p>
+  <div class="notes-head">
+    <h1 style="margin:0 0 6px;font-size:1.5rem">
+      <span class="nb-zh">笔记集合</span><span class="nb-en">Notes</span><span class="nb-ja">ノート集</span>
+      <span class="dim" style="font-family:var(--serif);font-size:1rem;font-weight:400"> · Carnet</span>
+    </h1>
+    <p class="muted small nb-zh" style="max-width:76ch">
+      五个子模块：线性代数、微积分、C 语言、Python、概率统计。每个条目给一句定义、一条关键公式、一个直觉和一个常见错误，全部为本站原创表述。
+    </p>
+    <p class="muted small nb-en" style="max-width:76ch">
+      Five sub-modules: linear algebra, calculus, C, Python and probability &amp; statistics. Every card gives a one-line definition, the key formula, an intuition and a common pitfall. All wording is original to this site.
+    </p>
+    <p class="muted small nb-ja" style="max-width:76ch">
+      五つのサブモジュール：線形代数、微積分、C 言語、Python、確率統計。各カードに定義・公式・直感・よくある誤りを一つずつ。すべて当サイトのオリジナル表現です。
+    </p>
+  </div>
 
   <div class="row" style="margin:18px 0 4px" id="toc">
     <a class="btn btn-sm" href="#linalg">线性代数 · Linear algebra</a>
     <a class="btn btn-sm" href="#calculus">微积分 · Calculus</a>
     <a class="btn btn-sm" href="#clang">C 语言</a>
     <a class="btn btn-sm" href="#python">Python</a>
+    <a class="btn btn-sm" href="#stats">概率统计 · Probability &amp; statistics</a>
   </div>
 
-  <div class="fig" id="linalg" style="margin-top:22px"><b>Partie I</b> · Algèbre linéaire / <span class="nb-zh">线性代数</span><span class="nb-en">Linear algebra</span></div>
+  <div class="row nb-ja" style="margin:18px 0 4px" id="toc-ja">
+    <a class="btn btn-sm" href="#linalg">線形代数</a>
+    <a class="btn btn-sm" href="#calculus">微積分</a>
+    <a class="btn btn-sm" href="#clang">C 言語</a>
+    <a class="btn btn-sm" href="#python">Python</a>
+    <a class="btn btn-sm" href="#stats">確率統計</a>
+  </div>
+
+  <div class="fig notes-fig" id="linalg" style="margin-top:22px"><b>Partie I</b> · Algèbre linéaire / <span class="nb-zh">线性代数</span><span class="nb-en">Linear algebra</span><span class="nb-ja">線形代数</span></div>
   <div class="module-grid">
     <div class="card">
       <h3><span class="nb-zh">正交矩阵</span><span class="nb-en">Orthogonal matrices</span></h3>
@@ -122,9 +144,33 @@
       <p class="tiny dim nb-zh">易错：只要求 AᵀA 可逆（列满秩），不要求 A 可逆。</p>
       <p class="tiny dim nb-en">Pitfall: we need AᵀA invertible (full column rank), not A itself.</p>
     </div>
+    <div class="card">
+      <h3><span class="nb-zh">奇异值分解 SVD</span><span class="nb-en">Singular value decomposition</span></h3>
+      <p class="muted small nb-zh">任意矩阵都能拆成「旋转—拉伸—旋转」；奇异值就是各方向被拉伸的倍数，按从大到小排列。</p>
+      <p class="muted small nb-en">Every matrix factors into rotate–stretch–rotate; singular values are the stretch factors, ordered largest first.</p>
+      <pre>A = UΣVᵀ</pre>
+      <p class="tiny dim nb-zh">易错：SVD 对任意矩阵都存在，不要求方阵，也不要求可对角化。</p>
+      <p class="tiny dim nb-en">Pitfall: SVD exists for every matrix — square and diagonalisable are not required.</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">正定矩阵</span><span class="nb-en">Positive definite matrices</span></h3>
+      <p class="muted small nb-zh">对称矩阵对任意非零向量都给出正二次型；等价于所有特征值为正。</p>
+      <p class="muted small nb-en">A symmetric matrix with xᵀAx &gt; 0 for every nonzero x; equivalently all eigenvalues are positive.</p>
+      <pre>xᵀAx &gt; 0 (x ≠ 0) ⟺ λᵢ &gt; 0</pre>
+      <p class="tiny dim nb-zh">易错：只看对角线为正不够，必须检查整个矩阵。</p>
+      <p class="tiny dim nb-en">Pitfall: a positive diagonal is not enough; check the whole matrix.</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">零空间与秩-零化度</span><span class="nb-en">Null space and rank–nullity</span></h3>
+      <p class="muted small nb-zh">零空间是被映射成零的向量集合；秩-零化度定理把秩与零空间维数加起来等于列数。</p>
+      <p class="muted small nb-en">The null space collects vectors mapped to zero; rank–nullity says rank plus nullity equals the number of columns.</p>
+      <pre>rank(A) + nullity(A) = n</pre>
+      <p class="tiny dim nb-zh">易错：零空间只含零向量时，列向量线性无关。</p>
+      <p class="tiny dim nb-en">Pitfall: if the null space is only the zero vector, the columns are independent.</p>
+    </div>
   </div>
 
-  <div class="fig" id="calculus" style="margin-top:34px"><b>Partie II</b> · Analyse / <span class="nb-zh">微积分</span><span class="nb-en">Calculus</span></div>
+  <div class="fig notes-fig" id="calculus" style="margin-top:34px"><b>Partie II</b> · Analyse / <span class="nb-zh">微积分</span><span class="nb-en">Calculus</span><span class="nb-ja">微積分</span></div>
   <div class="module-grid">
     <div class="card">
       <h3><span class="nb-zh">单调性与极值</span><span class="nb-en">Monotonicity and extrema</span></h3>
@@ -180,15 +226,40 @@
       <p class="tiny dim nb-zh">易错：梯度是向量不是数；下降要沿 −∇f 走。</p>
       <p class="tiny dim nb-en">Pitfall: the gradient is a vector; descend along −∇f.</p>
     </div>
+    <div class="card">
+      <h3><span class="nb-zh">多变量链式法则</span><span class="nb-en">Multivariable chain rule</span></h3>
+      <p class="muted small nb-zh">沿一条路径对时间求导，要把每个中间变量的偏导相乘，再把各条路径的贡献相加。</p>
+      <p class="muted small nb-en">Differentiating along a path multiplies each intermediate partial and sums the contributions from every branch.</p>
+      <pre>d/dt f(x(t), y(t)) = f_x·x′ + f_y·y′</pre>
+      <p class="tiny dim nb-zh">易错：别漏掉路径本身的导数 x′(t)、y′(t)。</p>
+      <p class="tiny dim nb-en">Pitfall: do not drop the path derivatives x′(t) and y′(t).</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">拉格朗日乘子</span><span class="nb-en">Lagrange multipliers</span></h3>
+      <p class="muted small nb-zh">在约束 g = 0 上找极值，目标函数的梯度必须与约束梯度平行；乘子 λ 是约束的“影子价格”。</p>
+      <p class="muted small nb-en">At a constrained extremum the objective gradient is parallel to the constraint gradient; λ is the shadow price of the constraint.</p>
+      <pre>∇f = λ∇g,  g(x) = 0</pre>
+      <p class="tiny dim nb-zh">易错：先检查约束边界与梯度为零的退化点。</p>
+      <p class="tiny dim nb-en">Pitfall: check constraint boundaries and degenerate points where gradients vanish.</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">泰勒余项</span><span class="nb-en">Taylor remainder</span></h3>
+      <p class="muted small nb-zh">截断到 n 阶后剩下的误差，可以用下一阶导数在某个中间点的值来控制。</p>
+      <p class="muted small nb-en">The error after truncating at order n is controlled by the next derivative at some intermediate point.</p>
+      <pre>Rₙ(x) = f⁽ⁿ⁺¹⁾(ξ)/(n+1)! · (x−a)ⁿ⁺¹</pre>
+      <p class="tiny dim nb-zh">易错：余项给的是范围，不是精确误差；ξ 通常未知。</p>
+      <p class="tiny dim nb-en">Pitfall: the remainder bounds the error; ξ is usually unknown.</p>
+    </div>
   </div>
 
-  <div class="fig" id="clang" style="margin-top:34px"><b>Partie III</b> · Langage C / <span class="nb-zh">C 语言</span><span class="nb-en">The C language</span></div>
+  <div class="fig notes-fig" id="clang" style="margin-top:34px"><b>Partie III</b> · Langage C / <span class="nb-zh">C 语言</span><span class="nb-en">The C language</span><span class="nb-ja">C 言語</span></div>
   <div class="module-grid">
     <div class="card">
       <h3><span class="nb-zh">const 与指针的位置</span><span class="nb-en">Where const sits</span></h3>
       <p class="muted small nb-zh">const 修饰的是它右边的东西：`const char *` 是「指向常量的指针」，`char * const` 才是「指针本身不可改」。</p>
       <p class="muted small nb-en">const binds to what is on its right: `const char *` points to constant data, while `char * const` is a constant pointer.</p>
-      <pre>const char *p;   /* 数据只读 */\nchar * const q;  /* 指针只读 */</pre>
+      <pre>const char *p;   /* 数据只读 */
+char * const q;  /* 指针只读 */</pre>
     </div>
     <div class="card">
       <h3><span class="nb-zh">数组与指针</span><span class="nb-en">Arrays and pointers</span></h3>
@@ -214,9 +285,33 @@
       <p class="muted small nb-en">Padding can sit between fields, so sizeof a struct often exceeds the sum of its members — never compare two structs byte by byte.</p>
       <pre>struct Rec { int id; double score; };</pre>
     </div>
+    <div class="card">
+      <h3><span class="nb-zh">函数指针</span><span class="nb-en">Function pointers</span></h3>
+      <p class="muted small nb-zh">函数名在表达式里会退化成指向函数的指针；可以用它做回调、分派表和 qsort 的比较函数。</p>
+      <p class="muted small nb-en">A function name decays to a pointer in expressions; use it for callbacks, dispatch tables and qsort comparators.</p>
+      <pre>int (*cmp)(const void *, const void *);</pre>
+      <p class="tiny dim nb-zh">易错：声明时括号不能省，`int *cmp(...)` 是返回指针的函数。</p>
+      <p class="tiny dim nb-en">Pitfall: keep the parentheses; int *cmp(...) is a function returning a pointer.</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">位运算</span><span class="nb-en">Bit operations</span></h3>
+      <p class="muted small nb-zh">与、或、异或、移位直接操作二进制位；x &amp; (x−1) 可以清掉最低位的 1。</p>
+      <p class="muted small nb-en">AND, OR, XOR and shifts operate on bits directly; x &amp; (x−1) clears the lowest set bit.</p>
+      <pre>x &amp; (x - 1)  /* clear lowest set bit */</pre>
+      <p class="tiny dim nb-zh">易错：有符号负数的右移是实现定义行为，优先用无符号类型。</p>
+      <p class="tiny dim nb-en">Pitfall: right-shifting a negative signed value is implementation-defined; prefer unsigned types.</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">未定义行为</span><span class="nb-en">Undefined behaviour</span></h3>
+      <p class="muted small nb-zh">越界、解引用空指针、有符号溢出、读取未初始化变量都属于未定义行为；编译器可以做任何事。</p>
+      <p class="muted small nb-en">Out-of-bounds access, null dereference, signed overflow and uninitialised reads are undefined behaviour; the compiler may do anything.</p>
+      <pre>int a[3]; a[3] = 0;  /* UB */</pre>
+      <p class="tiny dim nb-zh">易错：“本机能跑”不代表合法，开 -fsanitize=address,undefined 检查。</p>
+      <p class="tiny dim nb-en">Pitfall: “it runs here” is not legality — use -fsanitize=address,undefined.</p>
+    </div>
   </div>
 
-  <div class="fig" id="python" style="margin-top:34px"><b>Partie IV</b> · Python</div>
+  <div class="fig notes-fig" id="python" style="margin-top:34px"><b>Partie IV</b> · Python / <span class="nb-zh">Python</span><span class="nb-en">Python</span><span class="nb-ja">Python</span></div>
   <div class="module-grid">
     <div class="card">
       <h3><span class="nb-zh">推导式与生成式</span><span class="nb-en">Comprehensions and genexps</span></h3>
@@ -252,19 +347,93 @@
       <h3><span class="nb-zh">生成器与惰性求值</span><span class="nb-en">Generators and laziness</span></h3>
       <p class="muted small nb-zh">yield 让函数变成迭代器，一次只产出一个值，适合大文件与无限序列；它只能遍历一次。</p>
       <p class="muted small nb-en">yield turns a function into a one-pass iterator producing values on demand — ideal for big files and infinite sequences.</p>
-      <pre>def nat(): n = 0\n    while True: yield n; n += 1</pre>
+      <pre>def nat(): n = 0
+    while True: yield n; n += 1</pre>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">装饰器</span><span class="nb-en">Decorators</span></h3>
+      <p class="muted small nb-zh">装饰器是接收函数并返回新函数的高阶函数；@wraps 会保留原函数的名称与文档。</p>
+      <p class="muted small nb-en">A decorator takes a function and returns a new one; @wraps preserves the original name and docstring.</p>
+      <pre>from functools import wraps
+@wraps(f)
+def wrapper(*a, **kw): ...</pre>
+      <p class="tiny dim nb-zh">易错：忘记 functools.wraps 会让日志和调试信息失真。</p>
+      <p class="tiny dim nb-en">Pitfall: forgetting functools.wraps distorts logs and debugging.</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">上下文管理器</span><span class="nb-en">Context managers</span></h3>
+      <p class="muted small nb-zh">with 保证进入时准备、退出时清理；实现 __enter__/__exit__，或用 contextlib.contextmanager。</p>
+      <p class="muted small nb-en">with guarantees setup on entry and cleanup on exit; implement __enter__/__exit__ or use contextlib.contextmanager.</p>
+      <pre>with open(path) as f:
+    data = f.read()</pre>
+      <p class="tiny dim nb-zh">易错：清理逻辑要放在 finally/__exit__ 里，别只写在正常路径。</p>
+      <p class="tiny dim nb-en">Pitfall: cleanup must live in finally/__exit__, not only on the happy path.</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">dataclass</span><span class="nb-en">Dataclasses</span></h3>
+      <p class="muted small nb-zh">@dataclass 自动生成 __init__、__repr__ 和比较方法；frozen=True 可以做成不可变值对象。</p>
+      <p class="muted small nb-en">@dataclass generates __init__, __repr__ and comparisons; frozen=True makes an immutable value object.</p>
+      <pre>@dataclass(frozen=True)
+class P: x: int; y: int</pre>
+      <p class="tiny dim nb-zh">易错：可变默认值要用 field(default_factory=...)，不能直接写 []。</p>
+      <p class="tiny dim nb-en">Pitfall: use field(default_factory=...) for mutable defaults, never a bare [].</p>
+    </div>
+  </div>
+
+  <div class="fig notes-fig" id="stats" style="margin-top:34px"><b>Partie V</b> · Probabilités / <span class="nb-zh">概率统计</span><span class="nb-en">Probability &amp; statistics</span><span class="nb-ja">確率統計</span></div>
+  <div class="module-grid">
+    <div class="card">
+      <h3><span class="nb-zh">条件概率与贝叶斯</span><span class="nb-en">Conditional probability and Bayes</span></h3>
+      <p class="muted small nb-zh">条件概率把样本空间缩到已知事件内；贝叶斯公式把先验与似然合成后验。</p>
+      <p class="muted small nb-en">Conditional probability restricts the sample space to a known event; Bayes combines prior and likelihood into a posterior.</p>
+      <pre>P(A|B) = P(B|A)·P(A) / P(B)</pre>
+      <p class="tiny dim nb-zh">易错：分母 P(B) 是全概率，不是 P(B|A)。</p>
+      <p class="tiny dim nb-en">Pitfall: the denominator P(B) is the total probability, not P(B|A).</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">期望与方差</span><span class="nb-en">Expectation and variance</span></h3>
+      <p class="muted small nb-zh">期望是加权平均；方差是偏离期望的平方的平均。标准差是方差的平方根。</p>
+      <p class="muted small nb-en">Expectation is a weighted mean; variance is the mean squared deviation. Standard deviation is its square root.</p>
+      <pre>Var(X) = E[X²] − (E[X])²</pre>
+      <p class="tiny dim nb-zh">易错：E[X²] ≠ (E[X])²，除非 X 几乎必然为常数。</p>
+      <p class="tiny dim nb-en">Pitfall: E[X²] ≠ (E[X])² unless X is almost surely constant.</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">大数定律与中心极限定理</span><span class="nb-en">LLN and the central limit theorem</span></h3>
+      <p class="muted small nb-zh">大数定律说样本均值收敛到期望；中心极限定理说标准化后的均值近似正态，和原始分布形状无关。</p>
+      <p class="muted small nb-en">The law of large numbers says the sample mean converges to the expectation; the CLT says the standardised mean is approximately normal regardless of the original shape.</p>
+      <pre>(X̄ − μ) / (σ/√n) → N(0, 1)</pre>
+      <p class="tiny dim nb-zh">易错：CLT 是近似；样本小或重尾时要谨慎。</p>
+      <p class="tiny dim nb-en">Pitfall: the CLT is an approximation — be careful with small samples or heavy tails.</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">最大似然估计</span><span class="nb-en">Maximum likelihood</span></h3>
+      <p class="muted small nb-zh">选让观测数据出现概率最大的参数；通常对对数似然求导并令其为零。</p>
+      <p class="muted small nb-en">Choose the parameter that makes the observed data most likely; usually differentiate the log-likelihood and set it to zero.</p>
+      <pre>θ̂ = argmaxθ Σ log p(xᵢ|θ)</pre>
+      <p class="tiny dim nb-zh">易错：似然不是概率；比较不同模型时要考虑参数个数。</p>
+      <p class="tiny dim nb-en">Pitfall: likelihood is not probability; account for parameter count when comparing models.</p>
+    </div>
+    <div class="card">
+      <h3><span class="nb-zh">假设检验与 p 值</span><span class="nb-en">Hypothesis testing and p-values</span></h3>
+      <p class="muted small nb-zh">p 值是在原假设下出现当前或更极端结果的概率；它不是原假设为真的概率。</p>
+      <p class="muted small nb-en">A p-value is the probability of the observed or more extreme result under the null; it is not the probability that the null is true.</p>
+      <pre>p = P(T ≥ t_obs | H₀)</pre>
+      <p class="tiny dim nb-zh">易错：p 小只说明数据与原假设不合，不等于效应大。</p>
+      <p class="tiny dim nb-en">Pitfall: a small p only says the data disagree with the null; it does not mean a large effect.</p>
     </div>
   </div>
 
   <div class="card" style="margin-top:30px">
     <h3 style="margin-top:0"><span class="nb-zh">怎么配合刷题用</span><span class="nb-en">Using these notes with the practice table</span></h3>
-    <p class="muted small nb-zh" style="margin:0 0 8px">带「线性代数」「微积分」标签的题目正好各对应上面的条目。</p>
-    <p class="muted small nb-en" style="margin:0 0 8px">Problems tagged Linear algebra and Calculus map one-to-one onto the cards above.</p>
+    <p class="muted small nb-zh" style="margin:0 0 8px">带「线性代数」「微积分」「概率统计」标签的题目正好各对应上面的条目。</p>
+    <p class="muted small nb-en" style="margin:0 0 8px">Problems tagged Linear algebra, Calculus and Probability map onto the cards above.</p>
     <div class="row">
       <a class="btn btn-sm" href="practice.html">行列式 / 矩阵乘法 / 点积 / 高斯消元</a>
       <a class="btn btn-sm" href="practice.html">多项式求导 / 梯形法积分</a>
       <a class="btn btn-sm" href="demos.html#linalg">线性变换演示</a>
       <a class="btn btn-sm" href="demos.html#integral">积分演示</a>
+      <a class="btn btn-sm" href="#stats">概率统计笔记</a>
     </div>
     <p class="note nb-zh" style="margin:16px 0 0">这些笔记是自学的骨架，不替代教材。想深挖的概念，去资料库找对应的公开课与书目条目。</p>
     <p class="note nb-en" style="margin:16px 0 0">These notes are a skeleton for self-study, not a textbook replacement. Follow the library entries for courses and books to go deeper.</p>

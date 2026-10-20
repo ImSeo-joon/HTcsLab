@@ -172,16 +172,17 @@
   function langLabel(code) {
     if (code === 'en') return 'EN';
     if (code === 'both') return 'EN·中';
+    if (code === 'ja') return 'JA';
     return 'FR';
   }
 
   function buildHeaderTools(node) {
     var langSeg = LHT.el('div', { class: 'seg', role: 'group', 'aria-label': LHT.t('common.lang') });
-    ['en', 'both', 'fr'].forEach(function (code) {
+    ['en', 'both', 'fr', 'ja'].forEach(function (code) {
       var b = LHT.el('button', {
         type: 'button',
         'aria-pressed': LHT.lang === code ? 'true' : 'false',
-        title: code === 'en' ? 'English' : code === 'both' ? 'English + 中文' : 'Français',
+        title: code === 'en' ? 'English' : code === 'both' ? 'English + 中文' : code === 'ja' ? '日本語' : 'Français',
         text: langLabel(code)
       });
       b.addEventListener('click', function () {

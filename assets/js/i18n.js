@@ -15,7 +15,7 @@
     nameZh: '高桌实验室',
     nameEn: 'High Table Laboratory',
     taglineFr: 'Tout algorithme commence par une table haute.',
-    version: '0.9.0',
+    version: '0.12.0',
     year: 2026
   };
 
@@ -1231,11 +1231,11 @@
 
   LHT.store = store;
 
-  /* 语言模式：en（默认）| both（中英双语）| fr（法语界面，缺译回退英文） */
+  /* 语言模式：en（默认）| both（中英双语）| fr（法语界面）| ja（日语界面） */
   LHT.lang = (function () {
     var saved = store('lht.lang');
     if (saved === 'zh') return 'both';          // 旧版「纯中文」并入双语模式
-    if (saved === 'en' || saved === 'both' || saved === 'fr') return saved;
+    if (saved === 'en' || saved === 'both' || saved === 'fr' || saved === 'ja') return saved;
     return 'en';                                 // 进入站点默认英文
   })();
 
@@ -1538,12 +1538,286 @@
   };
   DICT.fr = FR;
 
+  /* 日语界面文案：只覆盖常用骨架，缺译回退英文 */
+  var JA = {
+    'nav.home': 'ホーム',
+    'nav.practice': '練習',
+    'nav.resources': 'ライブラリ',
+    'nav.demos': 'デモ',
+    'nav.contests': 'コンテスト',
+    'nav.collab': '連携',
+    'nav.battle': '攻防戦',
+    'nav.notes': 'ノート',
+    'nav.about': '概要',
+    'brand.sub': 'Laboratoire · 実験室',
+    'common.theme': 'テーマ',
+    'common.themeDark': 'ダーク',
+    'common.themeLight': 'ライト',
+    'common.lang': '言語',
+    'common.copy': 'コピー',
+    'common.copied': 'コピーしました',
+    'common.copyFail': 'コピーできませんでした。手動で選択してください。',
+    'common.reset': 'リセット',
+    'common.run': '実行',
+    'common.running': '実行中…',
+    'common.loading': '読み込み中…',
+    'common.github': 'GitHub',
+    'common.backHome': 'ホームへ戻る',
+    'common.readMore': '詳細',
+    'common.open': '開く',
+    'common.source': '出典',
+    'common.none': 'なし',
+    'common.cleared': 'クリアしました',
+    'common.docs': 'ドキュメント',
+    'common.draft': '下書き',
+    'common.expand': '展開',
+    'common.collapse': '折りたたむ',
+    'theme.auto': 'システムに従う',
+    'footer.tag': 'マニフェスト',
+    'footer.tagText': 'アルゴリズムは暗記する目録ではなく、手で開けられる仕掛けです。問題、資料、可視化を同じ机に置いています。',
+    'footer.nav': 'サイトマップ',
+    'footer.ref': '外部リソース',
+    'footer.built': '静的サイト。GitHub Pages にそのまま置けます。',
+    'footer.licenseNote': '内容は学習用の整理です。外部リンクの著作権は各作者に帰属します。',
+    'footer.colophon': 'HTML / CSS / JS のみ · ビルド不要',
+    'notFound.title': 'このページはこの机にありません',
+    'notFound.body': 'アドレスが違うか、ページがまだありません。下のリンクから戻ってください。',
+    'install.title': 'デスクトップショートカット',
+    'install.button': 'デスクトップにインストール',
+    'install.hintPwa': '独立したウィンドウで動作し、タスクバーに専用アイコンが出ます。オフラインでもキャッシュ済みページを開けます。',
+    'install.hintLocal': 'file:// ではブラウザがインストールを許可しません。create-desktop-shortcut.bat を実行してください。',
+    'install.hintBrowser': 'このブラウザにはインストール入口がありません。Chrome / Edge で開くか、タブをピン留めしてください。',
+    'install.hintInApp': 'アプリ内ブラウザではインストールできません。右上の「…」からシステムブラウザで開いてください。',
+    'install.hintIOS': 'iPhone / iPad は Safari の共有ボタン →「ホーム画面に追加」。',
+    'install.hintAndroid': 'ブラウザのメニュー（⋮）→「アプリをインストール」または「ホーム画面に追加」。',
+    'install.done': 'デスクトップにインストールしました',
+    'install.installed': 'このサイトはすでにアプリとしてインストールされています。',
+    'install.ready': 'インストールできます。上のボタンからどうぞ。',
+    'home.eyebrow': 'Labo ouvert · オープンラボ',
+    'home.ctaPrimary': '練習台へ',
+    'home.ctaSecondary': 'デモを見る',
+    'home.panelTitle': '現在の構成',
+    'home.statProblems': '問',
+    'home.statResources': '件の資料',
+    'home.statDemos': '個のデモ',
+    'home.statLangs': '言語',
+    'home.statContests': 'コンテスト',
+    'home.modulesTitle': '五つの作業台',
+    'home.modulesLede': '各モジュールは独立しています。拡張はデータファイルへの追加だけで済みます。',
+    'home.m1.title': '練習台',
+    'home.m1.fr': '問題演習',
+    'home.m1.desc': '難易度とタグで問題を絞り込み、教材の章立てで整理した機械学習のセットも収録しています。言語を選んでそのまま書き、テストを実行して出力・所要時間・エラー行・変数のスナップショットを確認できます。',
+    'home.m2.title': 'ライブラリ',
+    'home.m2.fr': '資料索引',
+    'home.m2.desc': 'アルゴリズムと AI の資料索引。講義、書籍、論文、ツール、練習場を収録し、キーワード検索と分類フィルタで辿れます。',
+    'home.m3.title': 'デモ室',
+    'home.m3.fr': '動的デモ',
+    'home.m3.desc': 'ソート、経路探索、動的計画法、二分探索木、Attention 行列に加え、機械学習の勾配降下・k-means・決定木・k 近傍法・主成分分析まで、すべて操作できます。',
+    'home.m4.title': 'デスクトップにインストール',
+    'home.m4.fr': 'ローカルアプリ',
+    'home.m4.desc': 'PWA マニフェストと Service Worker を同梱。独立したウィンドウのアプリとして導入でき、オフラインでも閲覧済みのページを開けます。file:// で開く場合は、同梱のスクリプトでアイコン付きのショートカットを作成できます。',
+    'home.m5.title': 'コンテストガイド',
+    'home.m5.fr': '大会案内',
+    'home.m5.desc': '分野・学年・難易度で大学の大会を絞り込み、シーズン、準備期間、週あたりの学習量、前提スキル、準備の段階、得られる経験を確認して公式サイトへ移動できます。',
+    'home.go': '入る →',
+    'home.lede': 'すぐに動かせる情報学の実験室です。複数の言語で問題を解いてその場でデバッグし、アルゴリズムと AI の資料を検索できる地図として辿り、抽象的な過程はドラッグも一時停止もできる動的デモで確かめられます。',
+    'home.howTitle': 'このサイトの仕組み',
+    'home.how1.title': 'ローカルでそのまま開ける',
+    'home.how1.desc': 'index.html をダブルクリックすれば閲覧でき、インストールは不要です。データを .json ではなく .js で持っているのは、file:// でも読み込めるようにするためです。',
+    'home.how2.title': 'JavaScript と Python はローカル実行',
+    'home.how2.desc': 'JavaScript は iframe サンドボックス内で実際に動作します。Python は Pyodide がブラウザ内でコンパイル・実行します（初回は約 10MB のランタイムをダウンロードするため通信が必要です）。',
+    'home.how3.title': 'その他の言語はリモートでコンパイル',
+    'home.how3.desc': 'C / C++ / Java / C# / Go / Rust / PHP / Ruby / TypeScript は Wandbox の公開コンパイルサービスで実行します。キーは不要ですが通信が必要で、テストケースごとに再コンパイルするため遅めです。',
+    'home.how4.title': '内容とコードを分離',
+    'home.how4.desc': '問題は data/problems.js、資料は data/resources.js、デモの登録は assets/js/demos.js にあります。内容の追加にページ構造の変更は要りません。',
+    'practice.title': '練習台',
+    'practice.lede': '問題を選び、言語を選び、コードを書いてテストを実行します。確認に必要な情報は、下のデバッグパネルにすべて残ります。',
+    'practice.filter': '絞り込み',
+    'practice.search': '問題やタグを検索…',
+    'practice.statement': '問題文',
+    'practice.editor': 'エディタ',
+    'practice.language': '言語',
+    'practice.loadTemplate': 'テンプレートを読み込む',
+    'practice.showSolution': '模範解答を見る',
+    'practice.runSample': 'サンプルを実行',
+    'practice.runAll': 'すべてのテストを実行',
+    'practice.result': '結果',
+    'practice.tabTests': 'テストケース',
+    'practice.tabDebug': 'デバッグ表示',
+    'practice.tabVars': '変数',
+    'practice.answerNote': '比較時に前後の空白は取り除きますが、途中の空白の違いは不正解になります。',
+    'res.title': 'アルゴリズムと AI の資料庫',
+    'res.lede': '講義、論文、ツール、練習場を一枚の検索できる地図にまとめています。分類は随時追加されます。',
+    'res.searchLabel': 'キーワード',
+    'res.search': 'タイトル・著者・タグを検索…',
+    'res.type': '種類',
+    'res.levelLabel': 'レベル',
+    'res.langLabel': '言語',
+    'res.sortBy': '並び順',
+    'res.clearFilter': '絞り込みを解除',
+    'res.disclaimer': '掲載内容は独自に選んだ推薦であり、著作権は各作者に帰属します。リンク切れの場合は data/resources.js のアドレスを修正してください。',
+    'demos.title': 'デモ室',
+    'demos.lede': 'どのデモもパラメータを変え、止め、一歩ずつ進められます。結論を暗記するのではなく、途中の状態を観察してください。',
+    'demos.pick': 'デモを選ぶ',
+    'demos.howto': 'デモを選び、下のコントロールで調整します。開始／一時停止で時間を操作し、ステップで 1 単位進みます。キャンバス上でドラッグできる要素は直接動かせます。',
+    'demos.footerNote': 'すべてのデモはバックエンドなしでブラウザ内だけで動作します。挙動を変えたい場合は、対応する assets/js/demo-*.js のパラメータや式を編集してください。',
+    'battle.title': '攻防戦',
+    'battle.h1fr': ' · 防衛演習',
+    'battle.lede': '同じ架空のネットワークを二つの視点で扱います。ブルーチームでは限られた予算で強化・バックアップ・隔離を行い、ラウンド終了で攻撃の着地点を確認します。レッドチームでは行動ポイントを使って偵察と攻撃を行い、自動で強化される防御を突破します。どちらのモードでも短い戦術スクリプトを書くとボーナスが得られます。シナリオと数値はすべて教材用のシミュレーションで、実在の標的や攻撃ツールは含みません。',
+    'battle.modeDefense': 'ブルーチーム · 防御',
+    'battle.modeAttack': 'レッドチーム · 攻撃',
+    'battle.pickTitle': '演習シナリオを選ぶ',
+    'battle.pickLede': 'L1〜L3 の十二のシナリオ。各回にシードが割り当てられ、中間イベントが少し入れ替わります。振り返りでは同じシードで再生できます。',
+    'battle.tutorialDefense': '各ラウンドではまず予算を防御に使い、「ラウンド終了」で攻撃を発生させます。予算は戻りませんが、バックアップで落ちたノードを復旧できます。どのノードを守るか決める前に、インテルを読んでください。',
+    'battle.legend': '金色の枠は選択中のノード、破線は隔離、各ノードの下は P パッチ / S 分割 / M 監視 / B バックアップ。',
+    'battle.actions': '防御アクション',
+    'battle.help': '各アクションの効果',
+    'battle.endRound': 'ラウンド終了',
+    'battle.codeTitle': 'コード演習',
+    'battle.codeOptional': '任意',
+    'battle.codeHint': '小さなスクリプト課題を解くと、この回でボーナスが得られます。',
+    'battle.codeRun': 'スクリプトを実行',
+    'battle.log': '行動ログ',
+    'res.langJa': '日本語',
+    'res.langZh': '中国語',
+    'res.langEn': '英語',
+    'collab.langJa': '日本語',
+
+    /* コンテスト */
+    'con.title': 'コンテスト案内',
+    'con.fr': 'Concours',
+    'con.h1fr': ' · Concours',
+    'con.lede': '大学生向けのコンテスト作業台です。アルゴリズム、AI、数理モデリング、セキュリティ、データサイエンス、総合デザインの大会を一枚の机に並べています。各大会について対象学年、準備期間、週あたりの学習量、前提スキル、準備の段階、得られる経験を示し、四年間の計画も添えました。紹介文はすべて本サイトの独自整理です。日程と応募条件は公式サイトをご確認ください。',
+    'con.search': '大会・分野・コツを検索…',
+    'con.searchLabel': 'キーワード',
+    'con.allCats': 'すべての分野',
+    'con.stage': '対象学年',
+    'con.allStages': 'すべての学年',
+    'con.lower': '学部 1・2 年',
+    'con.upper': '学部 3・4 年',
+    'con.postgrad': '大学院',
+    'con.open': '学年不問',
+    'con.levelLabel': '難易度',
+    'con.allLevels': '難易度指定なし',
+    'con.level1': '入門',
+    'con.level2': '中級',
+    'con.level3': '上級',
+    'con.sortBy': '並び順',
+    'con.sortDefault': '既定の順',
+    'con.sortSeason': '開催時期順',
+    'con.sortLevel': '難易度順',
+    'con.sortName': '名称順',
+    'con.starsOnly': '注目のみ',
+    'con.count': '件の大会',
+    'con.none': '条件に合う大会がありません。キーワードを変えるか、絞り込みを解除してください。',
+    'con.clearFilter': '絞り込みを解除',
+    'con.season': 'シーズン',
+    'con.format': '参加形式',
+    'con.prepWeeks': '準備期間',
+    'con.weekly': '学習時間',
+    'con.roles': 'チームでの役割',
+    'con.prereq': '前提スキル',
+    'con.skills': '身につく力',
+    'con.prep': '準備ステップ',
+    'con.tips': '実戦のコツ',
+    'con.experience': '経験と収穫',
+    'con.details': '詳細',
+    'con.hide': '閉じる',
+    'con.star': 'この大会を注目する',
+    'con.unstar': '注目を外す',
+    'con.pathsTitle': '参加ルート',
+    'con.pathsLede': 'ルートは出発点であり、門ではありません。各ノードを押すと該当する大会へ移動し、準備の詳細が開きます。',
+    'con.yearsTitle': '大学四年間のコンテスト計画',
+    'con.yearsLede': '気分ではなく学期で予定を組みます。一年ごとに主軸を一本だけ残し、練習・本番・成果物をつなげてください。学年は目安です。基礎があれば前倒しし、方向を変えるなら組み直せば十分です。',
+    'con.output': 'その年の成果',
+    'con.guidesTitle': '経験と力',
+    'con.guidesLede': '賞状より長く効くのは方法です。テンプレート、振り返り、役割分担、作品集、リズム、英語表現。',
+    'con.disclaimer': '大会の日程・形式・応募規則は年度ごとに変わります。各大会の公式サイトをご確認ください。本サイトは独自の整理と評註のみを掲載し、問題文・解説・著作物の転載は行いません。外部リンクの著作権は各権利者に帰属します。',
+
+    /* 研究連携 */
+    'collab.title': '研究連携案内',
+    'collab.h1fr': ' · Collaborations',
+    'collab.lede': '大学生向けの公開情報索引です。日本を中心に、シンガポール、香港、英国、米国の研究室・大学院・プログラムを集め、公開ページ、研究分野、指導教員の公開プロフィール、公式の応募窓口を示します。当サイトは仲介業者ではなく、書類の代理受付や合格の約束は行いません。各項目には公式の出典と「公式サイトを確認」の注記を付けています。',
+    'collab.noticeBadge': '公開情報索引',
+    'collab.noticeTitle': '仲介ではなく、応募の代理受付もしません',
+    'collab.noticeBody': '本ページは機関の公式サイト、研究室の People / Join Us / Admissions ページで公開されている情報のみを整理しています。個人メールアドレス、学生名簿、非公開の募集枠は掲載しません。指導教員の紹介は公開資料の要約であり、募集状況は公式サイトをご確認ください。',
+    'collab.mentorsTitle': '指導教員の概要',
+    'collab.mentorsLede': 'まず研究分野と公開プロフィールを見て、そこから該当するプロジェクトへ進んでください。著名な教員は方向性の参考にとどめ、若手教員やポスドクに先に相談するのも自然な流れです。',
+    'collab.indexTitle': '公開プロジェクト索引',
+    'collab.indexLede': '地域・分野・段階・種類で絞り込めます。日本語版では日本を中心に、シンガポール・香港・英国・米国を重点的に、中国大陸はトップ校と研究機関のみ、台湾は補助的に掲載しています。学院や研究室の入口は、個々の教員の募集枠を意味しません。',
+    'collab.searchLabel': 'キーワード',
+    'collab.search': '大学・研究室・教員・分野を検索…',
+    'collab.region': '地域',
+    'collab.field': '分野',
+    'collab.level': '段階',
+    'collab.type': '種類',
+    'collab.tier': '区分',
+    'collab.sortBy': '並び順',
+    'collab.allRegions': 'すべての地域',
+    'collab.allFields': 'すべての分野',
+    'collab.allLevels': 'すべての段階',
+    'collab.allTypes': 'すべての種類',
+    'collab.allTiers': 'すべての区分',
+    'collab.tierOther': 'その他・海外',
+    'collab.sortDefault': '既定の順',
+    'collab.sortName': '大学名順',
+    'collab.sortRegion': '地域順',
+    'collab.count': '件',
+    'collab.none': '条件に合う項目がありません。キーワードを変えるか、絞り込みを解除してください。',
+    'collab.clear': '絞り込みを解除',
+    'collab.mentorLabel': '指導教員・責任者',
+    'collab.methods': '研究内容',
+    'collab.fit': '向いている人',
+    'collab.mentorBio': '指導教員の紹介',
+    'collab.applyTitle': '連絡と応募',
+    'collab.sourceTitle': '出典と更新',
+    'collab.officialApply': '公式サイトで応募',
+    'collab.mentorPage': '教員ページ',
+    'collab.sourcePage': '出典ページ',
+    'collab.details': '詳細',
+    'collab.hide': '閉じる',
+    'collab.statusCheck': '募集状況は公式サイトで確認',
+    'collab.kindInstitute': '研究機関',
+    'collab.kindIndustry': '企業研究所',
+    'collab.kindLab': '国立・新型研究室',
+    'collab.updatedLabel': '更新',
+    'collab.lastUpdated': '最終更新',
+    'collab.paperTitle': '論文の読み方',
+    'collab.paperLede': '論文を読めないまま連絡すると、中身のない文面しか書けません。まず検索、三回読み、一ページの読書メモを身につけます。',
+    'collab.paper1Title': 'まず論文を選ぶ',
+    'collab.paper1Desc': 'サーベイで地図を作り、引用をたどって直近二年の研究へ進みます。会議や著者は DBLP、プレプリントは arXiv、再現コードは Papers with Code で確認します。思いついたキーワードだけで読み始めないこと。',
+    'collab.paper2Title': '三回読み',
+    'collab.paper2Desc': '一回目は五分でタイトル・要旨・図・結論。二回目は三十分で手法・実験・比較手法。三回目は導出・再現・失敗例まで。毎回、一文で要約を残します。',
+    'collab.paper3Title': '一ページの読書メモ',
+    'collab.paper3Desc': '問題、手法、データ、結果、限界、再現計画を自分の言葉で書きます。要旨の写しではなく、同意できない点や理解できなかった点を明記します。',
+    'collab.paper4Title': '論文から連絡へ',
+    'collab.paper4Desc': 'メールに書くのは三つだけ。読んだ論文、再現または発展させられる部分、具体的な質問です。テンプレートの一斉送信や、いきなりの募集枠の要求は避けます。',
+    'collab.paperTemplateTitle': '読書メモのテンプレート',
+    'collab.copyTemplate': 'テンプレートをコピー',
+    'collab.paperJump': '論文の読み方へ ↓',
+    'collab.howTitle': '双方の時間を無駄にしない連絡の仕方',
+    'collab.howLede': '指導教員への連絡は一斉メールではありません。読んだこと、できることを示してから、受け入れの話をします。',
+    'collab.how1Title': 'まず論文を 2〜3 本読む',
+    'collab.how1Desc': '希望する研究室の直近二年の論文を読み、どの部分を再現でき、何を進めたいのかを書きます。「AI に興味があります」だけでは足りません。',
+    'collab.how2Title': '一ページの CV を用意する',
+    'collab.how2Desc': '授業、プロジェクト、コードのリンク、論文や再現報告を一ページにまとめます。必要に応じて成績証明書と英語スコアを添え、巨大な圧縮ファイルは送りません。',
+    'collab.how3Title': '公式の窓口から応募する',
+    'collab.how3Desc': '大学・研究室の募集、訪問、Join Us ページから応募します。制度を飛ばして個人の連絡先を求めたり、同じ文面を一斉送信したりしません。',
+    'collab.how4Title': '代替案を用意する',
+    'collab.how4Desc': '別分野の研究室と資金計画を 2〜3 件用意します。返信がないのは普通のことなので、すべてを一人の教員に賭けないでください。',
+    'collab.disclaimerTitle': '声明と情報源',
+    'collab.disclaimerBody': '本ページは公開情報の索引であり、仲介・代理・公式の連携ページではありません。応募書類の代理受付、推薦、合格保証、有料相談は一切行いません。プロジェクト、指導教員、募集枠、資金、締切は各機関の公式サイトをご確認ください。指導教員の紹介は公開資料の要約で、最新ページと異なる場合があります。個人メールアドレス、学生名簿、非公開情報は掲載しません。プロジェクトの要約は本サイトの独自改写であり、公式サイトの原文転載ではありません。機関名・教員名・標識は各権利者に帰属します。研究機関や企業研究所のインターン、連携養成、採用、訪問の機会は公式ページに基づくもので、本サイトとの提携や推薦を意味しません。985/211 は中国の大学分類の公開ラベルで、本サイトの評価や募集枠を示すものではありません。',
+    'collab.disclaimerSource': '出典：各機関の公式サイト、研究室の People / Join Us / Admissions ページ。項目は 2026-10 に整理したもので、最新の募集状況を個別に確認したものではありません。',
+    'collab.report': '誤りの報告'
+  };
+  DICT.ja = JA;
+
   /** 界面文案：双语模式下界面上仍用中文，正文内容才对照显示。 */
   LHT.t = function (key, fallback) {
     /* en → 全英文；both → 界面用中文、正文西文小字对照；fr → 法语词条，缺译回退英文 */
-    var table = LHT.lang === 'fr' ? DICT.fr : (LHT.lang === 'both' ? DICT.zh : DICT.en);
+    var table = LHT.lang === 'ja' ? DICT.ja : (LHT.lang === 'fr' ? DICT.fr : (LHT.lang === 'both' ? DICT.zh : DICT.en));
     if (table && table[key] != null) return table[key];
-    if (LHT.lang === 'fr' && DICT.en[key] != null) return DICT.en[key];
+    if ((LHT.lang === 'fr' || LHT.lang === 'ja') && DICT.en[key] != null) return DICT.en[key];
     var other = DICT.zh;
     if (other && other[key] != null) return other[key];
     return fallback != null ? fallback : key;
@@ -1565,6 +1839,7 @@
     if (typeof obj === 'string') return obj;
     var zh = obj.zh || obj.en || '';
     var en = obj.en || obj.zh || '';
+    if (LHT.lang === 'ja') return obj.ja || en;
     if (LHT.lang === 'fr') return obj.fr || en;
     if (LHT.lang === 'en') return en;
     if (LHT.lang === 'both' && zh !== en) {
@@ -1579,6 +1854,7 @@
     if (typeof obj === 'string') return obj;
     var zh = obj.zh || obj.en || '';
     var en = obj.en || obj.zh || '';
+    if (LHT.lang === 'ja') return obj.ja || en;
     if (LHT.lang === 'fr') return obj.fr || en;
     if (LHT.lang === 'en') return en;
     if (LHT.lang === 'both' && zh !== en) return zh + ' / ' + en;
@@ -1613,7 +1889,7 @@
     for (var m = 0; m < titles.length; m++) {
       titles[m].setAttribute('title', LHT.t(titles[m].getAttribute('data-i18n-title')));
     }
-    document.documentElement.setAttribute('lang', LHT.lang === 'fr' ? 'fr' : 'en');
+    document.documentElement.setAttribute('lang', LHT.lang === 'fr' ? 'fr' : (LHT.lang === 'ja' ? 'ja' : 'en'));
     document.documentElement.setAttribute('data-lang', LHT.lang);
   };
 })();

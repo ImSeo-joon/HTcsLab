@@ -10,44 +10,45 @@
    ============================================================ */
 
 window.LHT_COLLAB_REGIONS = [
-  { id: 'us',   label: { zh: '美国', en: 'United States' } },
-  { id: 'ca',   label: { zh: '加拿大', en: 'Canada' } },
-  { id: 'uk',   label: { zh: '英国', en: 'United Kingdom' } },
-  { id: 'eu',   label: { zh: '欧洲', en: 'Europe' } },
-  { id: 'cn',   label: { zh: '中国', en: 'China' } },
-  { id: 'hk',   label: { zh: '中国香港', en: 'Hong Kong, China' } },
-  { id: 'mo',   label: { zh: '中国澳门', en: 'Macau, China' } },
-  { id: 'tw',   label: { zh: '中国台湾', en: 'Taiwan, China' } },
-  { id: 'asia', label: { zh: '亚洲', en: 'Asia' } }
+  { id: 'us',   label: { zh: '美国', en: 'United States', ja: 'アメリカ' } },
+  { id: 'ca',   label: { zh: '加拿大', en: 'Canada', ja: 'カナダ' } },
+  { id: 'uk',   label: { zh: '英国', en: 'United Kingdom', ja: 'イギリス' } },
+  { id: 'eu',   label: { zh: '欧洲', en: 'Europe', ja: 'ヨーロッパ' } },
+  { id: 'cn',   label: { zh: '中国', en: 'China', ja: '中国' } },
+  { id: 'hk',   label: { zh: '中国香港', en: 'Hong Kong, China', ja: '中国香港' } },
+  { id: 'mo',   label: { zh: '中国澳门', en: 'Macau, China', ja: '中国マカオ' } },
+  { id: 'tw',   label: { zh: '中国台湾', en: 'Taiwan, China', ja: '中国台湾' } },
+  { id: 'asia', label: { zh: '亚洲', en: 'Asia', ja: 'アジア' } },
+  { id: 'jp',   label: { zh: '日本', en: 'Japan', ja: '日本' } }
 ];
 
 window.LHT_COLLAB_FIELDS = [
-  { id: 'ai',       label: { zh: '人工智能', en: 'AI' } },
-  { id: 'ml',       label: { zh: '机器学习', en: 'Machine learning' } },
-  { id: 'cv',       label: { zh: '计算机视觉', en: 'Computer vision' } },
-  { id: 'nlp',      label: { zh: '自然语言处理', en: 'NLP' } },
-  { id: 'robotics', label: { zh: '机器人', en: 'Robotics' } },
-  { id: 'systems',  label: { zh: '系统与网络', en: 'Systems' } },
-  { id: 'theory',   label: { zh: '理论计算机', en: 'Theory' } },
-  { id: 'hci',      label: { zh: '人机交互', en: 'HCI' } },
-  { id: 'medai',    label: { zh: '医学 AI', en: 'Medical AI' } }
+  { id: 'ai',       label: { zh: '人工智能', en: 'AI', ja: '人工知能' } },
+  { id: 'ml',       label: { zh: '机器学习', en: 'Machine learning', ja: '機械学習' } },
+  { id: 'cv',       label: { zh: '计算机视觉', en: 'Computer vision', ja: 'コンピュータビジョン' } },
+  { id: 'nlp',      label: { zh: '自然语言处理', en: 'NLP', ja: '自然言語処理' } },
+  { id: 'robotics', label: { zh: '机器人', en: 'Robotics', ja: 'ロボティクス' } },
+  { id: 'systems',  label: { zh: '系统与网络', en: 'Systems', ja: 'システム・ネットワーク' } },
+  { id: 'theory',   label: { zh: '理论计算机', en: 'Theory', ja: '理論計算機科学' } },
+  { id: 'hci',      label: { zh: '人机交互', en: 'HCI', ja: 'ヒューマン・コンピュータ相互作用' } },
+  { id: 'medai',    label: { zh: '医学 AI', en: 'Medical AI', ja: '医療 AI' } }
 ];
 
 window.LHT_COLLAB_LEVELS = [
-  { id: 'undergrad', label: { zh: '本科', en: 'Undergraduate' } },
-  { id: 'master',    label: { zh: '硕士', en: "Master's" } },
-  { id: 'phd',       label: { zh: '博士', en: 'PhD' } },
-  { id: 'postdoc',   label: { zh: '博士后', en: 'Postdoc' } },
-  { id: 'visiting',  label: { zh: '访问 / 交换', en: 'Visiting' } }
+  { id: 'undergrad', label: { zh: '本科', en: 'Undergraduate', ja: '学部' } },
+  { id: 'master',    label: { zh: '硕士', en: "Master's", ja: '修士' } },
+  { id: 'phd',       label: { zh: '博士', en: 'PhD', ja: '博士' } },
+  { id: 'postdoc',   label: { zh: '博士后', en: 'Postdoc', ja: 'ポスドク' } },
+  { id: 'visiting',  label: { zh: '访问 / 交换', en: 'Visiting', ja: '訪問・交換' } }
 ];
 
 window.LHT_COLLAB_TYPES = [
-  { id: 'summer',     label: { zh: '暑期研究', en: 'Summer research' } },
-  { id: 'research',   label: { zh: '科研项目', en: 'Research project' } },
-  { id: 'phd',        label: { zh: '博士项目', en: 'PhD program' } },
-  { id: 'visiting',   label: { zh: '访问项目', en: 'Visiting programme' } },
-  { id: 'fellowship', label: { zh: '奖学金 / Fellowship', en: 'Fellowship' } },
-  { id: 'joint',      label: { zh: '联合培养', en: 'Joint training' } }
+  { id: 'summer',     label: { zh: '暑期研究', en: 'Summer research', ja: 'サマーリサーチ' } },
+  { id: 'research',   label: { zh: '科研项目', en: 'Research project', ja: '研究プロジェクト' } },
+  { id: 'phd',        label: { zh: '博士项目', en: 'PhD program', ja: '博士課程' } },
+  { id: 'visiting',   label: { zh: '访问项目', en: 'Visiting programme', ja: '訪問プログラム' } },
+  { id: 'fellowship', label: { zh: '奖学金 / Fellowship', en: 'Fellowship', ja: 'フェローシップ' } },
+  { id: 'joint',      label: { zh: '联合培养', en: 'Joint training', ja: 'ジョイント養成' } }
 ];
 
 window.LHT_COLLABS = [
@@ -632,8 +633,8 @@ window.LHT_COLLABS = [
   },
   {
     id: 'nus-computing',
-    institution: { zh: '新加坡国立大学', en: 'National University of Singapore' },
-    unit: { zh: 'School of Computing', en: 'School of Computing' },
+    institution: { zh: '新加坡国立大学', en: 'National University of Singapore', ja: 'シンガポール国立大学' },
+    unit: { zh: 'School of Computing', en: 'School of Computing', ja: '計算機学院' },
     region: 'asia',
     fields: ['ai', 'ml', 'systems', 'hci'],
     levels: ['phd', 'visiting'],
@@ -680,18 +681,18 @@ window.LHT_COLLABS = [
   },
   {
     id: 'utokyo-matsuo',
-    institution: { zh: '东京大学', en: 'University of Tokyo' },
-    unit: { zh: 'Matsuo Lab', en: 'Matsuo Lab' },
-    region: 'asia',
+    institution: { zh: '东京大学', en: 'University of Tokyo', ja: '東京大学' },
+    unit: { zh: 'Matsuo Lab', en: 'Matsuo Lab', ja: '松尾研究室' },
+    region: 'jp',
     fields: ['ml', 'nlp'],
     levels: ['master', 'phd', 'visiting'],
     types: ['phd', 'research'],
     language: ['ja', 'en'],
     funding: { zh: '以东京大学/Matsuo Lab 官方项目与奖学金说明为准', en: 'Check University of Tokyo/Matsuo Lab official funding and scholarship terms' },
     mentor: {
-      name: { zh: '松尾丰', en: 'Yutaka Matsuo' },
+      name: { zh: '松尾丰', en: 'Yutaka Matsuo', ja: '松尾豊' },
       initials: '松',
-      title: { zh: '东京大学工学系研究科教授', en: 'Professor at the University of Tokyo' },
+      title: { zh: '东京大学工学系研究科教授', en: 'Professor at the University of Tokyo', ja: '東京大学大学院工学系研究科 教授' },
       bio: {
         zh: '公开资料摘要：松尾丰是东京大学工学系研究科教授、Matsuo Lab 负责人，公开研究覆盖机器学习、自然语言处理、Web 数据挖掘与 AI 社会应用。具体招生与访问安排以东京大学官网为准。',
         en: 'Public-profile summary: Yutaka Matsuo is a professor at the University of Tokyo and leads Matsuo Lab. His public work covers machine learning, NLP, web data mining and social applications of AI. Check the University of Tokyo official pages for admissions and visiting.'
@@ -2579,9 +2580,9 @@ window.LHT_COLLABS = [
   },
   {
     id: 'riken-aip',
-    institution: { zh: '理化学研究所 先进智能项目中心', en: 'RIKEN Center for Advanced Intelligence Project' },
+    institution: { zh: '理化学研究所 先进智能项目中心', en: 'RIKEN Center for Advanced Intelligence Project', ja: '理化学研究所 先進知能研究センター' },
     unit: { zh: 'RIKEN AIP', en: 'RIKEN AIP' },
-    region: 'asia',
+    region: 'jp',
     kind: 'institute',
     fields: ['ai', 'ml'],
     levels: ['phd', 'postdoc', 'visiting'],
@@ -2589,9 +2590,9 @@ window.LHT_COLLABS = [
     language: ['en', 'ja'],
     funding: { zh: '以 RIKEN/AIP 官方项目与奖学金说明为准', en: 'Check RIKEN/AIP program and fellowship terms' },
     mentor: {
-      name: { zh: 'AIP 研究团队', en: 'AIP research teams' },
+      name: { zh: 'AIP 研究团队', en: 'AIP research teams', ja: 'AIP 研究チーム' },
       initials: 'AIP',
-      title: { zh: '研究所研究团队', en: 'Research institute teams' },
+      title: { zh: '研究所研究团队', en: 'Research institute teams', ja: '研究所の研究チーム' },
       bio: {
         zh: '公开资料摘要：RIKEN AIP 聚焦 AI、机器学习、优化、AI for Science 与跨学科研究，由多个团队组成；具体导师与项目以官网为准。',
         en: 'Public-profile summary: RIKEN AIP focuses on AI, machine learning, optimisation, AI for Science and interdisciplinary research through multiple teams. Check the official site for advisers and projects.'
@@ -2600,7 +2601,7 @@ window.LHT_COLLABS = [
       highlight: false
     },
     project: {
-      title: { zh: 'AI、ML 与跨学科', en: 'AI, ML and interdisciplinary research' },
+      title: { zh: 'AI、ML 与跨学科', en: 'AI, ML and interdisciplinary research', ja: 'AI・機械学習・学際研究' },
       summary: {
         zh: '研究所研究 AI、机器学习、优化、AI for Science 与跨学科应用。博士/博后/访问机会通过官网；适合数学/ML 基础好、能读论文并做实验的学生。',
         en: 'Research covers AI, machine learning, optimisation, AI for Science and interdisciplinary applications. PhD/postdoc/visiting opportunities go through the official site; it suits students with strong maths/ML, paper reading and experiments.'

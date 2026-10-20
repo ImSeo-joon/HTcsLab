@@ -15,12 +15,12 @@
    ============================================================ */
 
 window.LHT_CONTEST_CATS = [
-  { id: 'algorithm', label: { zh: '算法竞赛', en: 'Algorithms', fr: 'Algorithmique' } },
-  { id: 'ai',        label: { zh: 'AI 与模型', en: 'AI & models', fr: 'IA & modèles' } },
-  { id: 'math',      label: { zh: '数学与建模', en: 'Mathematics', fr: 'Mathématiques' } },
-  { id: 'security',  label: { zh: '网络安全', en: 'Security', fr: 'Sécurité' } },
-  { id: 'data',      label: { zh: '数据科学', en: 'Data science', fr: 'Science des données' } },
-  { id: 'design',    label: { zh: '综合与设计', en: 'General & design', fr: 'Général & design' } }
+  { id: 'algorithm', label: { zh: '算法竞赛', en: 'Algorithms', fr: 'Algorithmique', ja: 'アルゴリズム' } },
+  { id: 'ai',        label: { zh: 'AI 与模型', en: 'AI & models', fr: 'IA & modèles', ja: 'AI・モデル' } },
+  { id: 'math',      label: { zh: '数学与建模', en: 'Mathematics', fr: 'Mathématiques', ja: '数学・モデリング' } },
+  { id: 'security',  label: { zh: '网络安全', en: 'Security', fr: 'Sécurité', ja: 'セキュリティ' } },
+  { id: 'data',      label: { zh: '数据科学', en: 'Data science', fr: 'Science des données', ja: 'データサイエンス' } },
+  { id: 'design',    label: { zh: '综合与设计', en: 'General & design', fr: 'Général & design', ja: '総合・デザイン' } }
 ];
 
 /* 年级阶段：筛选项文案在 i18n.js 的 con.* 里。 */
@@ -32,6 +32,7 @@ window.LHT_CONTESTS = [
     id: 'icpc',
     name: { zh: 'ICPC 国际大学生程序设计竞赛', en: 'ICPC International Collegiate Programming Contest' },
     abbr: 'ICPC',
+    jpKeep: true,
     cat: 'algorithm', stage: 'upper', level: 3,
     months: [9, 10, 11, 12],
     season: { zh: '每年 9–12 月区域赛，次年春季总决赛', en: 'Regionals Sep–Dec, world finals in spring' },
@@ -83,6 +84,7 @@ window.LHT_CONTESTS = [
     id: 'ccpc',
     name: { zh: 'CCPC 中国大学生程序设计竞赛', en: 'China Collegiate Programming Contest' },
     abbr: 'CCPC',
+    jpKeep: true,
     cat: 'algorithm', stage: 'upper', level: 3,
     months: [8, 9, 10, 11],
     season: { zh: '每年 8–11 月分站赛，年底总决赛', en: 'Stations Aug–Nov, finals at year end' },
@@ -130,6 +132,7 @@ window.LHT_CONTESTS = [
     id: 'codeforces',
     name: { zh: 'Codeforces 线上赛', en: 'Codeforces Rounds' },
     abbr: 'CF',
+    jpKeep: true,
     cat: 'algorithm', stage: 'open', level: 2,
     months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     season: { zh: '全年，每周 1–2 场 Rated 比赛', en: 'All year, one or two rated rounds a week' },
@@ -175,8 +178,9 @@ window.LHT_CONTESTS = [
   },
   {
     id: 'atcoder',
-    name: { zh: 'AtCoder 常规赛', en: 'AtCoder Regular Contests' },
+    name: { zh: 'AtCoder 常规赛', en: 'AtCoder Regular Contests', ja: 'AtCoder レギュラーコンテスト' },
     abbr: 'AC',
+    jp: true,
     cat: 'algorithm', stage: 'open', level: 2,
     months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     season: { zh: '全年，ABC 每周、ARC 每月', en: 'Weekly ABC, monthly ARC' },
@@ -359,6 +363,7 @@ window.LHT_CONTESTS = [
     id: 'kaggle',
     name: { zh: 'Kaggle 数据科学竞赛', en: 'Kaggle Competitions' },
     abbr: 'Kaggle',
+    jpKeep: true,
     cat: 'data', stage: 'open', level: 2,
     months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     season: { zh: '全年滚动', en: 'Rolling all year' },
@@ -845,6 +850,834 @@ window.LHT_CONTESTS = [
       { label: 'CISCN', url: 'http://www.ciscn.cn/' },
       { label: 'CTFtime', url: 'https://ctftime.org/' }
     ]
+  },
+  {
+    id: 'icpc-japan',
+    name: { zh: 'ICPC 日本国内预选 / 亚洲区域赛', en: 'ICPC Japan Domestic / Asia Regional', ja: 'ICPC 日本国内予選 / アジア地区大会' },
+    abbr: 'ICPC JP',
+    jp: true,
+    cat: 'algorithm', stage: 'upper', level: 3,
+    months: [6, 7, 8, 9, 10, 11],
+    season: { zh: '国内预选 6–7 月，亚洲区域赛 9–11 月', en: 'Domestic preliminary Jun–Jul, Asia regional Sep–Nov' },
+    summary: {
+      zh: 'ICPC 日本国内预选是日本队伍进入亚洲区域赛的主要通道，赛制与 ICPC 一致：三人一机五小时，按题数与罚时排名。',
+      en: 'The ICPC Japan domestic preliminary is the main route into the Asia regionals, using the standard three-person, one-machine, five-hour format ranked by solves and penalty.'
+    },
+    format: {
+      zh: '三人一队、一台电脑、五小时；国内预选胜出后参加亚洲区域赛，题型覆盖图论、DP、几何与构造。',
+      en: 'Three students, one computer, five hours; successful teams advance to the Asia regional. Problems span graphs, DP, geometry and construction.'
+    },
+    prepWeeks: { zh: '12–16 周', en: '12–16 weeks' },
+    weekly: { zh: '每周 8–12 小时', en: '8–12 h / week' },
+    prereq: {
+      zh: 'C++ 与 STL 熟练；掌握图论、DP、数据结构与几何基础；能读英文题面并做对拍。',
+      en: 'Fluent C++ and STL; graphs, DP, data structures and basic geometry; English statements and stress testing.'
+    },
+    roles: [
+      { zh: '读题', en: 'Reader' },
+      { zh: '主码', en: 'Coder' },
+      { zh: '验证', en: 'Verifier' }
+    ],
+    skills: [
+      { zh: '图论', en: 'Graphs' },
+      { zh: '动态规划', en: 'DP' },
+      { zh: '计算几何', en: 'Geometry' },
+      { zh: '构造', en: 'Construction' }
+    ],
+    prep: [
+      { zh: '按 ICPC 区域赛题单做虚拟赛，固定三人分工与罚时纪律。', en: 'Run virtual contests from regional problem sets with fixed roles and penalty discipline.' },
+      { zh: '把日本预选近年的题解逐题复盘，记录读题和实现上的失误。', en: 'Review recent Japan preliminary editorials problem by problem and log reading/implementation errors.' },
+      { zh: '赛前统一模板仓库，只允许增量修改。', en: 'Freeze one shared template repository before the contest.' }
+    ],
+    tips: [
+      { zh: '日本预选题目阅读量不大，但英文/日文题面细节多，先确认输入输出再动手。', en: 'Statements are not long, but details matter — confirm I/O before coding.' },
+      { zh: '罚时决定排名，能过的题不要反复提交。', en: 'Penalty decides ranking; do not resubmit problems you can already pass.' }
+    ],
+    experience: {
+      zh: '日本预选是检验队伍基本功的场合：真正的差距往往在读题速度、模板稳定性和提交纪律，而不是某道神题。',
+      en: 'The Japan preliminary tests fundamentals: reading speed, template stability and submission discipline matter more than one exotic problem.'
+    },
+    links: [{ label: 'ICPC Japan', url: 'https://icpc.iisf.or.jp/' }]
+  },
+  {
+    id: 'jag',
+    name: { zh: 'JAG 程序设计竞赛', en: 'JAG Programming Contest', ja: 'JAG プログラミングコンテスト' },
+    abbr: 'JAG',
+    jp: true,
+    cat: 'algorithm', stage: 'open', level: 2,
+    months: [9, 10, 11, 12],
+    season: { zh: '每年秋季多场，具体以官网为准', en: 'Several autumn contests; check the official calendar' },
+    summary: {
+      zh: 'JAG 由日本 ICPC OB 组织，题目风格接近 ICPC，难度跨度大，适合日本国内队伍在区域赛前后练兵。',
+      en: 'JAG is organised by Japanese ICPC alumni. Problems are close to ICPC style with a wide difficulty range, making it useful practice around the regional season.'
+    },
+    format: {
+      zh: '团队赛，通常三人一机、数小时，题目从入门到高阶混合，赛后常公开题解。',
+      en: 'Team contest, usually three people on one machine for several hours, mixing introductory and advanced problems with public editorials afterwards.'
+    },
+    prepWeeks: { zh: '8–12 周', en: '8–12 weeks' },
+    weekly: { zh: '每周 6–10 小时', en: '6–10 h / week' },
+    prereq: {
+      zh: '熟悉 ICPC 赛制；至少两人能稳定实现图论/DP；能读英文或日文题面。',
+      en: 'ICPC format familiarity; at least two members fluent in graph/DP implementation; English or Japanese statements.'
+    },
+    roles: [
+      { zh: '读题', en: 'Reader' },
+      { zh: '主码', en: 'Coder' },
+      { zh: '验证', en: 'Verifier' }
+    ],
+    skills: [
+      { zh: '图论', en: 'Graphs' },
+      { zh: 'DP', en: 'DP' },
+      { zh: '数学', en: 'Maths' },
+      { zh: '实现', en: 'Implementation' }
+    ],
+    prep: [
+      { zh: '按 JAG 历年题单做 2–3 场虚拟赛，适应日本题目的表达方式。', en: 'Run two or three virtual contests from JAG archives to get used to Japanese phrasing.' },
+      { zh: '把队伍的读题与提交流程固定下来，减少无谓罚时。', en: 'Fix the team’s reading and submission routine to cut needless penalty.' },
+      { zh: '赛后按题解补题，重点记录卡住的观察点。', en: 'Upsolve with editorials and record the observation that was missing.' }
+    ],
+    tips: [
+      { zh: 'JAG 题目难度跳跃明显，先快速扫一遍再决定主攻方向。', en: 'Difficulty jumps sharply; scan first, then choose the main direction.' },
+      { zh: '日本题面常把关键条件写在段落里，别只看样例。', en: 'Key conditions often sit inside paragraphs; do not rely on samples alone.' }
+    ],
+    experience: {
+      zh: 'JAG 很适合练习“快速判断题目值不值得做”。比赛里最贵的不是难题，而是把时间投在错误的方向上。',
+      en: 'JAG is good practice for judging whether a problem is worth attempting. The expensive mistake is spending time in the wrong direction.'
+    },
+    links: [{ label: 'JAG', url: 'https://jag-icpc.org/' }]
+  },
+  {
+    id: 'past',
+    name: { zh: 'AtCoder PAST 编程能力测试', en: 'AtCoder PAST', ja: 'AtCoder PAST プログラミング能力検定' },
+    abbr: 'PAST',
+    jp: true,
+    cat: 'algorithm', stage: 'lower', level: 1,
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    season: { zh: '全年多场，具体以 AtCoder 公告为准', en: 'Several sessions a year; check AtCoder announcements' },
+    summary: {
+      zh: 'PAST 是 AtCoder 主办的编程能力测试，题目从基础语法到进阶算法分级排列，适合作为日语环境下的算法入门与自测。',
+      en: 'PAST is AtCoder’s programming ability test, graded from basic syntax to advanced algorithms. It is a good entry point and self-check in a Japanese environment.'
+    },
+    format: {
+      zh: '个人赛，约 90 分钟、12 题，难度逐级上升；可用 C/C++、Python、Java 等语言。',
+      en: 'Individual, about 90 minutes and 12 problems of rising difficulty; C/C++, Python, Java and other languages are allowed.'
+    },
+    prepWeeks: { zh: '4–6 周', en: '4–6 weeks' },
+    weekly: { zh: '每周 3–5 小时', en: '3–5 h / week' },
+    prereq: {
+      zh: '一门语言的基础语法；数组、字符串、循环与函数；能读懂日文或英文题面。',
+      en: 'Basic syntax in one language; arrays, strings, loops and functions; Japanese or English statements.'
+    },
+    roles: [{ zh: '个人赛', en: 'Individual' }],
+    skills: [
+      { zh: '基础语法', en: 'Syntax' },
+      { zh: '模拟', en: 'Simulation' },
+      { zh: '排序', en: 'Sorting' },
+      { zh: '基础 DP', en: 'Basic DP' }
+    ],
+    prep: [
+      { zh: '先做 PAST 的入门级题目，确保每题都能独立写完整程序。', en: 'Start with entry-level PAST problems and write each program end to end.' },
+      { zh: '按题号记录错误类型：读题、边界、实现、复杂度。', en: 'Log error types by problem: reading, edges, implementation, complexity.' },
+      { zh: '用计时器模拟 90 分钟，练习先拿稳简单分。', en: 'Simulate 90 minutes and bank the easy points first.' }
+    ],
+    tips: [
+      { zh: 'PAST 的题号就是难度梯度，前面卡住时先跳过，别影响整体得分。', en: 'Problem order is a difficulty ladder; skip a blocker and protect the total score.' },
+      { zh: '边界条件比算法技巧更常丢分，写完先测空输入和最小值。', en: 'Edge cases lose more points than advanced tricks; test empty and minimum inputs.' }
+    ],
+    experience: {
+      zh: 'PAST 适合建立“完整写完一题”的信心。它不追求神题，而是检查你的基础是否真的能落地。',
+      en: 'PAST builds confidence in finishing a problem completely. It checks whether your fundamentals actually work, not whether you know an exotic trick.'
+    },
+    links: [{ label: 'PAST', url: 'https://past.atcoder.jp/' }]
+  },
+  {
+    id: 'ahc',
+    name: { zh: 'AtCoder Heuristic Contest', en: 'AtCoder Heuristic Contest', ja: 'AtCoder Heuristic Contest' },
+    abbr: 'AHC',
+    jp: true,
+    cat: 'algorithm', stage: 'open', level: 3,
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    season: { zh: '全年多场，通常数小时到数天', en: 'Several per year, from hours to days' },
+    summary: {
+      zh: 'AHC 是启发式优化赛：没有唯一正确答案，选手提交程序在时限内产生尽可能好的解，评分器给出相对分数。',
+      en: 'AHC is a heuristic optimisation contest: there is no single correct answer; programs produce the best solution they can within the time limit and a scorer ranks them.'
+    },
+    format: {
+      zh: '个人或团队线上赛，给定问题与评分器，提交可执行程序；通常按相对得分排名，赛后可交流解法。',
+      en: 'Individual or team online contest with a problem and scorer; submit an executable program, ranked by relative score, with solution discussion afterwards.'
+    },
+    prepWeeks: { zh: '8–12 周', en: '8–12 weeks' },
+    weekly: { zh: '每周 6–10 小时', en: '6–10 h / week' },
+    prereq: {
+      zh: '熟练一门语言；理解复杂度与随机化；会做局部搜索、模拟退火或贪心构造。',
+      en: 'One fluent language; complexity and randomness; local search, simulated annealing or greedy construction.'
+    },
+    roles: [{ zh: '个人/小队', en: 'Individual / small team' }],
+    skills: [
+      { zh: '启发式搜索', en: 'Heuristics' },
+      { zh: '模拟退火', en: 'Annealing' },
+      { zh: '优化', en: 'Optimisation' },
+      { zh: '工程实现', en: 'Engineering' }
+    ],
+    prep: [
+      { zh: '先写一个稳定可行的贪心解，再逐步加局部搜索。', en: 'Write a stable greedy solution first, then add local search.' },
+      { zh: '建立本地评分器与多组随机种子，避免只看单次结果。', en: 'Build a local scorer and multiple seeds; never judge from one run.' },
+      { zh: '记录每次改动的分数分布，控制实验变量。', en: 'Log score distributions per change and control variables.' }
+    ],
+    tips: [
+      { zh: 'AHC 的分数是相对的，先保证程序稳定运行，再追求高分。', en: 'Scores are relative; keep the program stable before chasing a high score.' },
+      { zh: '时间预算和随机种子要写进提交策略，别把时间浪费在无效搜索上。', en: 'Put time budgets and seeds into the strategy; avoid wasted search.' }
+    ],
+    experience: {
+      zh: 'AHC 和传统算法题是两种能力：它更像工程优化，要求你在不确定的搜索空间里做实验、评估和取舍。',
+      en: 'AHC tests a different skill from standard algorithm problems: engineering optimisation, experimentation and trade-offs in an uncertain search space.'
+    },
+    links: [{ label: 'AtCoder', url: 'https://atcoder.jp/' }]
+  },
+  {
+    id: 'seccon',
+    name: { zh: 'SECCON CTF', en: 'SECCON CTF', ja: 'SECCON CTF' },
+    abbr: 'SECCON',
+    jp: true,
+    cat: 'security', stage: 'open', level: 3,
+    months: [6, 7, 8, 9, 10, 11, 12],
+    season: { zh: '每年预选与决赛，具体以官网为准', en: 'Annual qualifiers and finals; check the official site' },
+    summary: {
+      zh: 'SECCON 是日本最具代表性的安全竞赛之一，题目覆盖 Web、Pwn、Reverse、Crypto、Misc，质量高、风格偏实战。',
+      en: 'SECCON is one of Japan’s most representative security contests, covering Web, Pwn, Reverse, Crypto and Misc with high-quality, practical challenges.'
+    },
+    format: {
+      zh: '团队 CTF，预选通常为线上解题赛，决赛为线下/攻防形式；题目公开后社区会写大量 writeup。',
+      en: 'Team CTF: online Jeopardy qualifiers and an onsite/attack-defence final. The community publishes many write-ups afterwards.'
+    },
+    prepWeeks: { zh: '12 周以上，按方向计', en: '12+ weeks per track' },
+    weekly: { zh: '每周 8–12 小时', en: '8–12 h / week' },
+    prereq: {
+      zh: 'Linux 与网络基础；至少一个方向（Web/Pwn/Reverse/Crypto）的工具链；能写 writeup。',
+      en: 'Linux and networking; a toolchain in at least one track (Web/Pwn/Reverse/Crypto); ability to write write-ups.'
+    },
+    roles: [
+      { zh: 'Web', en: 'Web' },
+      { zh: 'Pwn', en: 'Pwn' },
+      { zh: 'Reverse', en: 'Reverse' },
+      { zh: 'Crypto', en: 'Crypto' }
+    ],
+    skills: [
+      { zh: 'Web', en: 'Web' },
+      { zh: '二进制', en: 'Binary' },
+      { zh: '逆向', en: 'Reverse' },
+      { zh: '密码学', en: 'Crypto' },
+      { zh: '取证', en: 'Forensics' }
+    ],
+    prep: [
+      { zh: '先在一个方向做出 10 道题的 writeup，再横向扩展。', en: 'Produce ten write-ups in one track before expanding.' },
+      { zh: '每周做一套 SECCON 历年题，按方向归档。', en: 'Do one SECCON past set a week and archive by track.' },
+      { zh: '赛前整理常用脚本与命令，避免现场第一次用工具。', en: 'Prepare scripts and commands beforehand; never use a tool for the first time live.' }
+    ],
+    tips: [
+      { zh: 'SECCON 题目常把多个小知识点串起来，先拆解再动手。', en: 'SECCON problems chain small ideas; decompose before exploiting.' },
+      { zh: 'writeup 是长期资产，比赛结束不等于学习结束。', en: 'A write-up is a long-term asset; the contest is not the end of the learning.' }
+    ],
+    experience: {
+      zh: 'SECCON 的价值在于题目设计：它逼你理解漏洞成因与利用链，而不是只记工具命令。',
+      en: 'SECCON’s value is in its problem design: it forces you to understand causes and exploit chains, not just tool commands.'
+    },
+    links: [
+      { label: 'SECCON', url: 'https://www.seccon.jp/' },
+      { label: 'CTFtime', url: 'https://ctftime.org/' }
+    ]
+  },
+  {
+    id: 'ai-cup',
+    name: { zh: 'AI CUP 日本 AI 竞赛', en: 'AI CUP Japan', ja: 'AI CUP' },
+    abbr: 'AI CUP',
+    jp: true,
+    cat: 'ai', stage: 'open', level: 2,
+    months: [5, 6, 7, 8, 9, 10, 11, 12],
+    season: { zh: '全年多场，常见于夏季', en: 'Several per year, often in summer' },
+    summary: {
+      zh: 'AI CUP 是日本的 AI/数据竞赛平台，赛题多来自企业与研究机构的真实问题，适合练习从数据理解到模型提交的完整流程。',
+      en: 'AI CUP is a Japanese AI/data competition platform with problems from companies and research institutes, ideal for a full pipeline from data understanding to submission.'
+    },
+    format: {
+      zh: '线上提交预测结果或模型，按排行榜评分；部分赛题要求最终答辩或代码审查。',
+      en: 'Submit predictions or models online and rank on a leaderboard; some tracks require a final presentation or code review.'
+    },
+    prepWeeks: { zh: '6–10 周', en: '6–10 weeks' },
+    weekly: { zh: '每周 6–8 小时', en: '6–8 h / week' },
+    prereq: {
+      zh: 'Python 数据处理；机器学习基础；能读日文/英文赛题与指标定义。',
+      en: 'Python data handling; machine-learning basics; Japanese/English statements and metric definitions.'
+    },
+    roles: [
+      { zh: '数据', en: 'Data' },
+      { zh: '建模', en: 'Modelling' },
+      { zh: '验证', en: 'Validation' }
+    ],
+    skills: [
+      { zh: '数据处理', en: 'Data pipelines' },
+      { zh: '机器学习', en: 'Machine learning' },
+      { zh: '特征工程', en: 'Features' },
+      { zh: '可视化', en: 'Visualisation' }
+    ],
+    prep: [
+      { zh: '先复现官方 baseline，再改一个变量做对比。', en: 'Reproduce the official baseline, then change one variable at a time.' },
+      { zh: '逐字读指标定义和提交格式，避免格式扣分。', en: 'Read the metric and submission format word by word.' },
+      { zh: '把数据读取与特征管道写成可复用脚本。', en: 'Build reusable loading and feature scripts.' }
+    ],
+    tips: [
+      { zh: '日本赛题常给业务背景文档，先理解场景再建模。', en: 'Japanese tracks often include business context; understand it before modelling.' },
+      { zh: '排行榜之外，最终答辩也看方法解释与可复现性。', en: 'Beyond the leaderboard, final presentations judge explanation and reproducibility.' }
+    ],
+    experience: {
+      zh: 'AI CUP 适合练习“把模型讲清楚”：数据、指标、验证和业务价值缺一不可。',
+      en: 'AI CUP trains you to explain a model: data, metric, validation and business value all matter.'
+    },
+    links: [{ label: 'AI CUP', url: 'https://www.ai-cup.jp/' }]
+  },
+  {
+    id: 'signate',
+    name: { zh: 'SIGNATE 数据科学竞赛', en: 'SIGNATE', ja: 'SIGNATE' },
+    abbr: 'SIGNATE',
+    jp: true,
+    cat: 'data', stage: 'open', level: 1,
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    season: { zh: '全年滚动', en: 'Rolling all year' },
+    summary: {
+      zh: 'SIGNATE 是日本的数据科学竞赛平台，既有入门练习也有企业赛题，适合从表格数据与基础模型开始。',
+      en: 'SIGNATE is a Japanese data-science competition platform with beginner exercises and company tracks, a good start with tabular data and basic models.'
+    },
+    format: {
+      zh: '线上提交预测文件，按排行榜评分；题目通常提供训练数据、评价指标与提交样例。',
+      en: 'Submit prediction files online and rank on a leaderboard; tasks usually provide training data, a metric and a sample submission.'
+    },
+    prepWeeks: { zh: '4–8 周', en: '4–8 weeks' },
+    weekly: { zh: '每周 4–6 小时', en: '4–6 h / week' },
+    prereq: {
+      zh: 'Python/pandas 基础；理解训练/验证切分；会用一个 baseline 模型。',
+      en: 'Python/pandas basics; train/validation splits; one baseline model.'
+    },
+    roles: [{ zh: '个人/小队', en: 'Individual / small team' }],
+    skills: [
+      { zh: '表格数据', en: 'Tabular data' },
+      { zh: '特征工程', en: 'Features' },
+      { zh: '交叉验证', en: 'Validation' },
+      { zh: '可视化', en: 'Visualisation' }
+    ],
+    prep: [
+      { zh: '从入门赛开始，完整走一遍读取、切分、训练、提交。', en: 'Start with a beginner track and complete loading, splitting, training and submission.' },
+      { zh: '固定验证集，记录每次特征改动的分数。', en: 'Fix a validation set and log scores after each feature change.' },
+      { zh: '读讨论区的公开解法，但先自己写 baseline。', en: 'Read public solutions, but write your own baseline first.' }
+    ],
+    tips: [
+      { zh: 'SIGNATE 的入门题很适合练 pandas 和验证流程，不要一开始追复杂模型。', en: 'Beginner tracks are ideal for pandas and validation; do not chase complex models first.' },
+      { zh: '提交前检查行数、列名和缺失值，格式错误会直接失败。', en: 'Check row count, columns and missing values before submitting.' }
+    ],
+    experience: {
+      zh: 'SIGNATE 的回报是流程感：你会逐渐知道一个数据项目从读取到提交需要哪些检查点。',
+      en: 'SIGNATE builds process intuition: you learn the checkpoints a data project needs from loading to submission.'
+    },
+    links: [{ label: 'SIGNATE', url: 'https://signate.jp/' }]
+  },
+  {
+    id: 'nishika',
+    name: { zh: 'Nishika 数据竞赛', en: 'Nishika', ja: 'Nishika' },
+    abbr: 'Nishika',
+    jp: true,
+    cat: 'data', stage: 'open', level: 1,
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    season: { zh: '全年滚动', en: 'Rolling all year' },
+    summary: {
+      zh: 'Nishika 是日本的数据竞赛平台，题目偏入门与实战，社区会分享公开 notebook 和解法，适合第一次参加数据竞赛。',
+      en: 'Nishika is a Japanese data-competition platform with beginner-friendly and practical tasks; public notebooks and solutions make it a good first data contest.'
+    },
+    format: {
+      zh: '线上提交预测结果，按排行榜评分；题目通常附数据说明与评价指标。',
+      en: 'Submit predictions online and rank on a leaderboard; tasks include data notes and a metric.'
+    },
+    prepWeeks: { zh: '4–6 周', en: '4–6 weeks' },
+    weekly: { zh: '每周 3–5 小时', en: '3–5 h / week' },
+    prereq: {
+      zh: 'Python/pandas 基础；能读日文或英文数据说明；理解基本回归/分类。',
+      en: 'Python/pandas basics; Japanese or English data notes; basic regression/classification.'
+    },
+    roles: [{ zh: '个人/小队', en: 'Individual / small team' }],
+    skills: [
+      { zh: '数据清洗', en: 'Cleaning' },
+      { zh: '可视化', en: 'Visualisation' },
+      { zh: '基础模型', en: 'Baseline models' },
+      { zh: '验证', en: 'Validation' }
+    ],
+    prep: [
+      { zh: '先复现一个公开 notebook，再独立重写一遍。', en: 'Reproduce a public notebook, then rewrite it independently.' },
+      { zh: '用简单模型建立 baseline，记录本地分数。', en: 'Build a simple baseline and record the local score.' },
+      { zh: '把提交格式检查写成脚本，减少低级错误。', en: 'Script the submission checks to avoid avoidable errors.' }
+    ],
+    tips: [
+      { zh: 'Nishika 的社区分享很多，先学流程再学技巧。', en: 'The community shares a lot; learn the process before the tricks.' },
+      { zh: '入门阶段不要堆模型，先把数据泄漏和验证切分搞清楚。', en: 'Do not stack models early; understand leakage and validation first.' }
+    ],
+    experience: {
+      zh: 'Nishika 适合建立数据竞赛的第一套习惯：读数据、做 baseline、检查提交、复盘误差。',
+      en: 'Nishika builds the first habits of data competitions: read data, baseline, check submission, review errors.'
+    },
+    links: [{ label: 'Nishika', url: 'https://www.nishika.com/' }]
+  },
+  {
+    id: 'utpc',
+    name: { zh: '东京大学程序设计竞赛', en: 'University of Tokyo Programming Contest', ja: '東京大学プログラミングコンテスト' },
+    abbr: 'UTPC',
+    cat: 'algorithm', stage: 'open', level: 3,
+    months: [10, 11, 12],
+    season: { zh: '多在秋冬，按年度公告', en: 'Usually autumn to winter; check the yearly announcement', ja: '例年は秋から冬。年度ごとの告知を確認' },
+    summary: {
+      zh: '东京大学主办、对校外队伍开放的组队赛，难度接近区域赛，题目偏重构造与实现精度。',
+      en: 'A team contest hosted by the University of Tokyo and open to outside teams; difficulty sits near regional level, with emphasis on construction and implementation precision.',
+      ja: '東京大学が主催し、学外チームも参加できるチーム戦。難易度はアジア地区予選に近く、構築寄りの考察と実装の精度が問われます。'
+    },
+    format: {
+      zh: '三人一队、共用一台机器，线上进行；题面通常为英文或日文。',
+      en: 'Three-person teams on one machine, online; statements are usually in English or Japanese.',
+      ja: '3 人 1 チーム・1 台の計算機でオンライン参加。問題文は英語または日本語で出題されます。'
+    },
+    prepWeeks: { zh: '8–12 周', en: '8–12 weeks', ja: '8〜12 週間' },
+    weekly: { zh: '每周 6–10 小时', en: '6–10 h / week', ja: '週 6〜10 時間' },
+    prereq: {
+      zh: '图论、动态规划与基础几何；能读英文题面。',
+      en: 'Graphs, dynamic programming and basic geometry; able to read English statements.',
+      ja: 'グラフ、動的計画法、基礎的な幾何。英語の問題文を読めること。'
+    },
+    roles: [
+      { zh: '读题', en: 'Reader', ja: '読解' },
+      { zh: '主码', en: 'Coder', ja: '実装' },
+      { zh: '验证', en: 'Verifier', ja: '検証' }
+    ],
+    skills: [
+      { zh: '图论', en: 'Graphs', ja: 'グラフ' },
+      { zh: '动态规划', en: 'DP', ja: '動的計画法' },
+      { zh: '构造', en: 'Construction', ja: '構築' },
+      { zh: '团队协作', en: 'Teamwork', ja: 'チーム連携' }
+    ],
+    prep: [
+      { zh: '先把区域赛常考的十类模型各做五题，整理成自己的模板。', en: 'Work five problems per common regional model and turn them into your own templates.', ja: '地区予選で頻出の十種類の型をそれぞれ五問ずつ解き、自分のテンプレートにします。' },
+      { zh: '每周一次三人虚拟赛，固定读题—主码—验证的轮转。', en: 'Run one three-person virtual contest a week with a fixed reader–coder–verifier rotation.', ja: '週 1 回は 3 人での仮想コンテストを実施し、読解・実装・検証の担当を固定します。' },
+      { zh: '赛后统计每题耗时与错因，找出最贵的坏习惯。', en: 'After each round, log time per problem and the cause of each miss to find the most expensive habit.', ja: '終了後に各問の所要時間と誤りの原因を記録し、最も高くつく癖を特定します。' }
+    ],
+    tips: [
+      { zh: '先扫一遍题面再做，别把第一题做到完美才开始第二题。', en: 'Read every statement before committing; do not perfect problem one before opening problem two.', ja: '全問に目を通してから着手する。1 問目を完璧にしてから次へ、は危険です。' },
+      { zh: '构造题先写暴力对拍，再优化，能省下大量调试时间。', en: 'On construction tasks, write a brute-force checker first and optimise after; it saves hours of debugging.', ja: '構築問題はまず全探索のチェッカーを書き、そのあと高速化するとデバッグ時間を大きく削れます。' }
+    ],
+    experience: {
+      zh: 'UTPC 的价值在于暴露团队的真实分工问题：谁在读题、谁在写、谁在验证，比名次更能说明队伍状态。',
+      en: 'UTPC exposes how a team actually splits work: who reads, who codes, who verifies. That says more about the team than the ranking.',
+      ja: 'UTPC はチームの分業の実態を映します。誰が読み、誰が書き、誰が検証するかは、順位以上にチームの状態を語ります。'
+    },
+    links: [{ label: 'AtCoder コンテスト一覧', url: 'https://atcoder.jp/contests/' }]
+  },
+  {
+    id: 'kupc',
+    name: { zh: '京都大学程序设计竞赛', en: 'Kyoto University Programming Contest', ja: '京都大学プログラミングコンテスト' },
+    abbr: 'KUPC',
+    cat: 'algorithm', stage: 'open', level: 3,
+    months: [11, 12],
+    season: { zh: '多在冬季，按年度公告', en: 'Usually winter; check the yearly announcement', ja: '例年は冬。年度ごとの告知を確認' },
+    summary: {
+      zh: '京都大学学生社团主办的开放组队赛，题目风格偏数学与观察，常有需要先猜结论再证明的设计。',
+      en: 'An open team contest run by Kyoto University students; tasks lean mathematical and observational, often requiring a guessed conclusion that must then be proved.',
+      ja: '京都大学の学生団体が主催するオープンなチーム戦。数学寄り・観察寄りの出題が多く、結論を先に予想してから証明するタイプの問題が並びます。'
+    },
+    format: {
+      zh: '三人一队，线上进行，难度从入门到区域赛上限分布较宽。',
+      en: 'Three-person teams, online, with a wide spread from entry level to regional ceiling.',
+      ja: '3 人 1 チームのオンライン開催。入門から地区予選上限まで難易度の幅が広いのが特徴です。'
+    },
+    prepWeeks: { zh: '8–12 周', en: '8–12 weeks', ja: '8〜12 週間' },
+    weekly: { zh: '每周 6–8 小时', en: '6–8 h / week', ja: '週 6〜8 時間' },
+    prereq: {
+      zh: '组合数学、数论与基础博弈；习惯先写小规模暴力验证猜想。',
+      en: 'Combinatorics, number theory and basic game theory; used to checking guesses with small brute force.',
+      ja: '組合せ数学、整数論、基礎的なゲーム理論。小規模な全探索で予想を確かめる習慣。'
+    },
+    roles: [
+      { zh: '读题', en: 'Reader', ja: '読解' },
+      { zh: '主码', en: 'Coder', ja: '実装' },
+      { zh: '验证', en: 'Verifier', ja: '検証' }
+    ],
+    skills: [
+      { zh: '组合计数', en: 'Counting', ja: '数え上げ' },
+      { zh: '数论', en: 'Number theory', ja: '整数論' },
+      { zh: '构造', en: 'Construction', ja: '構築' },
+      { zh: '证明', en: 'Proof', ja: '証明' }
+    ],
+    prep: [
+      { zh: '建立“猜想—暴力—证明”的三步习惯，避免直接硬推。', en: 'Build a guess–brute-force–prove loop instead of pushing a derivation straight away.', ja: '「予想・全探索・証明」の三段階を習慣にし、いきなり式変形に走らないようにします。' },
+      { zh: '把常见计数模型（容斥、生成函数、矩阵快速幂）写成可复用代码。', en: 'Turn common counting models — inclusion–exclusion, generating functions, matrix exponentiation — into reusable code.', ja: '包除原理、母関数、行列累乗など、よく使う数え上げの型を再利用できるコードにします。' },
+      { zh: '练习把口头思路写成三行以内的说明，队内沟通会快很多。', en: 'Practise writing an idea in three lines or fewer; in-team communication speeds up a lot.', ja: '口頭のアイデアを三行以内のメモに落とす練習を。チーム内の伝達が格段に速くなります。' }
+    ],
+    tips: [
+      { zh: '数学题先在小数据上打表，规律往往比推导更快出现。', en: 'On maths tasks, tabulate small cases first; the pattern usually appears faster than the derivation.', ja: '数学の問題はまず小さいケースで表を作る。規則性は式変形より早く見えることが多いです。' },
+      { zh: '证明写不出来时先提交已验证的构造，把时间留给下一题。', en: 'If the proof stalls, submit the verified construction and move on.', ja: '証明が詰まったら、検証済みの構築を提出して次の問題へ移ります。' }
+    ],
+    experience: {
+      zh: 'KUPC 训练的是“先观察再证明”的思维顺序，这种顺序在数学建模与研究里同样成立。',
+      en: 'KUPC trains the order of observe first, prove second — an order that also holds in modelling and research.',
+      ja: 'KUPC が鍛えるのは「まず観察し、次に証明する」順序。これは数理モデリングや研究でもそのまま通用します。'
+    },
+    links: [{ label: 'AtCoder コンテスト一覧', url: 'https://atcoder.jp/contests/' }]
+  },
+  {
+    id: 'yukicoder',
+    name: { zh: 'yukicoder 常规赛', en: 'yukicoder Contests', ja: 'yukicoder コンテスト' },
+    abbr: 'yuki',
+    cat: 'algorithm', stage: 'open', level: 2,
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    season: { zh: '全年，几乎每周都有', en: 'Year-round, almost weekly', ja: '通年。ほぼ毎週開催' },
+    summary: {
+      zh: '日本本土的小规模评测平台，题目短、周期密，适合作为日常训练的固定节奏。',
+      en: 'A Japanese judging platform with short tasks and a dense schedule; good for a fixed daily-training rhythm.',
+      ja: '日本国内の小規模ジャッジ。問題文が短く開催頻度が高いので、日常練習のリズムづくりに向いています。'
+    },
+    format: {
+      zh: '个人赛为主，线上进行；部分场次有企业赞助与主题题组。',
+      en: 'Mostly individual, online; some rounds are sponsored with themed problem sets.',
+      ja: '個人戦が中心のオンライン開催。企業協賛の回やテーマ別の問題セットもあります。'
+    },
+    prepWeeks: { zh: '4–8 周', en: '4–8 weeks', ja: '4〜8 週間' },
+    weekly: { zh: '每周 3–6 小时', en: '3–6 h / week', ja: '週 3〜6 時間' },
+    prereq: {
+      zh: '一门语言的基础语法与常见数据结构。',
+      en: 'Basic syntax in one language and common data structures.',
+      ja: 'いずれかの言語の基本文法と、よく使うデータ構造。'
+    },
+    roles: [
+      { zh: '个人', en: 'Individual', ja: '個人' }
+    ],
+    skills: [
+      { zh: '实现速度', en: 'Implementation speed', ja: '実装速度' },
+      { zh: '边界处理', en: 'Edge cases', ja: '境界処理' },
+      { zh: '读题', en: 'Reading', ja: '読解' }
+    ],
+    prep: [
+      { zh: '每周固定两场，赛后当天补题，不超过 24 小时。', en: 'Fix two rounds a week and upsolve the same day, within 24 hours.', ja: '週 2 回を固定し、解けなかった問題は当日中（24 時間以内）に解き直します。' },
+      { zh: '把每道题的错因归到“读题、思路、实现”三类之一。', en: 'Classify every miss as reading, idea or implementation.', ja: '誤りは「読解・方針・実装」の三種類のどれかに分類します。' },
+      { zh: '积累一份自己的小模板：输入解析、常用容器、调试输出。', en: 'Keep a small personal template: input parsing, containers, debug output.', ja: '入力処理、よく使うコンテナ、デバッグ出力だけの小さなテンプレートを用意します。' }
+    ],
+    tips: [
+      { zh: '题短不代表简单，先看清数据范围再选算法。', en: 'Short statements are not easy statements; check the constraints before choosing an algorithm.', ja: '問題文が短い＝簡単ではありません。制約を確認してから手法を選びます。' },
+      { zh: '把它当跑步机，而不是考试：稳定比爆发更有用。', en: 'Treat it as a treadmill rather than an exam: consistency beats bursts.', ja: '試験ではなくルーティンとして使う。爆発力より継続のほうが効きます。' }
+    ],
+    experience: {
+      zh: 'yukicoder 最适合建立“每周都有比赛”的习惯，长期下来读题与实现速度会明显提升。',
+      en: 'yukicoder is the easiest way to build a weekly contest habit; reading and implementation speed improve steadily.',
+      ja: 'yukicoder は「毎週試合がある」状態をつくるのに最適です。続けるうちに読解と実装の速度が上がります。'
+    },
+    links: [{ label: 'yukicoder', url: 'https://yukicoder.me/' }]
+  },
+  {
+    id: 'isucon',
+    name: { zh: 'ISUCON 性能调优赛', en: 'ISUCON Performance Contest', ja: 'ISUCON' },
+    abbr: 'ISUCON',
+    cat: 'design', stage: 'open', level: 3,
+    months: [8, 9, 10],
+    season: { zh: '多在夏末至秋季，含预选与决赛', en: 'Late summer to autumn, with qualifiers and a final', ja: '夏の終わりから秋。予選と本選があります' },
+    summary: {
+      zh: '给一套能跑但很慢的 Web 应用，限定时间内把基准测试分数做上去；比拼的是剖析、索引、缓存与取舍。',
+      en: 'You get a working but slow web application and a time limit to raise its benchmark score; the contest is about profiling, indexes, caching and trade-offs.',
+      ja: '動くけれど遅い Web アプリを渡され、制限時間内にベンチマークスコアをどこまで上げるかを競います。プロファイリング、索引、キャッシュ、取捨選択の勝負です。'
+    },
+    format: {
+      zh: '三人一队，线上或线下；同一套代码与环境，按最终得分排名。',
+      en: 'Three-person teams, online or onsite; identical code and environment, ranked by final score.',
+      ja: '3 人 1 チーム。オンラインまたは現地開催で、同一のコードと環境を使い最終スコアで順位を決めます。'
+    },
+    prepWeeks: { zh: '10–16 周', en: '10–16 weeks', ja: '10〜16 週間' },
+    weekly: { zh: '每周 6–10 小时', en: '6–10 h / week', ja: '週 6〜10 時間' },
+    prereq: {
+      zh: 'Linux、SQL 与一门后端语言；会用 profiler 与压测工具。',
+      en: 'Linux, SQL and one backend language; comfortable with profilers and load-testing tools.',
+      ja: 'Linux、SQL、いずれかのバックエンド言語。プロファイラと負荷試験ツールを使えること。'
+    },
+    roles: [
+      { zh: '剖析', en: 'Profiling', ja: '計測' },
+      { zh: '应用改造', en: 'App changes', ja: 'アプリ改修' },
+      { zh: '数据库', en: 'Database', ja: 'データベース' }
+    ],
+    skills: [
+      { zh: '性能剖析', en: 'Profiling', ja: 'プロファイリング' },
+      { zh: 'SQL 优化', en: 'SQL tuning', ja: 'SQL チューニング' },
+      { zh: '缓存', en: 'Caching', ja: 'キャッシュ' },
+      { zh: '运维', en: 'Operations', ja: '運用' }
+    ],
+    prep: [
+      { zh: '先在自己的机器上复现一套基准环境，跑通压测与可视化。', en: 'Reproduce a benchmark environment locally and get load testing plus dashboards working.', ja: 'まず自分の環境でベンチマーク環境を再現し、負荷試験と可視化を通します。' },
+      { zh: '每次只改一个变量，记录分数变化，避免“玄学优化”。', en: 'Change one variable at a time and record the score; avoid folklore optimisation.', ja: '一度に一つの変更だけを行い、スコアの変化を記録します。勘に頼る最適化は避けます。' },
+      { zh: '准备回滚脚本：改坏了要能在两分钟内恢复。', en: 'Prepare rollback scripts; a broken change must be recoverable in two minutes.', ja: 'ロールバック用のスクリプトを用意し、失敗しても 2 分で戻せる状態にします。' }
+    ],
+    tips: [
+      { zh: '先看慢查询与锁等待，再考虑换语言或重写架构。', en: 'Look at slow queries and lock waits before rewriting the stack.', ja: 'まずスロークエリとロック待ちを見る。言語の変更や再設計は最後の手段です。' },
+      { zh: '分数曲线会饱和，剩下时间用来做稳定性与回滚。', en: 'The score curve saturates; spend the remaining time on stability and rollback.', ja: 'スコアは頭打ちになります。残り時間は安定性と復旧手順に使います。' }
+    ],
+    experience: {
+      zh: 'ISUCON 最像真实工作：需求不变，只有性能预算；学会用数据说服队友，而不是凭感觉改代码。',
+      en: 'ISUCON resembles real work: the requirements stay fixed and only the performance budget moves. You learn to convince teammates with data rather than instinct.',
+      ja: 'ISUCON は実務に最も近い大会です。要件は変わらず、動くのは性能の予算だけ。感覚ではなく計測値でチームを説得する力を鍛えます。'
+    },
+    links: [{ label: 'ISUCON', url: 'https://isucon.net/' }]
+  },
+  {
+    id: 'seccon-beginners',
+    name: { zh: 'SECCON 入门赛', en: 'SECCON Beginners CTF', ja: 'SECCON Beginners CTF' },
+    abbr: 'SecB',
+    cat: 'security', stage: 'open', level: 1,
+    months: [5, 6],
+    season: { zh: '多在初夏，按年度公告', en: 'Usually early summer; check the yearly announcement', ja: '例年は初夏。年度ごとの告知を確認' },
+    summary: {
+      zh: 'SECCON 面向初学者的解题赛，覆盖 Web、Crypto、Reversing、Pwn 与 Misc，题面有日英双语。',
+      en: 'SECCON’s beginner-oriented jeopardy event covering Web, Crypto, Reversing, Pwn and Misc, with bilingual statements.',
+      ja: 'SECCON の初心者向け Jeopardy 形式。Web、Crypto、Reversing、Pwn、Misc が出題され、問題文は日英で用意されます。'
+    },
+    format: {
+      zh: '个人或小队在线解题，按题目分值累计排名。',
+      en: 'Solve online as an individual or small team, ranked by accumulated challenge points.',
+      ja: '個人または小規模チームでオンライン解答。獲得した問題点数の合計で順位が決まります。'
+    },
+    prepWeeks: { zh: '6–10 周', en: '6–10 weeks', ja: '6〜10 週間' },
+    weekly: { zh: '每周 4–8 小时', en: '4–8 h / week', ja: '週 4〜8 時間' },
+    prereq: {
+      zh: 'Linux 命令行、HTTP 基础与 Python 脚本。',
+      en: 'Linux command line, HTTP basics and Python scripting.',
+      ja: 'Linux のコマンドライン、HTTP の基礎、Python スクリプト。'
+    },
+    roles: [
+      { zh: 'Web', en: 'Web', ja: 'Web' },
+      { zh: 'Crypto', en: 'Crypto', ja: 'Crypto' },
+      { zh: 'Reversing', en: 'Reversing', ja: 'Reversing' }
+    ],
+    skills: [
+      { zh: 'HTTP 与浏览器工具', en: 'HTTP and browser tools', ja: 'HTTP とブラウザツール' },
+      { zh: '基础密码学', en: 'Basic cryptography', ja: '基礎暗号' },
+      { zh: '逆向入门', en: 'Reverse engineering basics', ja: 'リバースエンジニアリング入門' }
+    ],
+    prep: [
+      { zh: '先把 picoCTF 或 CpawCTF 的入门题做完一轮，再来看赛题。', en: 'Finish a round of picoCTF or CpawCTF beginner tasks before the event.', ja: 'picoCTF か CpawCTF の入門問題を一通り終えてから本番に臨みます。' },
+      { zh: '每道做过的题写三行 writeup：入口、手法、卡点。', en: 'Write a three-line write-up per solved challenge: entry point, method, blocker.', ja: '解いた問題は「入口・手法・詰まった点」の三行で writeup を残します。' },
+      { zh: '准备一份常用命令清单，比赛时不必现场回忆。', en: 'Keep a cheat sheet of common commands so you are not recalling them mid-contest.', ja: 'よく使うコマンドの一覧を用意し、本番中に思い出す作業を減らします。' }
+    ],
+    tips: [
+      { zh: '先扫一眼全部题目，分值低的题往往五分钟能拿。', en: 'Skim every challenge first; low-value tasks often take five minutes.', ja: 'まず全問に目を通す。配点の低い問題は 5 分で解けることが多いです。' },
+      { zh: '卡住超过 20 分钟就换题，别让一道题吞掉整场。', en: 'Switch after 20 minutes stuck; do not let one challenge eat the round.', ja: '20 分詰まったら別の問題へ。1 問に大会全体を飲み込ませないこと。' }
+    ],
+    experience: {
+      zh: '这是进入日本安全竞赛圈最平缓的入口，之后可以顺着 SECCON 本战与 CTFtime 继续。',
+      en: 'The gentlest entry into the Japanese security contest scene; from here move to SECCON proper and CTFtime.',
+      ja: '日本のセキュリティ競技に入る最も緩やかな入口です。ここから SECCON 本戦や CTFtime へ進めます。'
+    },
+    links: [
+      { label: 'SECCON Beginners', url: 'https://beginners.seccon.jp/' },
+      { label: 'SECCON', url: 'https://www.seccon.jp/' }
+    ]
+  },
+  {
+    id: 'cpaw-ctf',
+    name: { zh: 'CpawCTF 常设练习', en: 'CpawCTF Practice', ja: 'CpawCTF' },
+    abbr: 'Cpaw',
+    cat: 'security', stage: 'open', level: 1,
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    season: { zh: '全年开放，随时可做', en: 'Open year-round', ja: '通年。いつでも挑戦可能' },
+    summary: {
+      zh: '日本团队维护的常设入门 CTF，题目按难度递进并附解说，适合作为第一套安全知识地图。',
+      en: 'A permanently open beginner CTF maintained by a Japanese team, with graded tasks and explanations — a good first map of security knowledge.',
+      ja: '日本のチームが運営する常設の入門 CTF。難易度順に並び、解説も付くので、最初のセキュリティ地図として使えます。'
+    },
+    format: {
+      zh: '随时在线解题，无固定赛程；按累计得分解锁后续题目。',
+      en: 'Solve online at any time; no fixed schedule, later tasks unlock as you score.',
+      ja: '決まった日程はなく、いつでもオンラインで解答。得点に応じて次の問題が解放されます。'
+    },
+    prepWeeks: { zh: '4–8 周', en: '4–8 weeks', ja: '4〜8 週間' },
+    weekly: { zh: '每周 3–5 小时', en: '3–5 h / week', ja: '週 3〜5 時間' },
+    prereq: {
+      zh: '会用终端，能读懂简单的 Python 与 HTML。',
+      en: 'Comfortable with a terminal and simple Python and HTML.',
+      ja: 'ターミナルが使え、簡単な Python と HTML が読めること。'
+    },
+    roles: [
+      { zh: '个人', en: 'Individual', ja: '個人' },
+      { zh: '入门小组', en: 'Study group', ja: '勉強会' }
+    ],
+    skills: [
+      { zh: '命令行', en: 'Command line', ja: 'コマンドライン' },
+      { zh: '编码与解码', en: 'Encoding', ja: 'エンコード' },
+      { zh: '基础取证', en: 'Basic forensics', ja: '基礎フォレンジック' }
+    ],
+    prep: [
+      { zh: '按难度从低到高推进，每题写一句“我原来不知道什么”。', en: 'Work up the difficulty ladder and write one line per task: what you did not know before.', ja: '易しい順に進め、1 問ごとに「何を知らなかったか」を一行で書きます。' },
+      { zh: '把用过的命令整理成自己的速查表。', en: 'Turn the commands you used into your own cheat sheet.', ja: '使ったコマンドを自分のチートシートにまとめます。' },
+      { zh: '做完一个方向后，再去 SECCON Beginners 验证水平。', en: 'After finishing one track, test yourself at SECCON Beginners.', ja: '一つの分野を終えたら、SECCON Beginners で実力を確かめます。' }
+    ],
+    tips: [
+      { zh: '不要只看答案，先写出自己的尝试路径。', en: 'Do not jump to the answer; write down your own attempt path first.', ja: '答えを先に見ない。まず自分の試行錯誤を書き出します。' },
+      { zh: '常设题最适合填补零碎时间，通勤二十分钟也能做一题。', en: 'Standing tasks fit spare moments; twenty minutes on a train is enough for one.', ja: '常設問題はすき間時間に向きます。移動中の 20 分でも 1 問進められます。' }
+    ],
+    experience: {
+      zh: 'CpawCTF 不会给你名次，但会给出一条清晰的入门路径；完成后再参加正式 CTF 会从容很多。',
+      en: 'CpawCTF gives no ranking, only a clear entry path; after finishing it, a real CTF feels far less intimidating.',
+      ja: 'CpawCTF に順位はありませんが、明確な入門ルートがあります。終えたあとの本番 CTF は格段に落ち着いて臨めます。'
+    },
+    links: [{ label: 'CpawCTF', url: 'https://ctf.cpaw.site/' }]
+  },
+  {
+    id: 'mbsd-challenge',
+    name: { zh: 'MBSD 网络安全挑战赛', en: 'MBSD Cybersecurity Challenges', ja: 'MBSD Cybersecurity Challenges' },
+    abbr: 'MBSD',
+    cat: 'security', stage: 'upper', level: 3,
+    months: [7, 8, 9],
+    season: { zh: '多在夏秋，按年度公告', en: 'Usually summer to autumn; check the yearly announcement', ja: '例年は夏から秋。年度ごとの告知を確認' },
+    summary: {
+      zh: '由日本安全企业主办的实战型竞赛，题目取自真实业务场景，覆盖 Web、云、取证与应急响应。',
+      en: 'A practical contest run by a Japanese security company; tasks come from real business scenarios and cover web, cloud, forensics and incident response.',
+      ja: '日本のセキュリティ企業が主催する実践型の大会。実際の業務場面を題材に、Web、クラウド、フォレンジック、インシデント対応が出題されます。'
+    },
+    format: {
+      zh: '线上解题与报告结合，部分年份要求提交处置思路与复现步骤。',
+      en: 'Online solving combined with reporting; some years require remediation reasoning and reproduction steps.',
+      ja: 'オンライン解答に加えて報告が求められ、年によっては対応方針や再現手順の提出があります。'
+    },
+    prepWeeks: { zh: '12 周以上', en: '12+ weeks', ja: '12 週間以上' },
+    weekly: { zh: '每周 6–10 小时', en: '6–10 h / week', ja: '週 6〜10 時間' },
+    prereq: {
+      zh: '至少一个安全方向的实战经验；能写清楚复现步骤。',
+      en: 'Hands-on experience in at least one security track; able to write clear reproduction steps.',
+      ja: '少なくとも一つの分野で実践経験があり、再現手順を明確に書けること。'
+    },
+    roles: [
+      { zh: 'Web / 云', en: 'Web / cloud', ja: 'Web・クラウド' },
+      { zh: '取证', en: 'Forensics', ja: 'フォレンジック' },
+      { zh: '报告撰写', en: 'Reporting', ja: '報告書作成' }
+    ],
+    skills: [
+      { zh: '漏洞分析', en: 'Vulnerability analysis', ja: '脆弱性分析' },
+      { zh: '日志取证', en: 'Log forensics', ja: 'ログ解析' },
+      { zh: '事件响应', en: 'Incident response', ja: 'インシデント対応' },
+      { zh: '技术写作', en: 'Technical writing', ja: '技術文書' }
+    ],
+    prep: [
+      { zh: '以“能否让同事按你的步骤复现”为标准写每一份报告。', en: 'Write every report to the standard that a colleague can reproduce it from your steps.', ja: '「同僚がその手順だけで再現できるか」を基準に報告を書きます。' },
+      { zh: '练一套日志分析流程：时间线、异常点、影响面。', en: 'Practise a log-analysis routine: timeline, anomalies, blast radius.', ja: 'ログ分析の型を練習します。時系列、異常点、影響範囲の三つです。' },
+      { zh: '组队时明确谁负责取证、谁负责写报告。', en: 'In a team, assign forensics and report writing explicitly.', ja: 'チームでは、解析担当と報告担当を明確に分けます。' }
+    ],
+    tips: [
+      { zh: '先写清结论与影响，再补技术细节，评审读得更快。', en: 'Lead with conclusion and impact, then technical detail; reviewers read faster.', ja: '結論と影響を先に書き、技術的詳細は後段へ。読み手の負担が減ります。' },
+      { zh: '证据链比“炫技”重要，截图与命令都要可追溯。', en: 'Chain of evidence beats showing off; screenshots and commands must be traceable.', ja: '派手さより証拠の連続性。スクリーンショットとコマンドは追跡可能に。' }
+    ],
+    experience: {
+      zh: '这类企业赛最接近安全岗位的真实工作：发现问题只是开始，写清楚、讲明白才算完成。',
+      en: 'Company-run contests resemble security work most closely: finding the issue is only the start, explaining it is the job.',
+      ja: '企業主催の大会はセキュリティ職の実務に最も近いものです。見つけることは始まりにすぎず、説明できて初めて仕事になります。'
+    },
+    links: [{ label: 'MBSD', url: 'https://www.mbsd.jp/' }]
+  },
+  {
+    id: 'jss-data',
+    name: { zh: '统计学会联合 数据分析竞赛', en: 'JSS Data Analysis Competition', ja: '統計関連学会連合 データ解析コンペティション' },
+    abbr: 'JSS',
+    cat: 'data', stage: 'open', level: 2,
+    months: [7, 8, 9, 10],
+    season: { zh: '夏季开题，秋季答辩', en: 'Kick-off in summer, presentations in autumn', ja: '夏に開始し、秋に発表' },
+    summary: {
+      zh: '由日本统计相关学会联合主办，给定真实数据，提交分析报告并在秋季会上展示；重视建模理由与解释。',
+      en: 'Run by the federation of Japanese statistical societies: real data, an analysis report, and a presentation at the autumn meeting; reasoning and interpretation matter most.',
+      ja: '日本の統計関連学会連合が主催し、実データを配布して分析レポートと秋季大会での発表を求めます。モデルの根拠と解釈が重視されます。'
+    },
+    format: {
+      zh: '团队报名，数月周期，最终提交报告并现场或线上答辩。',
+      en: 'Team entry over several months, ending in a written report and an onsite or online presentation.',
+      ja: 'チームで参加し、数か月かけて分析。最終的にレポートを提出し、現地またはオンラインで発表します。'
+    },
+    prepWeeks: { zh: '12–16 周', en: '12–16 weeks', ja: '12〜16 週間' },
+    weekly: { zh: '每周 5–8 小时', en: '5–8 h / week', ja: '週 5〜8 時間' },
+    prereq: {
+      zh: '回归、假设检验与基础因果推断；会用 R 或 Python 做数据清洗。',
+      en: 'Regression, hypothesis testing and basic causal inference; data cleaning in R or Python.',
+      ja: '回帰、仮説検定、基礎的な因果推論。R か Python でデータ整形ができること。'
+    },
+    roles: [
+      { zh: '数据清洗', en: 'Data cleaning', ja: 'データ整形' },
+      { zh: '建模', en: 'Modelling', ja: 'モデリング' },
+      { zh: '报告与展示', en: 'Report and talk', ja: '報告と発表' }
+    ],
+    skills: [
+      { zh: '统计建模', en: 'Statistical modelling', ja: '統計モデリング' },
+      { zh: '可解释性', en: 'Interpretability', ja: '解釈性' },
+      { zh: '学术写作', en: 'Academic writing', ja: '学術文章' }
+    ],
+    prep: [
+      { zh: '先写清研究问题与假设，再决定用什么模型。', en: 'State the research question and hypotheses before choosing a model.', ja: 'モデルを選ぶ前に、研究課題と仮説を明確にします。' },
+      { zh: '保留完整的清洗脚本与版本记录，答辩时会被追问。', en: 'Keep complete cleaning scripts and version history; presentations invite follow-up questions.', ja: '整形スクリプトと版管理を残すこと。発表では必ず質問が来ます。' },
+      { zh: '练习用三分钟讲清“数据—方法—结论—局限”。', en: 'Practise explaining data, method, conclusion and limitations in three minutes.', ja: '「データ・手法・結論・限界」を 3 分で説明する練習をします。' }
+    ],
+    tips: [
+      { zh: '不要堆模型，评委更在意你是否解释了为什么。', en: 'Do not stack models; judges care whether you explained why.', ja: 'モデルを積み上げるより、なぜその手法なのかを説明できるかが見られます。' },
+      { zh: '把局限写进报告，比藏起来更容易得分。', en: 'Put limitations in the report; hiding them costs more than admitting them.', ja: '限界は隠さず書く。隠すより減点は小さく済みます。' }
+    ],
+    experience: {
+      zh: '这类竞赛的产出接近一篇小型论文，对之后做毕设、写研究计划书都有直接帮助。',
+      en: 'The output is close to a small paper, which feeds directly into a thesis or a research statement.',
+      ja: '成果は小さな論文に近く、卒業研究や研究計画書の作成にそのまま活きます。'
+    },
+    links: [{ label: '日本統計学会', url: 'https://www.jss.gr.jp/' }]
+  },
+  {
+    id: 'robocup-jp',
+    name: { zh: 'RoboCup 日本公开赛', en: 'RoboCup Japan Open', ja: 'ロボカップ日本大会' },
+    abbr: 'RCJ',
+    cat: 'ai', stage: 'open', level: 3,
+    months: [4, 5],
+    season: { zh: '多在春季，按年度公告', en: 'Usually spring; check the yearly announcement', ja: '例年は春。年度ごとの告知を確認' },
+    summary: {
+      zh: '机器人领域的综合赛事，分仿真与实体联赛；团队要同时处理感知、控制、策略与系统集成。',
+      en: 'A broad robotics competition with simulation and physical leagues; teams handle perception, control, strategy and system integration together.',
+      ja: 'ロボティクスの総合大会。シミュレーションリーグと実機リーグがあり、知覚・制御・戦略・システム統合を同時に扱います。'
+    },
+    format: {
+      zh: '团队项目制，赛前长期开发，比赛现场调试与对抗。',
+      en: 'Team project format: long development cycles before the event, debugging and matches onsite.',
+      ja: 'チーム単位のプロジェクト形式。事前に長期開発を行い、当日は調整と試合に臨みます。'
+    },
+    prepWeeks: { zh: '一学期以上', en: 'One semester or more', ja: '半年以上' },
+    weekly: { zh: '每周 8–15 小时', en: '8–15 h / week', ja: '週 8〜15 時間' },
+    prereq: {
+      zh: 'C++ 或 Python、基础控制与视觉；能读硬件手册。',
+      en: 'C++ or Python, basic control and vision; able to read hardware manuals.',
+      ja: 'C++ または Python、基礎的な制御と視覚処理。ハードウェアのマニュアルを読めること。'
+    },
+    roles: [
+      { zh: '感知', en: 'Perception', ja: '知覚' },
+      { zh: '控制', en: 'Control', ja: '制御' },
+      { zh: '系统集成', en: 'Integration', ja: '統合' }
+    ],
+    skills: [
+      { zh: '计算机视觉', en: 'Computer vision', ja: 'コンピュータビジョン' },
+      { zh: '运动控制', en: 'Motion control', ja: '運動制御' },
+      { zh: '嵌入式', en: 'Embedded', ja: '組み込み' },
+      { zh: '项目管理', en: 'Project management', ja: 'プロジェクト管理' }
+    ],
+    prep: [
+      { zh: '先让最简单的一版机器人稳定跑完全流程，再加功能。', en: 'Get the simplest robot through the whole flow reliably before adding features.', ja: 'まず最小構成のロボットで全体の流れを安定して通し、そのあと機能を足します。' },
+      { zh: '建立硬件与代码的版本对应表，否则现场无法复现。', en: 'Track which code version matches which hardware build, or you cannot reproduce anything onsite.', ja: 'ハードとコードの版を対応表で管理する。それがなければ当日は再現できません。' },
+      { zh: '每次测试记录失败模式，比记录成功次数更有用。', en: 'Log failure modes per test; that is more useful than counting successes.', ja: 'テストでは成功回数より失敗の型を記録します。' }
+    ],
+    tips: [
+      { zh: '现场调试时间有限，先在仿真里把参数收敛。', en: 'Onsite debugging time is short; converge parameters in simulation first.', ja: '当日の調整時間は限られます。パラメータはシミュレーションで先に収束させます。' },
+      { zh: '留一套“降级方案”，主方案失效时还能完赛。', en: 'Keep a degraded mode so the robot can still finish when the main pipeline fails.', ja: '縮退運転のモードを用意し、本命の処理が落ちても完走できるようにします。' }
+    ],
+    experience: {
+      zh: 'RoboCup 的训练周期长、协作面广，是少数能把算法、硬件与项目管理同时练到的赛事。',
+      en: 'RoboCup has a long cycle and broad collaboration; few contests train algorithms, hardware and project management at once.',
+      ja: 'ロボカップは開発期間が長く、協働の範囲も広い大会です。アルゴリズム、ハードウェア、プロジェクト管理を同時に鍛えられる稀な場です。'
+    },
+    links: [{ label: 'RoboCup 日本委員会', url: 'https://www.robocup.or.jp/' }]
   }
 ];
 
@@ -953,50 +1786,232 @@ window.LHT_CONTEST_YEARS = [
 window.LHT_CONTEST_GUIDES = [
   {
     id: 'template',
-    title: { zh: '模板库', en: 'Template library' },
+    title: { zh: '模板库', en: 'Template library', ja: 'テンプレート集' },
     body: {
       zh: '把常用算法写成自己的模板，但要在随机题上盲写验证。比赛时只允许增量修改，否则模板会变成你不理解的负担。',
-      en: 'Write your own templates for common algorithms, then re-type them blind on random problems. During a contest only add to them; otherwise the library becomes code you do not understand.'
+      en: 'Write your own templates for common algorithms, then re-type them blind on random problems. During a contest only add to them; otherwise the library becomes code you do not understand.',
+      ja: 'よく使うアルゴリズムは自分でテンプレート化し、そのあと何も見ずに書き直して検証します。本番では追記だけに留めること。理解していないコードを貼るだけでは、荷物になります。'
     }
   },
   {
     id: 'review',
-    title: { zh: '赛后复盘', en: 'Post-contest review' },
+    title: { zh: '赛后复盘', en: 'Post-contest review', ja: '終了後の振り返り' },
     body: {
       zh: '每场只问三个问题：哪里读错、哪里想错、哪里写错。24 小时内补题，并把错因写成一句话，而不是抄一份题解。',
-      en: 'Ask only three questions after each round: what did I misread, mis-think and mis-write? Upsolve within 24 hours and record the cause in one sentence, not a copied editorial.'
+      en: 'Ask only three questions after each round: what did I misread, mis-think and mis-write? Upsolve within 24 hours and record the cause in one sentence, not a copied editorial.',
+      ja: '終わったら問いは三つだけ。読み違えた点、考え違えた点、書き違えた点です。24 時間以内に解き直し、原因を一文で残します。解説の写しでは身につきません。'
     }
   },
   {
     id: 'team',
-    title: { zh: '团队分工', en: 'Team roles' },
+    title: { zh: '团队分工', en: 'Team roles', ja: 'チームの役割' },
     body: {
       zh: '固定读题、主码、验证三个角色，每 30 分钟同步一次剩余题目。罚时是团队纪律的体现，不是某一个人的手速问题。',
-      en: 'Fix reader, coder and verifier roles, and sync every 30 minutes on the remaining problems. Penalty reflects team discipline, not one person’s typing speed.'
+      en: 'Fix reader, coder and verifier roles, and sync every 30 minutes on the remaining problems. Penalty reflects team discipline, not one person’s typing speed.',
+      ja: '読解・実装・検証の三役を固定し、30 分ごとに残り問題を共有します。ペナルティはチームの規律の結果であり、誰かのタイピング速度のせいではありません。'
     }
   },
   {
     id: 'portfolio',
-    title: { zh: '作品与简历', en: 'Portfolio and CV' },
+    title: { zh: '作品与简历', en: 'Portfolio and CV', ja: '作品と履歴書' },
     body: {
       zh: '比赛结果只是入口。题解仓库、writeup、作品演示与实验报告，才是能长期复用、也能在面试里讲清楚的东西。',
-      en: 'A result is only the entry point. Solution repositories, write-ups, demos and experiment reports are what you can reuse and explain in an interview.'
+      en: 'A result is only the entry point. Solution repositories, write-ups, demos and experiment reports are what you can reuse and explain in an interview.',
+      ja: '順位は入口にすぎません。解答リポジトリ、writeup、デモ、実験レポートこそ、長く使い回せて面接でも説明できる材料になります。'
     }
   },
   {
     id: 'rhythm',
-    title: { zh: '时间与节奏', en: 'Time and rhythm' },
+    title: { zh: '时间与节奏', en: 'Time and rhythm', ja: '時間とリズム' },
     body: {
       zh: '赛前 8 周开始加密，赛前一周减量。长期稳定训练比临场冲刺可靠；把训练排进课表，而不是等有空再说。',
-      en: 'Increase intensity eight weeks out and taper in the final week. Steady training beats last-minute sprints; put it in your timetable instead of waiting for free time.'
+      en: 'Increase intensity eight weeks out and taper in the final week. Steady training beats last-minute sprints; put it in your timetable instead of waiting for free time.',
+      ja: '本番 8 週前から密度を上げ、直前の 1 週間は量を落とします。直前の詰め込みより、継続した練習のほうが確実です。時間が空くのを待たず、時間割に組み込んでください。'
     }
   },
   {
     id: 'english',
-    title: { zh: '英文表达', en: 'English communication' },
+    title: { zh: '英文表达', en: 'English communication', ja: '英語での説明' },
     body: {
       zh: '建模与 AI 赛事最终要交英文摘要或报告。提前准备问题、方法、结果、局限四段句式，比赛时才能把精力留给模型。',
-      en: 'Modelling and AI contests end in an English abstract or report. Prepare phrasing for problem, method, result and limitations so the contest energy goes into the model.'
+      en: 'Modelling and AI contests end in an English abstract or report. Prepare phrasing for problem, method, result and limitations so the contest energy goes into the model.',
+      ja: 'モデリングや AI の大会は、最後に英語の要旨や報告書を求められます。問題・手法・結果・限界の四段落を前もって用意しておけば、本番の力をモデルに注げます。'
     }
   }
 ];
+
+/* ------------------------------------------------------------
+   日语版：日本国内赛事为主，保留少量国际赛事与中国赛事作对照。
+   allow 为白名单；paths / years 为日语专属路线与四年规划。
+   ------------------------------------------------------------ */
+window.LHT_CONTEST_JA = {
+  allow: [
+    'icpc-japan', 'jag', 'past', 'ahc', 'seccon', 'ai-cup', 'signate', 'nishika',
+    'utpc', 'kupc', 'yukicoder', 'isucon', 'seccon-beginners', 'cpaw-ctf',
+    'mbsd-challenge', 'jss-data', 'robocup-jp',
+    'atcoder', 'icpc', 'ccpc', 'codeforces', 'kaggle', 'ctf'
+  ],
+  paths: [
+    {
+      id: 'first',
+      title: { ja: 'はじめての一戦', en: 'A first contest' },
+      note: {
+        ja: '採点が速く、一人で完結する大会から始めます。まずは「読む・書く・提出する」を一度通し、そのあとでチーム戦に進むと迷いません。',
+        en: 'Start with fast, individual rounds. Complete the read-write-submit loop once before moving on to team contests.'
+      },
+      steps: ['past', 'atcoder', 'codeforces']
+    },
+    {
+      id: 'team',
+      title: { ja: 'チーム戦と国内予選', en: 'Team contests and domestic preliminaries' },
+      note: {
+        ja: 'ICPC 国内予選は 3 人 1 台のチーム戦です。JAG の練習会で形式に慣れ、役割分担と提出規律を固めてから本番に臨みます。',
+        en: 'The ICPC domestic preliminary is a three-person, one-machine contest. Get used to the format at JAG practice sessions, then fix roles and submission discipline.'
+      },
+      steps: ['jag', 'icpc-japan', 'icpc']
+    },
+    {
+      id: 'ai',
+      title: { ja: 'データと AI', en: 'Data and AI' },
+      note: {
+        ja: 'まず小さなデータで提出まで一周し、次に評価指標とリークの見方を学び、最後に長期のコンペで順位を狙います。',
+        en: 'Complete one submission on a small dataset, learn how metrics and leakage work, then aim for a ranking in a longer competition.'
+      },
+      steps: ['signate', 'nishika', 'jss-data', 'ai-cup', 'kaggle']
+    },
+    {
+      id: 'heuristic',
+      title: { ja: 'ヒューリスティック', en: 'Heuristics' },
+      note: {
+        ja: '正解が一意でない問題に、制限時間内でどこまで良い解を出すかを競います。焼きなましと局所探索を自分の言葉で説明できる状態を目標に。',
+        en: 'Compete on how good a solution you can produce in limited time when the answer is not unique. Aim to explain simulated annealing and local search in your own words.'
+      },
+      steps: ['ahc', 'atcoder']
+    },
+    {
+      id: 'security',
+      title: { ja: 'セキュリティ', en: 'Security' },
+      note: {
+        ja: 'CTF で一つの分野を深く掘り、SECCON で日本の大会形式に慣れます。writeup を書き続けることが一番の近道です。',
+        en: 'Go deep in one CTF track, then get used to the Japanese contest format at SECCON. Writing write-ups consistently is the shortest path.'
+      },
+      steps: ['cpaw-ctf', 'seccon-beginners', 'seccon']
+    },
+    {
+      id: 'university',
+      title: { ja: '大学主催コンテスト', en: 'University-run contests' },
+      note: {
+        ja: 'yukicoder で毎週のリズムを作り、大学主催のオープン戦（UTPC・KUPC）でチームの実力を測ります。問題傾向が本選と近いので、国内予選の前哨戦になります。',
+        en: 'Build a weekly rhythm on yukicoder, then test the team at university-run open contests such as UTPC and KUPC. Their style is close to the domestic preliminary, making them a useful warm-up.'
+      },
+      steps: ['yukicoder', 'utpc', 'kupc']
+    },
+    {
+      id: 'engineering',
+      title: { ja: '実装と現場', en: 'Engineering in the field' },
+      note: {
+        ja: '正解を書くのではなく、動くシステムを期限内に強くする大会です。ISUCON は性能、ロボカップは統合。どちらも長期のチーム開発と当日の調整力が問われます。',
+        en: 'These contests do not ask for a correct answer but for a working system made better under a deadline. ISUCON is about performance, RoboCup about integration; both need long team development and onsite tuning.'
+      },
+      steps: ['isucon', 'robocup-jp']
+    }
+  ],
+  years: [
+    {
+      id: 'y1',
+      label: { ja: '学部 1 年', en: 'Year 1' },
+      focus: { ja: '基礎とリズムをつくる', en: 'Fundamentals and rhythm' },
+      contests: ['past', 'yukicoder', 'atcoder', 'codeforces'],
+      actions: [
+        {
+          ja: 'C か Python を一つ選び、最後まで書ける状態にする。文法の暗記より、入出力・配列・関数を自分の手で書く回数を優先。',
+          en: 'Pick C or Python and get to the point of writing a complete program. Prefer writing I/O, arrays and functions by hand over memorising syntax.'
+        },
+        {
+          ja: 'AtCoder の ABC か PAST を週 1 回。解けなかった問題は 24 時間以内に解説を読み、原因を一文で残す。',
+          en: 'One AtCoder ABC or PAST round a week. Read the editorial within 24 hours and record the cause of each miss in one sentence.'
+        },
+        {
+          ja: '大学の競技プログラミング部やサークルに入り、先輩にコードを見てもらう。一人で抱え込むと伸びが止まりやすい。',
+          en: 'Join a university programming club and get your code reviewed. Working alone tends to stall progress.'
+        }
+      ],
+      output: {
+        ja: '公式大会 1 回の参加記録と、続けられる誤答ノート。',
+        en: 'One official contest and a mistake log you will keep using.'
+      }
+    },
+    {
+      id: 'y2',
+      label: { ja: '学部 2 年', en: 'Year 2' },
+      focus: { ja: '専門を決めてチームを組む', en: 'Choose a track and form a team' },
+      contests: ['jag', 'icpc-japan', 'utpc', 'ahc'],
+      actions: [
+        {
+          ja: '主軸を一つ決める（アルゴリズム / データ / セキュリティ）。8〜12 週間の集中期間を取り、その間は他の分野を増やさない。',
+          en: 'Pick one main track — algorithms, data or security — and hold an 8–12 week focus period without adding new areas.'
+        },
+        {
+          ja: '3 人の固定チームを組み、テンプレートと提出ルールを共有する。役割は読解・実装・検証で回す。',
+          en: 'Form a stable team of three, share templates and submission rules, and rotate reading, coding and verifying roles.'
+        },
+        {
+          ja: '月 1 回は仮想コンテストを実施し、終了後 30 分で振り返りを書く。順位より、同じ失敗を繰り返さないことを重視。',
+          en: 'Run one virtual contest a month and write a review within 30 minutes. Value not repeating the same mistake over ranking.'
+        }
+      ],
+      output: {
+        ja: '学内・地区大会での入賞、または公開できる作品一つ。',
+        en: 'A campus or regional award, or one project you can show publicly.'
+      }
+    },
+    {
+      id: 'y3',
+      label: { ja: '学部 3 年', en: 'Year 3' },
+      focus: { ja: '上位大会と成果の可視化', en: 'Advanced contests and visible output' },
+      contests: ['icpc-japan', 'utpc', 'seccon', 'ai-cup', 'kaggle'],
+      actions: [
+        {
+          ja: '目標大会から逆算して 12 週間の計画を立てる。基礎・専門・模擬・復習の四つに期間を分ける。',
+          en: 'Work backwards from the target contest into a 12-week plan split into fundamentals, specialisation, simulation and review.'
+        },
+        {
+          ja: '解答リポジトリ、writeup、実験ノートを公開する。第三者が再現できる形になっているかで価値が決まる。',
+          en: 'Publish solution repositories, write-ups and experiment logs. Value depends on whether someone else can reproduce them.'
+        },
+        {
+          ja: '授業で足りない部分（グラフ、確率、最適化、システム）を大会に合わせて学び直す。',
+          en: 'Revisit coursework gaps — graphs, probability, optimisation, systems — driven by what the contest actually needs.'
+        }
+      ],
+      output: {
+        ja: '履歴書に書ける大会経験、または再現可能な研究・開発プロジェクト。',
+        en: 'A contest story worth a CV line, or a reproducible research or engineering project.'
+      }
+    },
+    {
+      id: 'y4',
+      label: { ja: '学部 4 年・大学院', en: 'Year 4 / postgraduate' },
+      focus: { ja: '収束させ、後進に渡す', en: 'Focus and hand over' },
+      contests: ['icpc', 'jss-data', 'ai-cup', 'signate'],
+      actions: [
+        {
+          ja: '卒論・修士研究と重なる大会を 1〜2 個に絞る。就職活動や研究と競合する大会は思い切って外す。',
+          en: 'Keep only one or two contests that overlap your thesis work, and drop those that compete with job hunting or research.'
+        },
+        {
+          ja: '大会の成果を論文・OSS・技術レポートのいずれかにまとめる。提出物として残らない経験は忘れられる。',
+          en: 'Turn contest work into a paper, an open-source project or a technical report. Experience without an artefact gets forgotten.'
+        },
+        {
+          ja: '下級生のチームを一つ担当し、テンプレートと振り返りの手順を引き継ぐ。教えることで自分の理解の穴も見える。',
+          en: 'Mentor one younger team and hand over templates and review routines; teaching exposes the gaps in your own understanding.'
+        }
+      ],
+      output: {
+        ja: 'ポートフォリオ、論文または推薦状の材料、チームに残る資産。',
+        en: 'A portfolio, paper or recommendation material, plus assets the team keeps.'
+      }
+    }
+  ]
+};

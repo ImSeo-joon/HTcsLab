@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Language probe · Haute Table</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center;
+      background: #151318; color: #efe9dd; font: 15px/1.6 "Noto Serif SC", Georgia, serif; }
+    p { opacity: .7; }
+  </style>
+</head>
+<body>
+  <p id="msg">Switching language…</p>
+  <script>
+    /* 开发用：先写入语言偏好，再跳到目标页。
+       例：tools/lang-probe.html?lang=ja&page=contests */
+    (function () {
+      var q = new URLSearchParams(window.location.search);
+      var lang = (q.get('lang') || 'ja').toLowerCase();
+      var page = (q.get('page') || 'index').replace(/[^a-z0-9-]/gi, '');
+      var allow = { en: 1, both: 1, fr: 1, ja: 1, zh: 1 };
+      if (!allow[lang]) lang = 'ja';
+      try { window.localStorage.setItem('lht.lang', lang); } catch (e) { /* 忽略 */ }
+      window.location.replace('../' + page + '.html');
+    })();
+  </script>
+</body>
+</html>

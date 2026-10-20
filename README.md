@@ -1,7 +1,9 @@
 # Laboratoire de la Haute Table · 高桌实验室
 
+> 当前项目位置：`D:\HighTableProgram\HighTableCSLab`。以后从这里整包上传到 GitHub；不要再使用旧的 C 盘 `outputs\HighTa0bleLab` 副本。
+
 一个纯静态的计算机实验室站点：多语言刷题与调试、算法与 AI 资料索引、可交互的算法演示、大学生竞赛指南与四年规划、单机网络攻防推演、高校课题组公开信息索引。
-站名固定使用法语，界面支持中文 / English / 双语对照三种模式。
+站名固定使用法语，界面支持中文 / English / 双语对照 / 日本語四种模式；日语界面缺译回退英文。
 
 没有任何构建步骤。双击 `index.html` 就能在本地浏览，也可以直接丢到 GitHub Pages。
 
@@ -37,6 +39,7 @@ npx serve .
 ├─ contests.html                 大学生竞赛指南：赛季、准备画像、四年规划、经验方法与官网入口
 ├─ collabs.html                  合作咨询：高校课题组、导师公开简介、官方申请入口与合规声明
 ├─ battle.html                   双模式攻防推演：蓝队防守 / 红队进攻 / 代码演练
+├─ notes.html                    笔记集合：线性代数、微积分、C、Python、概率统计
 ├─ 404.html                      GitHub Pages 的 404 页面
 ├─ manifest.json                 PWA 清单：装到桌面时的名称、图标、快捷方式
 ├─ sw.js                         Service Worker：网络优先，断网回落缓存
@@ -62,7 +65,7 @@ npx serve .
    ├─ img/                       全套图标（见下一节）
    ├─ fonts/                     自托管字体（见"字体与排版"一节）
    └─ js/
-      ├─ i18n.js                 双语文案与 META（站名、版本号）
+      ├─ i18n.js                 多语言文案（中 / 英 / 法 / 日）与 META（站名、版本号）
       ├─ site.js                 主题、语言、安装按钮、Service Worker 注册
       ├─ sandbox.js              三种代码执行后端
       ├─ practice.js             刷题台控制器
@@ -207,6 +210,18 @@ node tools/verify-c.mjs      # 需要 PATH 里有 gcc（或设置 CC 环境变�
 （当前全站 35 题、164 个用例，两边都是 0 失败）。加新题的方式和普通题目完全一样，
 只需在 `data/problems.js` 里追加，并给 `tags` 加上 `ml` 与对应章节标签即可被筛选到。
 
+### 笔记集合
+
+`notes.html` 是静态双语笔记页，目前 42 张卡片，分为五个子模块：
+
+- 线性代数 10 张（含 SVD、正定矩阵、零空间与秩-零化度）。
+- 微积分 10 张（含多变量链式法则、拉格朗日乘子、泰勒余项）。
+- C 8 张（含函数指针、位运算、未定义行为）。
+- Python 9 张（含装饰器、上下文管理器、dataclass）。
+- 概率统计 5 张（贝叶斯、期望方差、大数定律与 CLT、最大似然、p 值）。
+
+每张卡片包含一句定义、一条关键公式、一个直觉和一个常见错误。日语模式下标题、目录和分区标题显示日语，卡片正文按站点既有规则回退英文，避免低质量机翻。
+
 ### 单机攻防推演
 
 `battle.html` 是一个纯前端的回合制攻防小游戏，分两种模式：
@@ -259,7 +274,9 @@ node tools/verify-c.mjs      # 需要 PATH 里有 gcc（或设置 CC 环境变�
 
 ### 合作咨询索引
 
-`collabs.html` 是一个精选的公开信息索引，目前收录 54 个高校/科研院所/实验室条目：中国大陆 33 个，中国香港 3 个，中国澳门 1 个，中国台湾 2 个，其余覆盖美国、加拿大、英国、欧洲、新加坡与日本。其中 9 位导师/负责人有公开简介，其余为学院/课题组、科研院所研究组或项目制说明；中国大陆条目中有 13 个 985、7 个 211 标签，卡片上会显示对应徽章。
+`collabs.html` 是一个精选的公开信息索引，目前收录 60 个高校/科研院所/实验室条目：中国大陆 33 个，中国香港 3 个，中国澳门 1 个，中国台湾 2 个，日本 7 个，其余覆盖美国、加拿大、英国、欧洲与新加坡。其中十余位导师/负责人有公开简介，其余为学院/课题组、科研院所研究组或项目制说明；中国大陆条目中有 13 个 985、7 个 211 标签，卡片上会显示对应徽章。
+
+**日语模式只展示其中 28 条**：日本 7 条为主，新加坡 2 条、中国香港 3 条、英国 3 条、美国 5 条为重点，中国大陆只保留清华、北大、南大 LAMDA、上海 AI Lab、中科院计算所与 MSRA 六个顶尖入口，中国台湾保留台大与清华两所作为辅助。白名单写在 `data/collabs-ja.js` 的 `LHT_COLLAB_JA_IDS`，日语版默认排序也按“日本 → 新加坡 → 香港 → 英国 → 美国 → 中国大陆 → 台湾”排列。
 
 科研院所与知名实验室包括中科院计算所、自动化所、软件所、北京智源人工智能研究院、之江实验室、鹏城实验室、微软亚洲研究院、Max Planck 智能系统研究所、Allen Institute for AI、Vector Institute、RIKEN AIP 与 Alan Turing Institute。这些条目同样只做公开信息索引，实习、联合培养、招聘与访问机会以官网为准，不代表本站合作或内推。
 
@@ -274,7 +291,7 @@ node tools/verify-c.mjs      # 需要 PATH 里有 gcc（或设置 CC 环境变�
   id: 'my-lab',
   institution: { zh: '学校', en: 'University' },
   unit: { zh: '实验室/项目组', en: 'Lab / group' },
-  region: 'cn',                         // us | ca | uk | eu | cn | asia
+  region: 'cn',                         // us | ca | uk | eu | cn | hk | mo | tw | asia | jp
   fields: ['ai', 'ml'],                 // 取自 LHT_COLLAB_FIELDS
   levels: ['phd', 'visiting'],           // undergrad | master | phd | postdoc | visiting
   types: ['research', 'visiting'],       // summer | research | phd | visiting | fellowship | joint
@@ -307,9 +324,34 @@ node tools/verify-c.mjs      # 需要 PATH 里有 gcc（或设置 CC 环境变�
 
 `updated` 是条目整理时间，不代表招生状态已经逐条核验；新增或修改条目时应同时检查官网链接和公开简介，避免写入个人邮箱或未公开信息。
 
+### 日语模式（背景 / 主题 / 内容范围）
+
+日语的界面文案在 `assets/js/i18n.js` 的 `JA` 字典里，未翻译的键自动回退英文。语言按钮是 `EN / EN·中 / FR / JA`，选择后写入 `localStorage` 的 `lht.lang`。
+
+只切到日语才生效的部分，全部用 `html[data-lang="ja"]` 限定在 `assets/css/modules.css` 末尾：暖金与樱粉的强调色、深靛底色、全站 `assets/img/hero-jp.jpg` 背景，以及 `Noto Serif JP / Yu Mincho` 与 `Noto Sans JP / Yu Gothic` 的字族。英文、中文、法语模式不会加载这套背景。
+
+日语模式下首页主视觉也换成日语主文案、英文小字为辅：`.hero-sub-ja`（副标题）与 `.hero-lede-ja`（导语）只在 `html[data-lang="ja"]` 时显示，法语的 `.hero-lede` 会被隐藏；站名 `Laboratoire de la Haute Table` 保持法语不变。除竞赛与合作两页的业务文案外，导航、练习台、资料库、演示室、攻防战、404 等页面级界面文字都已补成日语，未翻译的条目内容仍按既有规则回退英文。
+
+内容范围由两份白名单控制，改数组即可，不需要动页面结构：
+
+| 文件 | 变量 | 作用 |
+| --- | --- | --- |
+| `data/contests.js` | `LHT_CONTEST_JA` | `allow` 列出日语版可见赛事（23 项，其中日本赛事 17 项）；`paths` / `years` 是日语专属的 7 条选赛路线与四年规划 |
+| `data/collabs-ja.js` | `LHT_COLLAB_JA_IDS` | 日语版可见的 28 条合作索引；同文件里还追加了京都大学、大阪大学、NAIST、NII、PFN、NTU 六条新条目 |
+
+想临时预览某个语言下的页面，可以直接打开 `tools/lang-probe.html?lang=ja&page=contests`（`lang` 取 `en / both / fr / ja`，`page` 取页面名），它会先写入语言偏好再跳转。`tools/verify-ja.mjs` 会检查白名单、文案覆盖与主题样式，改完跑一遍即可：
+
+```bash
+node tools/verify-ja.mjs
+```
+
 ---
 
 ## 七、加内容（不用改页面结构）
+
+### 加一张笔记卡片
+
+在 `notes.html` 对应的 `.module-grid` 里复制一个 `.card` 块，写一段 `.nb-zh` 和一段 `.nb-en`，公式放进 `<pre>`。新增子模块时，同时更新顶部 `#toc`、日语目录 `#toc-ja` 和分区标题；日语模式目前只翻译页面标题、目录与分区标题，卡片正文回退英文。
 
 ### 加一道题
 

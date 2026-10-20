@@ -15,7 +15,7 @@
 'use strict';
 
 /* 改了资源后把这个版本号加一，客户端会整体换新缓存 */
-var CACHE_VERSION = 'v9';
+var CACHE_VERSION = 'v13';
 var CACHE = 'haute-table-lab-' + CACHE_VERSION;
 
 var SHELL = [
@@ -55,7 +55,9 @@ var SHELL = [
   './data/resources.js',
   './data/contests.js',
   './data/collabs.js',
+  './data/collabs-ja.js',
   './data/battle-scenarios.js',
+  './assets/img/hero-jp.jpg',
   './assets/img/favicon.ico',
   './assets/img/favicon-32.png',
   './assets/img/mark-96.png',
